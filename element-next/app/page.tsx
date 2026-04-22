@@ -4,7 +4,6 @@ import InlineScripts from "@/components/InlineScripts";
 import { renderProjectsGridHTML } from "@/lib/projects-grid";
 import { renderHeroProjectsHTML } from "@/lib/hero-projects";
 
-export const dynamic = "force-static";
 export const revalidate = 300;
 
 const GRID_MARKER = "<!-- SUPABASE_PROJECTS_GRID_GRID -->";
