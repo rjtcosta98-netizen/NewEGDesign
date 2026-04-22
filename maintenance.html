@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <meta name="robots" content="noindex,nofollow" />
 <title>Em manutenção · Element Group</title>
-<meta name="description" content="Estamos a afinar a Element. Voltamos já — para qualquer pedido urgente, fala connosco no WhatsApp." />
+<meta name="description" content="A Element está a afinar cada pixel. Voltamos já — para qualquer pedido urgente, fala connosco no WhatsApp." />
 <meta name="theme-color" content="#05070d" />
 
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -15,6 +15,11 @@
 <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-400.woff2" crossorigin />
 
 <style>
+/* ==========================================================
+   ELEMENT GROUP · MAINTENANCE PAGE
+   Mobile-first · DNA do site (cores, fontes, motion, hp-track)
+   ========================================================== */
+
 @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;
   src:url('/fonts/plus-jakarta-sans.woff2') format('woff2-variations'),url('/fonts/plus-jakarta-sans.woff2') format('woff2')}
 @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;
@@ -27,322 +32,424 @@
   --text:#e6e9f2;
   --muted:#8a93a6;
   --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.12);
   --violet:#7c3aed;
   --violet-2:#a78bfa;
   --violet-glow:rgba(124,58,237,.5);
   --green:#22c55e;
   --cyan:#22d3ee;
   --yellow:#facc15;
+  --red:#fca5a5;
   --font:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --serif:'Instrument Serif',Georgia,serif;
 }
 
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100%}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 body{
-  min-height:100vh;
-  min-height:100dvh;
-  display:flex;
-  flex-direction:column;
-  position:relative;
+  min-height:100vh;min-height:100dvh;
   overflow-x:hidden;
+  display:flex;flex-direction:column;
+  position:relative;
 }
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
-/* ---------- Atmosphere: glows + grain ---------- */
-.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.bg-glow::before{
-  content:"";position:absolute;left:50%;top:-10%;width:900px;height:900px;transform:translateX(-50%);
-  background:radial-gradient(circle at center,var(--violet-glow) 0%,rgba(124,58,237,.18) 30%,transparent 65%);
-  filter:blur(60px);opacity:.85;animation:float 18s ease-in-out infinite;
+/* ==========================================================
+   ATMOSFERA — exata do site (starfield drift + glow + grão)
+   ========================================================== */
+.stars{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,.7) 50%, transparent 51%),
+    radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,.6) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 40% 70%, rgba(255,255,255,.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 10% 80%, rgba(255,255,255,.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 45%, rgba(255,255,255,.45) 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 90% 90%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 30% 10%, rgba(255,255,255,.55) 50%, transparent 51%);
+  background-size:600px 600px;opacity:.55;
+  animation:drift 60s linear infinite;
 }
-.bg-glow::after{
-  content:"";position:absolute;right:-20%;bottom:-20%;width:700px;height:700px;
-  background:radial-gradient(circle at center,rgba(34,211,238,.28) 0%,rgba(34,211,238,.08) 35%,transparent 70%);
-  filter:blur(80px);opacity:.55;animation:float 22s ease-in-out infinite reverse;
+@keyframes drift{ to { background-position:600px 0,0 600px,600px 600px,0 0,600px 0,0 600px,600px 600px,0 0; } }
+
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.glow::before{
+  content:"";position:absolute;left:50%;top:-220px;width:720px;height:720px;transform:translateX(-50%);
+  background:radial-gradient(circle,var(--violet-glow) 0%,rgba(124,58,237,.18) 32%,transparent 65%);
+  filter:blur(40px);animation:float 20s ease-in-out infinite;
 }
+.glow::after{
+  content:"";position:absolute;right:-160px;bottom:-180px;width:540px;height:540px;
+  background:radial-gradient(circle,rgba(34,211,238,.32) 0%,rgba(34,211,238,.08) 35%,transparent 70%);
+  filter:blur(60px);animation:float 26s ease-in-out infinite reverse;
+}
+@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-26px)}}
+
 .grain{
-  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
-}
-.scanline{
-  position:fixed;left:0;right:0;top:0;height:1px;z-index:2;pointer-events:none;
-  background:linear-gradient(90deg,transparent,var(--violet-2),var(--cyan),transparent);
-  opacity:.55;animation:scan 9s linear infinite;
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/></svg>");
 }
 
-/* ---------- Layout ---------- */
-.wrap{
+/* ==========================================================
+   LAYOUT BASE — MOBILE FIRST
+   ========================================================== */
+.shell{
   position:relative;z-index:5;
   flex:1;
-  width:100%;max-width:1180px;margin:0 auto;
-  padding:36px clamp(20px,4vw,56px) 48px;
+  width:100%;
+  padding:18px 18px 36px;
   display:flex;flex-direction:column;
 }
 
-.top{
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-  padding-bottom:22px;border-bottom:1px solid var(--line);
+/* ---------- Top bar (brand + status) ---------- */
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:8px 8px 8px 10px;border-radius:999px;
+  background:linear-gradient(180deg,rgba(20,28,50,.72),rgba(10,15,28,.78));
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  box-shadow:0 18px 40px -20px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.04);
+  animation:fadeUp .8s .05s both;
 }
 .brand{
-  display:inline-flex;align-items:baseline;gap:10px;text-decoration:none;color:#fff;
-  font-weight:700;letter-spacing:-.02em;font-size:18px;
+  display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:-.01em;
 }
-.brand .b-mark{
-  display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;
-  background:linear-gradient(160deg,var(--violet) 0%,#5b21b6 100%);
-  box-shadow:0 6px 18px -6px var(--violet-glow), inset 0 1px 0 rgba(255,255,255,.3);
-  font-family:var(--serif);font-style:italic;font-size:18px;color:#fff;line-height:1;
+.brand .mark{
+  width:32px;height:32px;border-radius:9px;
+  background:linear-gradient(140deg,#5b8cff 0%,#6a4dff 50%,#9b3dff 100%);
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px;
+  box-shadow:0 10px 24px -8px var(--violet-glow), inset 0 1px 0 rgba(255,255,255,.35);
   cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;
+  transition:transform .25s ease;
 }
-.brand .b-name{display:inline-flex;flex-direction:column;line-height:1}
-.brand .b-name small{font-size:10.5px;font-weight:500;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:3px}
+.brand .mark:active{transform:scale(.94)}
+.brand .name{display:flex;flex-direction:column;line-height:1;gap:2px}
+.brand .name b{font-size:14px;letter-spacing:.02em;color:#fff;font-weight:700}
+.brand .name small{font-size:8.5px;color:#9aa1b8;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
 
-.status-chip{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:8px 14px;border-radius:999px;
-  background:rgba(250,204,21,.06);
-  border:1px solid rgba(250,204,21,.22);
-  font-size:12.5px;color:#fde68a;letter-spacing:.04em;
+.status{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:6px 11px 6px 9px;border-radius:999px;
+  background:rgba(250,204,21,.06);border:1px solid rgba(250,204,21,.22);
+  font-size:11px;color:#fde68a;letter-spacing:.04em;font-weight:500;
+  white-space:nowrap;
 }
-.status-chip .dot{
-  width:8px;height:8px;border-radius:50%;background:var(--yellow);
-  box-shadow:0 0 0 4px rgba(250,204,21,.16);animation:pulse 1.6s infinite;
+.status .dot-y{
+  width:7px;height:7px;border-radius:50%;background:var(--yellow);
+  box-shadow:0 0 0 3px rgba(250,204,21,.16);animation:pulseY 1.6s infinite;
 }
+@keyframes pulseY{50%{box-shadow:0 0 0 7px rgba(250,204,21,0)}}
 
 /* ---------- Hero ---------- */
 .hero{
   flex:1;
-  display:grid;grid-template-columns:1.4fr .9fr;gap:56px;align-items:center;
-  padding:clamp(40px,8vh,90px) 0;
-}
-@media (max-width:880px){
-  .hero{grid-template-columns:1fr;gap:44px;padding:40px 0}
+  display:flex;flex-direction:column;
+  align-items:flex-start;
+  padding:34px 6px 0;
+  gap:20px;
 }
 
-.eyebrow{
+.pill{
   display:inline-flex;align-items:center;gap:10px;
-  font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--violet-2);font-weight:600;
-  margin-bottom:24px;opacity:0;animation:rise .9s .05s ease-out forwards;
+  padding:6px 6px 6px 14px;border-radius:999px;max-width:100%;
+  background:rgba(255,255,255,.04);border:1px solid var(--line-2);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  font-size:12px;color:#cfd6e8;font-weight:500;
+  animation:fadeUp .8s .15s both;
 }
-.eyebrow::before{
-  content:"";width:6px;height:6px;border-radius:50%;background:var(--violet-2);
-  box-shadow:0 0 12px var(--violet-2), 0 0 4px #fff;
+.pill .pill-txt{
+  flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
+.pill .pill-txt em{font-style:italic;font-family:var(--serif);color:#c5b6ff;font-weight:400}
+.pill .arrow{
+  flex:0 0 auto;
+  width:24px;height:24px;border-radius:50%;
+  background:linear-gradient(180deg,#6a8cff,#5b3fe0);
+  display:grid;place-items:center;
+  box-shadow:0 6px 14px -4px var(--violet-glow);
+  animation:spinSlow 8s linear infinite;
+}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
 
 h1.title{
-  margin:0;
-  font-size:clamp(44px,7.4vw,108px);
-  line-height:.96;letter-spacing:-.035em;font-weight:700;color:#fff;
+  margin:8px 0 0;
+  font-size:clamp(40px,11.4vw,108px);
+  line-height:.96;letter-spacing:-.035em;font-weight:700;
+  background:linear-gradient(180deg,#fff 0%,#b9c4dc 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:fadeUp .9s .25s both;
 }
-h1.title .em{
-  font-style:italic;font-family:var(--serif);font-weight:400;color:#c5b6ff;
-  letter-spacing:-.01em;
-  display:inline-block;
+h1.title em{
+  font-style:italic;font-family:var(--serif);font-weight:400;
+  background:linear-gradient(180deg,#c5b6ff 0%,#8a6cff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-h1.title .glitch{position:relative;display:inline-block}
-
-.title-line{display:block;overflow:hidden}
-.title-line > span{display:inline-block;transform:translateY(110%);opacity:0;animation:rise .95s ease-out forwards}
-.title-line:nth-child(1) > span{animation-delay:.10s}
-.title-line:nth-child(2) > span{animation-delay:.22s}
-.title-line:nth-child(3) > span{animation-delay:.34s}
+h1.title .ws{display:inline-block}
 
 .lede{
-  margin:28px 0 0;max-width:580px;
-  font-size:clamp(15.5px,1.6vw,18px);line-height:1.65;color:#b9c0d0;
-  opacity:0;animation:rise .9s .55s ease-out forwards;
+  margin:0;color:var(--muted);font-size:15.5px;line-height:1.6;max-width:54ch;
+  animation:fadeUp .9s .35s both;
 }
+.lede em{font-style:italic;font-family:var(--serif);color:#cdd2dd;font-weight:400}
 
-.cta-row{
-  display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;
-  margin-top:34px;
-  opacity:0;animation:rise .9s .68s ease-out forwards;
+/* ---------- Status row ---------- */
+.metas{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;
+  animation:fadeUp .9s .42s both;
 }
+.meta{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 11px;border-radius:999px;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);
+  font-size:11.5px;color:#cdd2dd;letter-spacing:.04em;
+  font-variant-numeric:tabular-nums;
+}
+.meta b{color:#fff;font-weight:600}
+.meta svg{color:var(--violet-2)}
+.meta.live .ld{
+  width:7px;height:7px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 3px rgba(34,197,94,.18);animation:pulseG 1.6s infinite;
+}
+@keyframes pulseG{50%{box-shadow:0 0 0 7px rgba(34,197,94,0)}}
 
+/* ---------- Progress ---------- */
+.prog{
+  width:100%;margin-top:6px;
+  animation:fadeUp .9s .5s both;
+}
+.prog-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:11px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.prog-head .pct{color:#fff;font-weight:700;font-size:13px;letter-spacing:0;font-variant-numeric:tabular-nums}
+.bar2{
+  position:relative;height:6px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;
+}
+.bar2 > i{
+  position:absolute;inset:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--violet-2),var(--cyan),var(--green));
+  background-size:220% 100%;
+  transform-origin:left center;transform:scaleX(0);
+  animation:fill 2.4s cubic-bezier(.2,.8,.2,1) .8s forwards, shimmer 2.6s linear 3.2s infinite;
+}
+@keyframes fill{to{transform:scaleX(.72)}}
+@keyframes shimmer{0%{background-position:0 0}100%{background-position:220% 0}}
+
+/* ---------- CTAs ---------- */
+.ctas{
+  display:flex;flex-direction:column;gap:10px;width:100%;margin-top:6px;
+  animation:fadeUp .9s .6s both;
+}
 .btn-primary{
-  position:relative;
-  display:inline-flex;align-items:center;gap:10px;
-  padding:15px 24px;border-radius:14px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 22px;border-radius:14px;width:100%;
   background:linear-gradient(160deg,var(--violet) 0%,#5b21b6 100%);
-  color:#fff;font-weight:600;font-size:15px;text-decoration:none;letter-spacing:-.005em;
+  color:#fff;font-weight:600;font-size:15px;letter-spacing:-.005em;
   box-shadow:0 12px 30px -10px var(--violet-glow), inset 0 1px 0 rgba(255,255,255,.25);
-  transition:transform .25s ease, box-shadow .25s ease;
+  transition:transform .2s ease,box-shadow .2s ease;
 }
-.btn-primary:hover{transform:translateY(-1px);box-shadow:0 18px 40px -12px var(--violet-glow), inset 0 1px 0 rgba(255,255,255,.32)}
-.btn-primary svg{flex:0 0 auto}
+.btn-primary:active{transform:translateY(1px) scale(.99)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 18px 40px -12px var(--violet-glow), inset 0 1px 0 rgba(255,255,255,.3)}
 
 .btn-ghost{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:14px 20px;border-radius:14px;
-  border:1px solid var(--line);background:rgba(255,255,255,.02);
-  color:#e6e9f2;font-weight:500;font-size:14.5px;text-decoration:none;
-  transition:border-color .25s ease, background .25s ease;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 20px;border-radius:14px;width:100%;
+  border:1px solid var(--line-2);background:rgba(255,255,255,.02);
+  color:#e6e9f2;font-weight:500;font-size:14px;
+  transition:border-color .2s ease,background .2s ease;
 }
 .btn-ghost:hover{border-color:rgba(167,139,250,.45);background:rgba(124,58,237,.08)}
 .btn-ghost code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--violet-2)}
 
-/* ---------- Right side: progress card ---------- */
-.panel{
-  position:relative;
-  padding:26px 26px 24px;border-radius:22px;
-  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
-  border:1px solid var(--line);
-  box-shadow:0 24px 60px -30px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.05);
-  backdrop-filter:blur(8px);
-  opacity:0;animation:rise 1s .5s ease-out forwards;
-  overflow:hidden;
+/* ==========================================================
+   HP-TRACK — marquee de "tarefas" estilo .proj do site
+   ========================================================== */
+.hp{
+  margin:36px -18px 0;
+  width:calc(100% + 36px);
+  position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  animation:fadeUp 1s .75s both;
 }
-.panel::before{
-  content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;
-  background:radial-gradient(120% 60% at 100% 0%,rgba(124,58,237,.18),transparent 55%);
+.hp-track{
+  display:flex;gap:14px;width:max-content;padding:6px 0;
+  animation:hpScroll 36s linear infinite;
 }
-.panel-head{
-  display:flex;align-items:center;justify-content:space-between;
-  font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
-}
-.panel-head b{color:#fff;font-weight:600}
-.panel h3{
-  margin:14px 0 6px;font-size:22px;letter-spacing:-.015em;color:#fff;font-weight:600;
-}
-.panel h3 em{font-style:italic;font-family:var(--serif);font-weight:400;color:var(--violet-2)}
-.panel p.pmsg{margin:0 0 22px;color:#9aa3b6;font-size:14px;line-height:1.55}
+.hp:hover .hp-track,.hp:active .hp-track{animation-play-state:paused}
+@keyframes hpScroll{from{transform:translateX(0)}to{transform:translateX(calc(-1 * (260px + 14px) * 5))}}
 
-.bar{
-  position:relative;height:6px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;
+.tk{
+  flex:0 0 auto;width:260px;
+  border-radius:18px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(20,28,50,.7),rgba(10,15,28,.85));
+  border:1px solid var(--line-2);
+  box-shadow:0 16px 40px -20px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.04);
 }
-.bar > i{
-  position:absolute;inset:0;border-radius:999px;
-  background:linear-gradient(90deg,var(--violet-2),var(--cyan),var(--green));
-  background-size:200% 100%;
-  transform-origin:left center;
-  animation:fill 2.4s cubic-bezier(.2,.8,.2,1) .6s forwards, shimmer 2.6s linear 3s infinite;
-  transform:scaleX(0);
+.tk .pv{
+  position:relative;height:120px;
+  background:radial-gradient(120% 80% at 30% 0%,rgba(124,58,237,.32),transparent 55%),linear-gradient(180deg,#0d1322,#080c17);
+  display:grid;place-items:center;overflow:hidden;
 }
-.bar-meta{
-  display:flex;justify-content:space-between;margin-top:10px;
-  font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;
+.tk .pv::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(255,255,255,.025) 22px 23px);
+  pointer-events:none;
 }
-.bar-meta .pct{color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
+.tk .gly{
+  font-family:var(--serif);font-style:italic;font-size:62px;line-height:1;
+  color:rgba(255,255,255,.92);
+  text-shadow:0 8px 30px rgba(124,58,237,.45);
+}
+.tk .badge{
+  position:absolute;top:10px;right:10px;
+  display:inline-flex;flex-direction:column;align-items:flex-end;
+  padding:6px 10px;border-radius:10px;
+  background:rgba(5,7,13,.65);border:1px solid var(--line);
+  backdrop-filter:blur(6px);
+}
+.tk .badge b{font-size:13px;letter-spacing:-.01em;line-height:1;font-weight:700}
+.tk .badge small{font-size:8.5px;letter-spacing:.16em;color:#aab3c8;text-transform:uppercase;margin-top:3px}
+.tk .live{
+  position:absolute;top:10px;left:10px;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 9px;border-radius:999px;
+  background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);
+  font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#86efac;
+}
+.tk .live .ld{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(34,197,94,.18);animation:pulseG 1.6s infinite}
+.tk.pending .live{background:rgba(250,204,21,.12);border-color:rgba(250,204,21,.35);color:#fde68a}
+.tk.pending .live .ld{background:var(--yellow);box-shadow:0 0 0 3px rgba(250,204,21,.18);animation:pulseY 1.6s infinite}
 
-.tasks{
-  margin-top:22px;padding-top:18px;border-top:1px dashed rgba(255,255,255,.08);
-  display:grid;gap:10px;
-}
-.task{
-  display:flex;align-items:center;gap:11px;font-size:13.5px;color:#cdd2dd;
-}
-.task .tk{
-  width:18px;height:18px;border-radius:6px;display:grid;place-items:center;flex:0 0 auto;
-  background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);
-}
-.task.pending .tk{background:rgba(250,204,21,.10);border-color:rgba(250,204,21,.35)}
-.task.pending .tk::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--yellow);animation:pulse 1.6s infinite}
-.task.done .tk svg{stroke:var(--green)}
-.task small{color:var(--muted);font-size:11.5px;margin-left:auto;letter-spacing:.04em;text-transform:uppercase}
+.tk .info{padding:14px 16px 16px}
+.tk .cat{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#8a93a8;margin-bottom:6px}
+.tk h4{margin:0 0 6px;font-size:14.5px;letter-spacing:-.01em;color:#fff;font-weight:600}
+.tk p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
 
-/* ---------- Footer ---------- */
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 .foot{
   position:relative;z-index:5;
+  margin-top:32px;padding:18px 6px 0;
   border-top:1px solid var(--line);
-  padding:22px clamp(20px,4vw,56px);
-  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
-  font-size:12.5px;color:var(--muted);
-  max-width:1180px;width:100%;margin:0 auto;
+  display:flex;flex-direction:column;gap:8px;
+  font-size:11.5px;color:var(--muted);
+  animation:fadeUp 1s .9s both;
 }
-.foot a{color:#cdd2dd;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.foot .links{display:flex;flex-wrap:wrap;gap:14px}
+.foot a{color:#cdd2dd;border-bottom:1px solid transparent;transition:border-color .2s ease}
 .foot a:hover{border-color:var(--violet-2)}
-.foot .links{display:flex;gap:18px;flex-wrap:wrap}
 
-/* ---------- Animations ---------- */
-@keyframes rise{
-  from{transform:translateY(110%);opacity:0}
-  to{transform:translateY(0);opacity:1}
+/* ==========================================================
+   TABLET ≥ 640px
+   ========================================================== */
+@media (min-width:640px){
+  .shell{padding:22px 32px 48px;max-width:980px;margin:0 auto}
+  .hero{padding:48px 0 0;gap:24px}
+  .ctas{flex-direction:row;width:auto}
+  .btn-primary,.btn-ghost{width:auto}
+  .foot{flex-direction:row;justify-content:space-between;align-items:center;padding-top:22px}
+  .hp{margin:48px -32px 0;width:calc(100% + 64px)}
+  @keyframes hpScroll{from{transform:translateX(0)}to{transform:translateX(calc(-1 * (300px + 16px) * 5))}}
+  .tk{width:300px}
+  .tk .pv{height:140px}
 }
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 0 0 currentColor;opacity:1}
-  50%{box-shadow:0 0 0 6px transparent;opacity:.7}
+
+/* ==========================================================
+   DESKTOP ≥ 980px
+   ========================================================== */
+@media (min-width:980px){
+  .shell{max-width:1180px;padding:26px 56px 56px}
+  .hero{padding:64px 0 0}
+  .lede{font-size:17px}
+  .pill{font-size:13.5px}
+  .pill .arrow{width:30px;height:30px}
+  .brand .name b{font-size:15px}
+  .brand .name small{font-size:9.5px}
+  .brand .mark{width:34px;height:34px;font-size:18px}
+  .hp{margin:64px -56px 0;width:calc(100% + 112px)}
+  @keyframes hpScroll{from{transform:translateX(0)}to{transform:translateX(calc(-1 * (340px + 18px) * 5))}}
+  .tk{width:340px}
+  .tk .pv{height:160px}
+  .tk h4{font-size:15.5px}
+  .tk p{font-size:13px}
 }
-@keyframes float{
-  0%,100%{transform:translate(-50%,0)}
-  50%{transform:translate(-50%,-30px)}
-}
-@keyframes scan{
-  0%{transform:translateY(0)}
-  100%{transform:translateY(100vh)}
-}
-@keyframes fill{
-  to{transform:scaleX(.72)}
-}
-@keyframes shimmer{
-  0%{background-position:0% 0}
-  100%{background-position:200% 0}
-}
+
+/* ==========================================================
+   GLOBAL ANIMS
+   ========================================================== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
-  .title-line > span{transform:none;opacity:1}
-  .eyebrow,.lede,.cta-row,.panel{opacity:1}
-  .bar > i{transform:scaleX(.72)}
+  .bar2 > i{transform:scaleX(.72)}
 }
 
-/* ---------- Hidden admin modal ---------- */
+/* ==========================================================
+   ADMIN MODAL (escondido)
+   ========================================================== */
 .admin-modal{
-  position:fixed;inset:0;z-index:50;display:none;
-  align-items:center;justify-content:center;
-  padding:20px;
-  background:rgba(5,7,13,.72);backdrop-filter:blur(10px);
+  position:fixed;inset:0;z-index:80;display:none;
+  align-items:flex-end;justify-content:center;
+  padding:0;
+  background:rgba(5,7,13,.78);backdrop-filter:blur(10px);
   opacity:0;transition:opacity .25s ease;
 }
 .admin-modal.open{display:flex;opacity:1}
 .admin-modal .card{
-  width:100%;max-width:380px;
-  padding:26px 24px 22px;border-radius:18px;
+  width:100%;max-width:440px;
+  padding:24px 22px 28px;border-radius:22px 22px 0 0;
   background:linear-gradient(180deg,#0d1322,#080c17);
-  border:1px solid rgba(167,139,250,.25);
-  box-shadow:0 30px 80px -20px rgba(0,0,0,.8), 0 0 0 1px rgba(124,58,237,.15), inset 0 1px 0 rgba(255,255,255,.04);
-  transform:translateY(8px);transition:transform .3s ease;
+  border:1px solid rgba(167,139,250,.22);border-bottom:0;
+  box-shadow:0 -30px 80px -20px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.04);
+  transform:translateY(20px);transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  padding-bottom:calc(28px + env(safe-area-inset-bottom));
 }
 .admin-modal.open .card{transform:translateY(0)}
 .admin-modal.shake .card{animation:shake .45s cubic-bezier(.36,.07,.19,.97)}
-.admin-modal .ah{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;
+@media(min-width:640px){
+  .admin-modal{align-items:center;padding:20px}
+  .admin-modal .card{border-radius:22px;border-bottom:1px solid rgba(167,139,250,.22);transform:scale(.96);padding-bottom:24px}
+  .admin-modal.open .card{transform:scale(1)}
 }
-.admin-modal .ah b{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--violet-2);font-weight:600}
-.admin-modal .ah button{
-  background:none;border:0;color:var(--muted);font-size:18px;line-height:1;cursor:pointer;padding:4px 8px;
+.admin-modal .grab{
+  width:38px;height:4px;border-radius:999px;background:rgba(255,255,255,.14);
+  margin:-6px auto 14px;
 }
-.admin-modal h4{
-  margin:0 0 6px;font-size:22px;letter-spacing:-.015em;color:#fff;font-weight:600;
-}
+@media(min-width:640px){.admin-modal .grab{display:none}}
+.admin-modal .ah{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.admin-modal .ah b{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--violet-2);font-weight:600}
+.admin-modal .ah button{background:none;border:0;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:4px 10px}
+.admin-modal h4{margin:0 0 6px;font-size:22px;letter-spacing:-.015em;color:#fff;font-weight:600;line-height:1.15}
 .admin-modal h4 em{font-style:italic;font-family:var(--serif);font-weight:400;color:var(--violet-2)}
 .admin-modal p{margin:0 0 18px;color:#9aa3b6;font-size:13.5px;line-height:1.5}
 .admin-modal .field{
   display:flex;align-items:center;gap:10px;
-  padding:11px 14px;border-radius:12px;
-  background:rgba(255,255,255,.04);border:1px solid var(--line);
-  margin-bottom:14px;
-  transition:border-color .2s ease,background .2s ease;
+  padding:13px 14px;border-radius:12px;
+  background:rgba(255,255,255,.04);border:1px solid var(--line-2);
+  margin-bottom:14px;transition:border-color .2s ease,background .2s ease;
 }
-.admin-modal.shake .field{border-color:rgba(248,113,113,.6);background:rgba(248,113,113,.06)}
+.admin-modal.shake .field{border-color:rgba(252,165,165,.6);background:rgba(252,165,165,.06)}
 .admin-modal .field:focus-within{border-color:rgba(167,139,250,.5);background:rgba(124,58,237,.06)}
 .admin-modal .field svg{flex:0 0 auto;color:var(--violet-2)}
-.admin-modal input{
-  flex:1;background:none;border:0;outline:none;color:#fff;
-  font-family:inherit;font-size:14.5px;letter-spacing:.04em;
-}
+.admin-modal input{flex:1;background:none;border:0;outline:none;color:#fff;font-family:inherit;font-size:15px;letter-spacing:.04em}
 .admin-modal input::placeholder{color:#5e6577}
 .admin-modal .actions{display:flex;gap:10px;align-items:center;justify-content:space-between}
 .admin-modal button.go{
   display:inline-flex;align-items:center;gap:8px;
-  padding:11px 18px;border-radius:11px;border:0;cursor:pointer;
+  padding:12px 20px;border-radius:12px;border:0;cursor:pointer;
   background:linear-gradient(160deg,var(--violet) 0%,#5b21b6 100%);
-  color:#fff;font-weight:600;font-size:13.5px;letter-spacing:-.005em;font-family:inherit;
+  color:#fff;font-weight:600;font-size:14px;letter-spacing:-.005em;font-family:inherit;
   box-shadow:0 8px 22px -8px var(--violet-glow), inset 0 1px 0 rgba(255,255,255,.2);
   transition:transform .2s ease;
 }
-.admin-modal button.go:hover{transform:translateY(-1px)}
-.admin-modal small.hint{font-size:11.5px;color:#5e6577;letter-spacing:.06em}
-
+.admin-modal button.go:active{transform:scale(.97)}
+.admin-modal small.hint{font-size:11px;color:#5e6577;letter-spacing:.06em}
 @keyframes shake{
   10%,90%{transform:translateX(-2px)}
   20%,80%{transform:translateX(3px)}
@@ -351,100 +458,180 @@ h1.title .glitch{position:relative;display:inline-block}
 }
 </style>
 </head>
+
 <body>
 
-<div class="bg-glow" aria-hidden="true"></div>
+<div class="stars" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
-<div class="scanline" aria-hidden="true"></div>
 
-<main class="wrap">
+<main class="shell">
 
-  <header class="top">
-    <a class="brand" href="/">
-      <span class="b-mark">e</span>
-      <span class="b-name">Element<small>Group · PT</small></span>
+  <header class="bar">
+    <a class="brand" href="/" aria-label="Element Group">
+      <span class="mark" id="trigger">e</span>
+      <span class="name"><b>Element</b><small>Group · PT</small></span>
     </a>
-    <span class="status-chip">
-      <span class="dot"></span> Manutenção programada · em curso
+    <span class="status">
+      <span class="dot-y"></span> Em manutenção
     </span>
   </header>
 
   <section class="hero">
-    <div>
-      <div class="eyebrow">Sistema · status</div>
 
-      <h1 class="title">
-        <span class="title-line"><span>Estamos a</span></span>
-        <span class="title-line"><span class="em">afinar</span></span>
-        <span class="title-line"><span>cada pixel.</span></span>
-      </h1>
+    <span class="pill">
+      <span class="pill-txt">Estamos a colocar <em>melhorias</em> no ar</span>
+      <span class="arrow" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </span>
+    </span>
 
-      <p class="lede">
-        A Element está em manutenção breve para colocar coisas novas no ar — performance, conteúdos e mais alguns detalhes que vais notar já a seguir. Voltamos em instantes.
-      </p>
+    <h1 class="title">
+      Estamos a <em>afinar</em> <span class="ws">cada</span> pixel.
+    </h1>
 
-      <div class="cta-row">
-        <a class="btn-primary" href="https://wa.me/351930477894?text=Ol%C3%A1!%20Vi%20que%20o%20site%20est%C3%A1%20em%20manuten%C3%A7%C3%A3o%20e%20gostaria%20de%20falar%20convosco." target="_blank" rel="noopener noreferrer">
-          Falar no WhatsApp
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a class="btn-ghost" href="mailto:hello@elementgroup.pt">
-          <code>hello@elementgroup.pt</code>
-        </a>
+    <p class="lede">
+      A Element está em <em>manutenção breve</em> para publicar conteúdos novos, melhorar performance e afinar detalhes que vais notar já a seguir. Voltamos em instantes — para qualquer coisa urgente, fala connosco no WhatsApp.
+    </p>
+
+    <div class="metas">
+      <span class="meta live"><span class="ld"></span> Sistema online</span>
+      <span class="meta">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <b id="now">--:--</b> · PT
+      </span>
+      <span class="meta">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+        Deploy <b>v2.4.0</b>
+      </span>
+    </div>
+
+    <div class="prog" aria-label="Progresso do deploy">
+      <div class="prog-head"><span>Progresso</span><span class="pct">72%</span></div>
+      <div class="bar2"><i></i></div>
+    </div>
+
+    <div class="ctas">
+      <a class="btn-primary" href="https://wa.me/351930477894?text=Ol%C3%A1!%20Vi%20que%20o%20site%20est%C3%A1%20em%20manuten%C3%A7%C3%A3o%20e%20gostaria%20de%20falar%20convosco." target="_blank" rel="noopener noreferrer">
+        Falar no WhatsApp
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="mailto:hello@elementgroup.pt">
+        <code>hello@elementgroup.pt</code>
+      </a>
+    </div>
+
+    <!-- HP-TRACK: tarefas a correr (estilo .proj do site) -->
+    <div class="hp" aria-hidden="true">
+      <div class="hp-track">
+
+        <article class="tk">
+          <div class="pv">
+            <span class="live"><span class="ld"></span> Concluído</span>
+            <div class="badge"><b>1.2s</b><small>Build</small></div>
+            <span class="gly">B</span>
+          </div>
+          <div class="info">
+            <div class="cat">Pipeline · Build</div>
+            <h4>Build &amp; testes</h4>
+            <p>Compilação, lint e testes corridos sem erros.</p>
+          </div>
+        </article>
+
+        <article class="tk">
+          <div class="pv">
+            <span class="live"><span class="ld"></span> Concluído</span>
+            <div class="badge"><b>14</b><small>Páginas</small></div>
+            <span class="gly" style="color:#a78bfa">C</span>
+          </div>
+          <div class="info">
+            <div class="cat">Conteúdo · Supabase</div>
+            <h4>Migração de conteúdos</h4>
+            <p>Projetos, clientes e media sincronizados.</p>
+          </div>
+        </article>
+
+        <article class="tk pending">
+          <div class="pv">
+            <span class="live"><span class="ld"></span> Em curso</span>
+            <div class="badge"><b style="color:#fde68a">CDN</b><small>A propagar</small></div>
+            <span class="gly" style="color:#fde68a;font-style:italic">P</span>
+          </div>
+          <div class="info">
+            <div class="cat">Performance · Cache</div>
+            <h4>A publicar &amp; cache CDN</h4>
+            <p>A invalidar cache antiga e propagar nova edição.</p>
+          </div>
+        </article>
+
+        <article class="tk pending">
+          <div class="pv">
+            <span class="live"><span class="ld"></span> A seguir</span>
+            <div class="badge"><b style="color:#7dd3fc">QA</b><small>Verificação</small></div>
+            <span class="gly" style="color:#7dd3fc">V</span>
+          </div>
+          <div class="info">
+            <div class="cat">Qualidade · QA</div>
+            <h4>Verificação final</h4>
+            <p>Smoke tests em mobile, tablet e desktop.</p>
+          </div>
+        </article>
+
+        <article class="tk">
+          <div class="pv">
+            <span class="live"><span class="ld"></span> Online</span>
+            <div class="badge"><b style="color:#86efac">100</b><small>PageSpeed</small></div>
+            <span class="gly" style="color:#86efac">⚡</span>
+          </div>
+          <div class="info">
+            <div class="cat">Status · Live</div>
+            <h4>Tudo o resto online</h4>
+            <p>WhatsApp, email e telefone a funcionar.</p>
+          </div>
+        </article>
+
+        <!-- duplicate set para loop infinito -->
+        <article class="tk" aria-hidden="true">
+          <div class="pv"><span class="live"><span class="ld"></span> Concluído</span><div class="badge"><b>1.2s</b><small>Build</small></div><span class="gly">B</span></div>
+          <div class="info"><div class="cat">Pipeline · Build</div><h4>Build &amp; testes</h4><p>Compilação, lint e testes corridos sem erros.</p></div>
+        </article>
+        <article class="tk" aria-hidden="true">
+          <div class="pv"><span class="live"><span class="ld"></span> Concluído</span><div class="badge"><b>14</b><small>Páginas</small></div><span class="gly" style="color:#a78bfa">C</span></div>
+          <div class="info"><div class="cat">Conteúdo · Supabase</div><h4>Migração de conteúdos</h4><p>Projetos, clientes e media sincronizados.</p></div>
+        </article>
+        <article class="tk pending" aria-hidden="true">
+          <div class="pv"><span class="live"><span class="ld"></span> Em curso</span><div class="badge"><b style="color:#fde68a">CDN</b><small>A propagar</small></div><span class="gly" style="color:#fde68a;font-style:italic">P</span></div>
+          <div class="info"><div class="cat">Performance · Cache</div><h4>A publicar &amp; cache CDN</h4><p>A invalidar cache antiga e propagar nova edição.</p></div>
+        </article>
+        <article class="tk pending" aria-hidden="true">
+          <div class="pv"><span class="live"><span class="ld"></span> A seguir</span><div class="badge"><b style="color:#7dd3fc">QA</b><small>Verificação</small></div><span class="gly" style="color:#7dd3fc">V</span></div>
+          <div class="info"><div class="cat">Qualidade · QA</div><h4>Verificação final</h4><p>Smoke tests em mobile, tablet e desktop.</p></div>
+        </article>
+        <article class="tk" aria-hidden="true">
+          <div class="pv"><span class="live"><span class="ld"></span> Online</span><div class="badge"><b style="color:#86efac">100</b><small>PageSpeed</small></div><span class="gly" style="color:#86efac">⚡</span></div>
+          <div class="info"><div class="cat">Status · Live</div><h4>Tudo o resto online</h4><p>WhatsApp, email e telefone a funcionar.</p></div>
+        </article>
+
       </div>
     </div>
 
-    <aside class="panel" aria-label="Estado da manutenção">
-      <div class="panel-head">
-        <span>Deploy <b>v2.4.0</b></span>
-        <span>PT · <b id="now">--:--</b></span>
-      </div>
-
-      <h3>A publicar <em>melhorias</em></h3>
-      <p class="pmsg">Tudo o que aqui está volta online assim que terminarmos os últimos passos.</p>
-
-      <div class="bar"><i></i></div>
-      <div class="bar-meta"><span>Progresso</span><span class="pct" id="pct">72%</span></div>
-
-      <div class="tasks">
-        <div class="task done">
-          <span class="tk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-          Build &amp; testes
-          <small>Concluído</small>
-        </div>
-        <div class="task done">
-          <span class="tk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-          Migração de conteúdos
-          <small>Concluído</small>
-        </div>
-        <div class="task pending">
-          <span class="tk"></span>
-          A publicar páginas e cache
-          <small>Em curso</small>
-        </div>
-        <div class="task pending">
-          <span class="tk"></span>
-          Verificação final
-          <small>A seguir</small>
-        </div>
-      </div>
-    </aside>
   </section>
+
+  <footer class="foot">
+    <span>© <span id="yr">2026</span> Element Group · Página de manutenção</span>
+    <div class="links">
+      <a href="https://wa.me/351930477894" target="_blank" rel="noopener noreferrer">+351 930 477 894</a>
+      <a href="mailto:hello@elementgroup.pt">hello@elementgroup.pt</a>
+      <a href="https://elementgroup.pt">elementgroup.pt</a>
+    </div>
+  </footer>
 
 </main>
 
-<footer class="foot">
-  <span>© <span id="yr">2026</span> Element Group · Página de manutenção</span>
-  <div class="links">
-    <a href="https://wa.me/351930477894" target="_blank" rel="noopener noreferrer">+351 930 477 894</a>
-    <a href="mailto:hello@elementgroup.pt">hello@elementgroup.pt</a>
-    <a href="https://elementgroup.pt">elementgroup.pt</a>
-  </div>
-</footer>
-
-<!-- Hidden admin entry: 3 quick clicks on the brand mark -->
+<!-- Hidden admin entry: 3 quick clicks on brand mark -->
 <div class="admin-modal" id="admin-modal" role="dialog" aria-modal="true" aria-labelledby="admin-title">
   <form class="card" id="admin-form" method="POST" action="/api/admin-bypass" autocomplete="off">
+    <div class="grab"></div>
     <div class="ah">
       <b>Acesso restrito</b>
       <button type="button" id="admin-close" aria-label="Fechar">×</button>
@@ -469,49 +656,35 @@ h1.title .glitch{position:relative;display:inline-block}
   (function(){
     var pad = function(n){return n<10?'0'+n:n};
     var setNow = function(){
-      var d = new Date();
-      var el = document.getElementById('now');
+      var d = new Date(), el = document.getElementById('now');
       if(el) el.textContent = pad(d.getHours())+':'+pad(d.getMinutes());
     };
     setNow(); setInterval(setNow, 30000);
     var y = document.getElementById('yr'); if(y) y.textContent = new Date().getFullYear();
 
-    /* ---------- Hidden admin trigger ---------- */
-    var clicks = 0, timer = null;
-    var mark = document.querySelector('.b-mark');
+    /* Hidden admin trigger: 3× rapid clicks/taps on brand mark */
+    var clicks=0, timer=null;
+    var trig = document.getElementById('trigger');
     var modal = document.getElementById('admin-modal');
     var input = document.getElementById('admin-key');
-    var form  = document.getElementById('admin-form');
     var close = document.getElementById('admin-close');
-
-    var open = function(){
-      modal.classList.add('open');
-      setTimeout(function(){ input && input.focus(); }, 80);
-    };
-    var hide = function(){
-      modal.classList.remove('open');
-      input.value = '';
-      modal.classList.remove('shake');
-    };
-
-    if(mark){
-      mark.addEventListener('click', function(e){
-        e.preventDefault();
+    var open = function(){ modal.classList.add('open'); setTimeout(function(){ input && input.focus(); }, 80); };
+    var hide = function(){ modal.classList.remove('open','shake'); input.value=''; };
+    if(trig){
+      trig.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
         clicks++;
         clearTimeout(timer);
-        timer = setTimeout(function(){ clicks = 0; }, 1500);
-        if(clicks >= 3){ clicks = 0; open(); }
+        timer = setTimeout(function(){clicks=0}, 1500);
+        if(clicks>=3){clicks=0; open();}
       });
     }
     if(close) close.addEventListener('click', hide);
     document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape' && modal.classList.contains('open')) hide();
+      if(e.key==='Escape' && modal.classList.contains('open')) hide();
     });
-    /* Show error on ?err=1 (bad password) */
-    if(/[?&]err=1/.test(location.search)){
-      open();
-      modal.classList.add('shake');
-    }
+    /* Show error on ?err=1 */
+    if(/[?&]err=1/.test(location.search)){ open(); modal.classList.add('shake'); }
   })();
 </script>
 
