@@ -1,0 +1,301 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Serviços | Websites, E-commerce, Apps & Marketing | Element Group',
+  description:
+    'Criação de websites desde 197€, lojas online, apps mobile, design gráfico e marketing digital. Código 100% original, PageSpeed 95+, SEO incluído. Element Group Portugal.',
+  alternates: { canonical: '/servicos' },
+  openGraph: {
+    title: 'Serviços | Element Group',
+    description: 'Websites, e-commerce, apps, branding e marketing digital. Desde 197€, com PageSpeed 95+ e SEO incluído.',
+    url: 'https://elementgroup.pt/servicos',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+  },
+};
+
+/* ─── Service data (icons rendered via switch, not stored as JSX) ─── */
+type ServiceItem = {
+  color: string;
+  popular: boolean;
+  iconId: string;
+  title: string;
+  price: string;
+  period: string;
+  desc: string;
+  features: readonly string[];
+};
+
+const SERVICES: ServiceItem[] = [
+  {
+    color: 'violet', popular: true, iconId: 'globe',
+    title: 'Criação de Websites', price: 'desde 197€', period: 'pagamento único',
+    desc: 'Sites profissionais à medida com PageSpeed 95+ e tecnologia moderna. Código 100% original, sem templates.',
+    features: ['Design 100% à medida', 'SEO técnico incluído', 'Mobile-first & Core Web Vitals', 'Apoio pós-lançamento'],
+  },
+  {
+    color: 'yellow', popular: false, iconId: 'pin',
+    title: 'Negócios Locais', price: 'desde 297€', period: 'pagamento único',
+    desc: 'Solução completa para negócios físicos: website + Google Maps Top 3 + SEO geo-segmentado.',
+    features: ['Ficha Google otimizada', 'SEO local geo-segmentado', 'Reservas e contactos online', 'Schema markup incluído'],
+  },
+  {
+    color: 'green', popular: false, iconId: 'shop',
+    title: 'Loja Online', price: 'desde 997€', period: 'pagamento único',
+    desc: 'Loja e-commerce completa com pagamentos portugueses, gestão de stock e faturação automática.',
+    features: ['MBWay, Multibanco e cartão', 'Gestão de produtos e stock', 'Faturação automática', 'SEO e-commerce incluído'],
+  },
+  {
+    color: 'cyan', popular: false, iconId: 'mobile',
+    title: 'Apps Mobile', price: 'desde 1.497€', period: 'pagamento único',
+    desc: 'Apps nativas e Progressive Web Apps para iOS e Android. Notificações push e integração com APIs.',
+    features: ['iOS, Android e PWA', 'Notificações push', 'Integração com APIs externas', 'Painel de gestão incluído'],
+  },
+  {
+    color: 'red', popular: false, iconId: 'palette',
+    title: 'Design Gráfico', price: 'desde 297€', period: 'pagamento único',
+    desc: 'Logótipo + manual de marca completo. Identidade visual profissional para destacar o teu negócio.',
+    features: ['Logótipo + variações', 'Manual de marca', 'Posts redes sociais', 'Ficheiros editáveis incluídos'],
+  },
+  {
+    color: 'teal', popular: false, iconId: 'pencil',
+    title: 'Redesign & Migração', price: 'desde 297€', period: 'pagamento único',
+    desc: 'Migra de plataforma sem perder posições no Google. Redirects 301 cuidados e SEO preservado.',
+    features: ['Redirects 301 cuidados', 'Preservação de SEO', 'Performance 95+', 'Zero downtime garantido'],
+  },
+  {
+    color: 'yellow', popular: false, iconId: 'megaphone',
+    title: 'Marketing Digital', price: 'desde 350€', period: 'por mês',
+    desc: 'Gestão contínua de redes sociais, Google Ads e SEO mensal. Relatórios mensais de performance.',
+    features: ['Instagram + Facebook geridos', 'Google Ads otimizados', 'SEO mensal e relatórios', 'Conteúdo criativo incluído'],
+  },
+];
+
+const PROCESS = [
+  { num: '01', title: 'Diagnóstico', desc: 'Analisamos o negócio, a concorrência e o que o seu cliente procura online.' },
+  { num: '02', title: 'Estratégia', desc: 'Definimos objetivos mensuráveis antes de desenhar uma linha ou escrever código.' },
+  { num: '03', title: 'Execução', desc: 'Design + desenvolvimento com o seu feedback em cada etapa do processo.' },
+  { num: '04', title: 'Optimização', desc: 'Lançamento, monitorização e ajustes contínuos baseados em dados reais.' },
+];
+
+const FAQS = [
+  { q: 'Quanto tempo demora um projeto?', a: 'Sites institucionais entre 2–3 semanas. Lojas online e apps entre 4–8 semanas.' },
+  { q: 'O SEO está incluído?', a: 'SEO técnico, schema markup e otimização on-page estão sempre incluídos nos websites.' },
+  { q: 'Como funcionam os pagamentos?', a: 'Pagamento único com 5% de desconto, ou 2× prestações sem juros. MBWay, Multibanco e transferência.' },
+  { q: 'Quantas alterações posso pedir?', a: 'Dentro do âmbito acordado, alterações são ilimitadas. Trabalhamos por aprovações em cada fase.' },
+];
+
+/* ─── Icon resolver ─── */
+function ServiceIcon({ id }: { id: string }) {
+  if (id === 'globe') return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+    </svg>
+  );
+  if (id === 'pin') return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/>
+    </svg>
+  );
+  if (id === 'shop') return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <path d="M3 9l1.5-5h15L21 9M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9M3 9h18M9 13a3 3 0 0 0 6 0"/>
+    </svg>
+  );
+  if (id === 'mobile') return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>
+    </svg>
+  );
+  if (id === 'palette') return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <path d="M12 22a10 10 0 1 1 10-10c0 3-3 4-5 4h-2a2 2 0 0 0 0 4 2 2 0 0 1-2 2z"/>
+      <circle cx="7.5" cy="10.5" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16.5" cy="10.5" r="1"/>
+    </svg>
+  );
+  if (id === 'pencil') return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <path d="M5 13l-1.5 6 6-1.5L20 6.5 17.5 4 5 13z"/><path d="M14 7l3 3"/>
+    </svg>
+  );
+  if (id === 'megaphone') return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <path d="M3 11l18-7v16L3 13z"/><path d="M11 19l-3 2-2-1 1-5"/>
+    </svg>
+  );
+  return null;
+}
+
+export default function ServicosPage() {
+  return (
+    <div className="sv-page">
+      {/* ── Hero ── */}
+      <section className="sv-hero has-atmos">
+        <div className="section-atmos" aria-hidden="true">
+          <div className="rings"><span /><span /><span /><span /><span /><span /></div>
+          <div className="section-sparkles">
+            <span style={{ left: '12%', top: 90, animationDelay: '.4s' }} />
+            <span style={{ left: '22%', top: 200, animationDelay: '1.8s' }} />
+            <span style={{ left: '38%', top: 60, animationDelay: '2.5s' }} />
+            <span style={{ left: '50%', top: 155, animationDelay: '.9s' }} />
+            <span style={{ left: '62%', top: 230, animationDelay: '3.1s' }} />
+            <span style={{ left: '74%', top: 75, animationDelay: '1.3s' }} />
+            <span style={{ left: '84%', top: 170, animationDelay: '2.2s' }} />
+            <span style={{ left: '90%', top: 110, animationDelay: '.7s' }} />
+          </div>
+        </div>
+
+        <div className="sv-hero-label">Serviços</div>
+        <h1>Soluções digitais<br />que <em>geram resultados.</em></h1>
+        <p className="sv-hero-sub">
+          Outros cobram €2.000–€5.000. Connosco começa em 197€ — porque usamos tecnologia moderna que
+          nos torna mais rápidos. Mesma qualidade, preço justo.
+        </p>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '8px 14px', borderRadius: 999, fontSize: 13, fontWeight: 500, color: '#cfd6e8', border: '1px solid var(--line-2)', background: 'rgba(255,255,255,.03)' }}>⚡ Entrega em 10–21 dias</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '8px 14px', borderRadius: 999, fontSize: 13, fontWeight: 500, color: '#cfd6e8', border: '1px solid var(--line-2)', background: 'rgba(255,255,255,.03)' }}>🛡️ Garantia 30 dias</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '8px 14px', borderRadius: 999, fontSize: 13, fontWeight: 500, color: '#cfd6e8', border: '1px solid var(--line-2)', background: 'rgba(255,255,255,.03)' }}>📄 Proposta grátis em 24h</span>
+        </div>
+      </section>
+
+      {/* ── Services grid ── */}
+      <div className="sv-grid-wrap">
+        <div className="sv-grid">
+          {SERVICES.map((s, i) => (
+            <article key={i} className="sv-card" data-color={s.color}>
+              <div className="sv-card__bar" />
+              {s.popular && <span className="sv-card__pop">Popular</span>}
+              <div className="sv-card__icon"><ServiceIcon id={s.iconId} /></div>
+              <h3 className="sv-card__title">{s.title}</h3>
+              <div className="sv-card__price">
+                <b>{s.price}</b>
+                <small>{s.period}</small>
+              </div>
+              <p className="sv-card__desc">{s.desc}</p>
+              <ul className="sv-card__list">
+                {s.features.map((f, j) => <li key={j}>{f}</li>)}
+              </ul>
+              <a
+                href={`https://wa.me/351930477894?text=${encodeURIComponent(`Olá! Tenho interesse no serviço de ${s.title}. Podiam enviar um orçamento?`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sv-card__cta"
+              >
+                Pedir orçamento
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Guarantee band ── */}
+      <div className="sv-guarantee">
+        <div className="sv-guarantee-inner">
+          <p className="sv-guarantee-text">
+            Preço justo, qualidade premium. Finalmente uma agência que{' '}
+            <b>entrega o que promete</b> — sem desculpas nem surpresas.
+          </p>
+          <div className="sv-guarantee-trust">
+            <span className="sv-guarantee-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Garantia 30 dias
+            </span>
+            <span className="sv-guarantee-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Sem mensalidades obrigatórias
+            </span>
+            <span className="sv-guarantee-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Código 100% seu
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Process ── */}
+      <section className="sv-process">
+        <div className="sv-process-head">
+          <span className="eyebrow">Processo</span>
+          <h2 className="section-title" style={{ marginTop: 18 }}>
+            Como funciona<br />o nosso <em>processo.</em>
+          </h2>
+          <p className="section-sub" style={{ marginTop: 14 }}>
+            Cada projeto segue a mesma metodologia rigorosa. Sem atalhos, sem surpresas.
+          </p>
+        </div>
+        <div className="sv-steps">
+          {PROCESS.map((step, i) => (
+            <div key={i} className="sv-step">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div className="sv-step-dot" />
+                <span className="sv-step-num">{step.num}</span>
+              </div>
+              <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, color: '#fff', letterSpacing: '-.01em' }}>{step.title}</h3>
+              <p style={{ margin: 0, fontSize: 13.5, color: 'var(--muted)', lineHeight: 1.6 }}>{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section style={{ padding: '0 20px 80px', maxWidth: 1240, margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}>
+          {FAQS.map((faq, i) => (
+            <div key={i} style={{
+              padding: '22px 20px', borderRadius: 18,
+              border: '1px solid var(--line-2)',
+              background: 'linear-gradient(180deg, rgba(20,28,50,.5), rgba(10,15,28,.55))',
+            }}>
+              <p style={{ margin: '0 0 10px', fontWeight: 700, fontSize: 15, color: '#fff', letterSpacing: '-.01em' }}>{faq.q}</p>
+              <p style={{ margin: 0, fontSize: 13.5, color: 'var(--muted)', lineHeight: 1.65 }}>{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="sv-cta-section">
+        <div className="sv-cta-box">
+          <div aria-hidden="true" style={{
+            position: 'absolute', inset: 0, pointerEvents: 'none',
+            background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124,58,237,.12), transparent 60%)',
+          }} />
+          <div className="sv-cta-badge"><span /> Disponíveis para novos projetos</div>
+          <h2>Vamos construir<br />algo <em>extraordinário.</em></h2>
+          <p>Proposta personalizada gratuita em menos de 24 horas. Consultoria inicial sem compromisso.</p>
+          <div className="sv-cta-actions">
+            <a
+              href="https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{ padding: '15px 32px', fontSize: 15 }}
+            >
+              Pedir orçamento grátis
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                <path d="M5 12h14M13 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <div className="sv-cta-trust">
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Garantia 30 dias
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Sem compromisso
+              </span>
+              <span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Resposta &lt;2h
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
