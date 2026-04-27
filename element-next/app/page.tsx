@@ -8,7 +8,6 @@ import { renderHeroProjectsHTML } from "@/lib/hero-projects";
 import { renderMarqueeLogosHTML } from "@/lib/clients-marquee";
 import { renderReviewsHTML } from "@/lib/reviews";
 
-export const runtime = 'edge';
 export const revalidate = 300;
 
 const GRID_MARKER = "<!-- SUPABASE_PROJECTS_GRID_GRID -->";
