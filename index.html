@@ -33,14 +33,49 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://elementgroup.pt/#organization",
   "name": "Element Group",
-  "description": "Soluções digitais à medida para PMEs em Portugal: websites, lojas online, apps mobile, branding e marketing digital.",
+  "alternateName": "Element Group Digital Solutions",
+  "description": "Agência digital portuguesa especializada em websites, lojas online, apps mobile, branding e marketing digital para PMEs em Portugal. Preços a partir de 197€, propostas em 24h.",
   "url": "https://elementgroup.pt",
   "logo": "https://elementgroup.pt/logo.png",
   "image": "https://elementgroup.pt/og-image.jpg",
+  "telephone": "+351930477894",
+  "email": "info@elementgroup.pt",
+  "founder": { "@type": "Person", "name": "Ricardo Jorge" },
   "areaServed": { "@type": "Country", "name": "Portugal" },
   "address": { "@type": "PostalAddress", "addressCountry": "PT" },
   "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "MBWay, Multibanco, Cartão de Crédito, Transferência Bancária",
+  "knowsLanguage": ["pt-PT", "en"],
+  "slogan": "Sites, Apps & Marketing Digital para PMEs",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "4",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {"@type":"Review","author":{"@type":"Person","name":"Marta Ribeiro"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Trabalhar com a Element Group foi um game-changer. Entregaram um site que gera tráfego e conversões significativas."},
+    {"@type":"Review","author":{"@type":"Person","name":"João Cardoso"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Profissionais do início ao fim. Processo claro, prazos cumpridos, resultado impecável."},
+    {"@type":"Review","author":{"@type":"Person","name":"Ana Silva"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Migrámos a loja para a Element Group e duplicámos as conversões em 2 meses."},
+    {"@type":"Review","author":{"@type":"Person","name":"Pedro Mendes"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Preço justo, qualidade premium. Finalmente uma agência que entrega o que promete."}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Serviços Element Group",
+    "itemListElement": [
+      {"@type":"Offer","name":"Criação de Websites","description":"Sites institucionais à medida com PageSpeed 95+","price":"197","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://elementgroup.pt/#servicos"},
+      {"@type":"Offer","name":"Negócios Locais (Site + Google Maps Top 3)","description":"Solução completa para negócios físicos: site + SEO local","price":"297","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://elementgroup.pt/#servicos"},
+      {"@type":"Offer","name":"Loja Online","description":"E-commerce com MBWay, Multibanco, gestão de stock","price":"997","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://elementgroup.pt/#servicos"},
+      {"@type":"Offer","name":"Apps Mobile","description":"Apps nativas iOS/Android e PWA","price":"1497","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://elementgroup.pt/#servicos"},
+      {"@type":"Offer","name":"Design Gráfico & Branding","description":"Logótipo + manual de marca completo","price":"297","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://elementgroup.pt/#servicos"},
+      {"@type":"Offer","name":"Redesign & Migração","description":"Migração de plataforma sem perder posições no Google","price":"297","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://elementgroup.pt/#servicos"},
+      {"@type":"Offer","name":"Marketing Digital (mensal)","description":"Gestão Instagram, Facebook, Google Ads e SEO mensal","price":"350","priceCurrency":"EUR","priceSpecification":{"@type":"UnitPriceSpecification","price":"350","priceCurrency":"EUR","unitText":"MONTH"},"availability":"https://schema.org/InStock","url":"https://elementgroup.pt/#servicos"}
+    ]
+  },
   "sameAs": [
     "https://www.instagram.com/elementgroup.pt",
     "https://www.facebook.com/elementgroupdigitalsolutions",
@@ -51,20 +86,52 @@
 }
 </script>
 
+<!-- Structured data: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://elementgroup.pt/#website",
+  "url": "https://elementgroup.pt/",
+  "name": "Element Group",
+  "inLanguage": "pt-PT",
+  "publisher": { "@id": "https://elementgroup.pt/#organization" }
+}
+</script>
+
 <!-- Structured data: FAQ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"Que serviços oferece a Element Group?","acceptedAnswer":{"@type":"Answer","text":"Criação de websites, lojas online, apps mobile, design gráfico, branding, SEO e marketing digital — soluções completas para PMEs em Portugal."}},
-    {"@type":"Question","name":"Quanto tempo demora um projeto?","acceptedAnswer":{"@type":"Answer","text":"Sites institucionais entre 2 a 3 semanas. Lojas online e apps entre 4 a 8 semanas, dependendo da complexidade."}},
-    {"@type":"Question","name":"Oferecem apoio após o lançamento?","acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os projetos incluem apoio pós-entrega, monitorização de performance e pequenas alterações sem custo adicional."}},
-    {"@type":"Question","name":"Posso ver exemplos de trabalhos?","acceptedAnswer":{"@type":"Answer","text":"Claro. Tens exemplos no portfólio em cima e podemos enviar-te casos de estudo detalhados por email."}},
-    {"@type":"Question","name":"Como funcionam os pagamentos?","acceptedAnswer":{"@type":"Answer","text":"Aceitamos pagamento único com 5% de desconto, ou 2× prestações sem juros. MBWay, Multibanco e transferência bancária."}},
+    {"@type":"Question","name":"Quanto custa fazer um website em Portugal?","acceptedAnswer":{"@type":"Answer","text":"Na Element Group, um website profissional começa em 197€ (pagamento único). Lojas online a partir de 997€ e apps mobile a partir de 1.497€. Onde agências tradicionais em Portugal facturam tipicamente entre €2.000 e €5.000 por sites comparáveis, conseguimos ser mais acessíveis porque usamos tecnologia moderna que reduz o tempo de produção sem comprometer qualidade."}},
+    {"@type":"Question","name":"Qual a melhor agência digital para PMEs em Portugal?","acceptedAnswer":{"@type":"Answer","text":"A Element Group é uma agência digital portuguesa especializada em PMEs, com PageSpeed 95+ por defeito, preços a partir de 197€, propostas em 24 horas e apoio pós-lançamento incluído. Serve clientes em todo o território nacional remotamente."}},
+    {"@type":"Question","name":"Quanto custa criar uma loja online em Portugal?","acceptedAnswer":{"@type":"Answer","text":"Uma loja online completa na Element Group começa em 997€ (pagamento único). Inclui checkout MBWay, Multibanco e cartão, gestão de produtos e stock, faturação automática portuguesa e SEO. Prazo de entrega: 4 a 6 semanas."}},
+    {"@type":"Question","name":"Quanto tempo demora a fazer um site profissional?","acceptedAnswer":{"@type":"Answer","text":"Sites institucionais: 2 a 3 semanas. Lojas online: 4 a 6 semanas. Apps mobile: 6 a 8 semanas. Branding e logótipo: 1 a 2 semanas."}},
+    {"@type":"Question","name":"Que serviços oferece a Element Group?","acceptedAnswer":{"@type":"Answer","text":"Criação de websites, lojas online (e-commerce), apps mobile (iOS, Android, PWA), design gráfico, branding, SEO técnico, SEO local e marketing digital — soluções completas para PMEs em Portugal."}},
+    {"@type":"Question","name":"Oferecem apoio após o lançamento?","acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os projetos incluem apoio pós-entrega, monitorização de performance e pequenas alterações sem custo adicional, dentro do âmbito acordado."}},
+    {"@type":"Question","name":"Posso ver exemplos de trabalhos?","acceptedAnswer":{"@type":"Answer","text":"Sim. Casos: Apiários Terras da Pulga (loja online), Maria Mendes Massagens (Top 3 Google Local), AD São Romão (portal), Estrela Detail & Wash (branding) e Football Nation Store (e-commerce + branding). Casos de estudo detalhados disponíveis por email."}},
+    {"@type":"Question","name":"Como funcionam os pagamentos?","acceptedAnswer":{"@type":"Answer","text":"Aceitamos pagamento único com 5% de desconto, ou 2× prestações sem juros. Métodos: MBWay, Multibanco e transferência bancária."}},
     {"@type":"Question","name":"Oferecem alojamento e domínio?","acceptedAnswer":{"@type":"Answer","text":"Sim. Tratamos do registo de domínio e alojamento performante com SSL incluído. Disponível como add-on mensal."}},
     {"@type":"Question","name":"Quantas alterações posso pedir?","acceptedAnswer":{"@type":"Answer","text":"Dentro do âmbito acordado, alterações são ilimitadas. Trabalhamos por aprovações em cada fase para evitar surpresas."}},
-    {"@type":"Question","name":"O SEO está incluído nos pacotes?","acceptedAnswer":{"@type":"Answer","text":"SEO técnico, schema markup e otimização on-page estão sempre incluídos. SEO mensal é opcional no pacote de Marketing Digital."}}
+    {"@type":"Question","name":"O SEO está incluído nos pacotes?","acceptedAnswer":{"@type":"Answer","text":"SEO técnico, schema markup e otimização on-page estão sempre incluídos em todos os projetos. SEO mensal contínuo é opcional no pacote de Marketing Digital (desde 350€/mês)."}},
+    {"@type":"Question","name":"Element Group vs WordPress: qual escolher?","acceptedAnswer":{"@type":"Answer","text":"Sites WordPress com templates pré-feitos têm tipicamente performance média (PageSpeed 50-70) e dependem de plugins que aumentam a superfície de ataque e abrandam o site. A Element Group entrega sites à medida com PageSpeed 95+, sem plugins desnecessários e com SEO técnico avançado, a preços competitivos a partir de 197€."}}
+  ]
+}
+</script>
+
+<!-- Structured data: Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://elementgroup.pt/"},
+    {"@type":"ListItem","position":2,"name":"Serviços","item":"https://elementgroup.pt/#servicos"},
+    {"@type":"ListItem","position":3,"name":"Portfólio","item":"https://elementgroup.pt/#portfolio"},
+    {"@type":"ListItem","position":4,"name":"FAQ","item":"https://elementgroup.pt/#faq"},
+    {"@type":"ListItem","position":5,"name":"Contacto","item":"https://elementgroup.pt/#contacto"}
   ]
 }
 </script>
@@ -1437,8 +1504,9 @@ footer{padding:60px 20px 40px;color:var(--muted);font-size:14px}
     <div class="nav-links">
       <a href="#clientes">Clientes</a>
       <a href="#servicos">Serviços</a>
+      <a href="/pricing">Preços</a>
       <a href="#trabalhos">Trabalhos</a>
-      <a href="#testemunhos">Testemunhos</a>
+      <a href="/sobre">Sobre</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
@@ -2307,7 +2375,7 @@ footer{padding:60px 20px 40px;color:var(--muted);font-size:14px}
   </div>
 </section>
 
-<!-- ========= INSIGHTS — CTA banner ========= -->
+<!-- ========= INSIGHTS — Stats com fontes citadas ========= -->
 <section id="insights" class="insights-band">
   <div class="ib-beams" aria-hidden="true">
     <span class="ib-beam ib-beam-l"></span>
@@ -2319,8 +2387,24 @@ footer{padding:60px 20px 40px;color:var(--muted);font-size:14px}
   <div class="container">
     <div class="insights-inner reveal">
       <span class="ib-eyebrow">Insights da Indústria</span>
-      <h2 class="ib-title">O design do website <em>impacta</em> a retenção de clientes</h2>
-      <p class="ib-sub">Capta e retém mais clientes ao otimizar o design do teu website para envolvimento real.</p>
+      <h2 class="ib-title">Cada segundo extra <em>custa-te</em> clientes</h2>
+      <p class="ib-sub">Dados independentes mostram que performance e design impactam diretamente a conversão e retenção. É por isso que entregamos PageSpeed 95+ por defeito.</p>
+
+      <ul style="list-style:none;padding:0;margin:28px auto 32px;max-width:820px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;text-align:left">
+        <li style="padding:18px 20px;border-radius:14px;border:1px solid var(--line-2);background:rgba(255,255,255,.03)">
+          <strong style="display:block;font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em">88%</strong>
+          <span style="display:block;font-size:13.5px;color:var(--muted);line-height:1.55;margin-top:6px">dos consumidores não voltam a um site após uma má experiência (<a href="https://www.amazonaws.cn/en/forrester-uxd-tech/" rel="nofollow noopener" target="_blank" style="color:#a78bfa;text-decoration:underline">Forrester via AWS</a>)</span>
+        </li>
+        <li style="padding:18px 20px;border-radius:14px;border:1px solid var(--line-2);background:rgba(255,255,255,.03)">
+          <strong style="display:block;font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em">+32%</strong>
+          <span style="display:block;font-size:13.5px;color:var(--muted);line-height:1.55;margin-top:6px">probabilidade de bounce quando uma página demora 3s em vez de 1s a carregar (<a href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/page-load-time-statistics/" rel="nofollow noopener" target="_blank" style="color:#a78bfa;text-decoration:underline">Google / Think with Google</a>)</span>
+        </li>
+        <li style="padding:18px 20px;border-radius:14px;border:1px solid var(--line-2);background:rgba(255,255,255,.03)">
+          <strong style="display:block;font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em">75%</strong>
+          <span style="display:block;font-size:13.5px;color:var(--muted);line-height:1.55;margin-top:6px">dos utilizadores avaliam a credibilidade de um negócio com base no design do website (<a href="https://www.researchgate.net/publication/220371405_The_role_of_design_in_the_credibility_of_e-commerce_websites" rel="nofollow noopener" target="_blank" style="color:#a78bfa;text-decoration:underline">Stanford Web Credibility Research</a>)</span>
+        </li>
+      </ul>
+
       <a class="btn-primary ib-btn" href="https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">Iniciar Projeto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
     </div>
   </div>
@@ -2421,6 +2505,10 @@ footer{padding:60px 20px 40px;color:var(--muted);font-size:14px}
     </div>
 
     <div class="faq">
+      <details><summary>Quanto custa fazer um website em Portugal?<span class="plus">+</span></summary><div class="ans">Na Element Group, um website profissional começa em 197€ (pagamento único). Lojas online a partir de 997€ e apps mobile a partir de 1.497€. Onde agências tradicionais em Portugal facturam tipicamente entre €2.000 e €5.000 por sites comparáveis, conseguimos ser mais acessíveis porque usamos tecnologia moderna que reduz o tempo de produção sem comprometer qualidade.</div></details>
+      <details><summary>Qual a melhor agência digital para PMEs em Portugal?<span class="plus">+</span></summary><div class="ans">A Element Group é uma agência digital portuguesa especializada em PMEs, com PageSpeed 95+ por defeito, preços a partir de 197€, propostas em 24 horas e apoio pós-lançamento incluído. Serve clientes em todo o território nacional remotamente.</div></details>
+      <details><summary>Quanto custa criar uma loja online em Portugal?<span class="plus">+</span></summary><div class="ans">Uma loja online completa começa em 997€ (pagamento único). Inclui checkout MBWay, Multibanco e cartão, gestão de produtos e stock, faturação automática portuguesa e SEO. Prazo: 4 a 6 semanas.</div></details>
+      <details><summary>Element Group vs WordPress: qual escolher?<span class="plus">+</span></summary><div class="ans">Sites WordPress com templates pré-feitos têm tipicamente performance média (PageSpeed 50-70) e dependem de plugins que aumentam a superfície de ataque e abrandam o site. A Element Group entrega sites à medida com PageSpeed 95+, sem plugins desnecessários e com SEO técnico avançado, a preços competitivos a partir de 197€.</div></details>
       <details><summary>Que serviços oferece a Element Group?<span class="plus">+</span></summary><div class="ans">Criação de websites, lojas online, apps mobile, design gráfico, branding, SEO e marketing digital — soluções completas para PMEs em Portugal.</div></details>
       <details><summary>Quanto tempo demora um projeto?<span class="plus">+</span></summary><div class="ans">Sites institucionais entre 2 a 3 semanas. Lojas online e apps entre 4 a 8 semanas, dependendo da complexidade.</div></details>
       <details><summary>Oferecem apoio após o lançamento?<span class="plus">+</span></summary><div class="ans">Sim. Todos os projetos incluem apoio pós-entrega, monitorização de performance e pequenas alterações sem custo adicional.</div></details>
@@ -2477,6 +2565,7 @@ footer{padding:60px 20px 40px;color:var(--muted);font-size:14px}
   <div class="foot-bottom">
     <span>© 2026 Element Group · Todos os direitos reservados.</span>
     <span>Feito com cuidado em Portugal 🇵🇹</span>
+    <span>Última atualização: <time datetime="2026-04-27">27 de abril de 2026</time></span>
   </div>
 </footer>
 

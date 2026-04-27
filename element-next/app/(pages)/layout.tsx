@@ -53,7 +53,9 @@ export default function PagesLayout({ children }: { children: React.ReactNode })
               {[
                 { label: 'Início', href: '/' },
                 { label: 'Serviços', href: '/servicos' },
+                { label: 'Preços', href: '/pricing' },
                 { label: 'Portfolio', href: '/portfolio' },
+                { label: 'Sobre', href: '/sobre' },
                 { label: 'Contacto', href: 'https://wa.me/351930477894' },
               ].map(l => (
                 <a

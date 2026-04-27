@@ -89,7 +89,7 @@ export async function onRequest(context) {
     return handleAdminBypass(context);
   }
 
-  const enabled = !env || env.MAINTENANCE_MODE !== "false";
+  const enabled = env && env.MAINTENANCE_MODE === "true";
   if (!enabled) return next();
 
   if (PASSTHROUGH.some((re) => re.test(url.pathname))) return next();

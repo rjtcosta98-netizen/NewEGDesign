@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const runtime = 'edge';
+
 const ADMIN_PASSWORD = process.env.ADMIN_BYPASS_PASSWORD || "element2026";
 const COOKIE_NAME = "eg_bypass";
 const MAX_AGE = 60 * 60 * 24 * 30; // 30 days

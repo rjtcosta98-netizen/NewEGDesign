@@ -1,3 +1,5 @@
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
 /** @type {import('next').NextConfig} */
 const supabaseHost = process.env.NEXT_PUBLIC_SUPABASE_URL
   ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname
@@ -16,6 +18,19 @@ const nextConfig = {
         ]
       : [],
   },
+  webpack(config) {
+    // Bundle these files as raw strings at build time so they work on Cloudflare's
+    // edge runtime (which has no node:fs).
+    config.module.rules.unshift(
+      { test: /\/_body\.html$/, type: 'asset/source' },
+      { test: /\/_scripts\.js$/, type: 'asset/source' },
+    );
+    return config;
+  },
 };
+
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
+}
 
 export default nextConfig;
