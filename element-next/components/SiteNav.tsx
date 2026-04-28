@@ -71,9 +71,7 @@ export default function SiteNav() {
           <div className="nav-cta">
             <a
               className="btn-primary"
-              href="https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento."
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contacto"
             >
               <span>Pedir orçamento</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
@@ -142,9 +140,7 @@ export default function SiteNav() {
           <div style={{ marginTop: 28, display: 'flex', flexDirection: 'column', gap: 12 }}>
             <a
               className="btn-primary"
-              href="https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento."
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contacto"
               style={{ textAlign: 'center', justifyContent: 'center', padding: '15px 24px', fontSize: 15 }}
               onClick={() => setOpen(false)}
             >

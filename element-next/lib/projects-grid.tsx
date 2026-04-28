@@ -169,9 +169,8 @@ export async function renderProjectsGridHTML(): Promise<string> {
   return source
     .map((p, i) => {
       const color = COLOR_CYCLE[i % COLOR_CYCLE.length];
-      const WA_URL = "https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento.";
-      const href = p.url ?? WA_URL;
-      const external = true;
+      const href = p.url ?? '/contacto';
+      const external = !!p.url;
       const clientName = p.client?.name ?? p.title;
       const cover = publicAsset(PROJECT_IMAGES, p.cover_path);
       const variant = variantFor(p.category, i);
