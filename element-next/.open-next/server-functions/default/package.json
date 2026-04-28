@@ -1,0 +1,29 @@
+{
+  "name": "element-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:cf": "npx @opennextjs/cloudflare build",
+    "deploy": "npm run build:cf && wrangler deploy",
+    "preview": "npm run build:cf && wrangler dev",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.0",
+    "next": "15.5.15",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@opennextjs/cloudflare": "latest",
+    "@types/node": "20.14.10",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "esbuild": "^0.27.0",
+    "typescript": "5.5.3",
+    "wrangler": "^4.85.0"
+  }
+}

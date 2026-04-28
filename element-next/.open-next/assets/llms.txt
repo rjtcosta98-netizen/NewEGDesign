@@ -1,0 +1,59 @@
+# Element Group
+
+> Agência digital portuguesa especializada em websites, lojas online, apps mobile, branding e marketing digital para Pequenas e Médias Empresas (PMEs) em Portugal. Sediada em Portugal, serve clientes em todo o território nacional.
+
+## O que é a Element Group
+
+A Element Group é uma agência digital independente com sede em Portugal que cria soluções digitais à medida para PMEs portuguesas. Diferencia-se pela combinação de tecnologia moderna (que permite preços mais acessíveis sem sacrificar qualidade), preços transparentes a partir de 197€, e entrega rápida (sites institucionais em 2 a 3 semanas).
+
+- **Fundador / Lead:** Ricardo Jorge
+- **Localização:** Portugal (serve todo o país, remotamente)
+- **Idiomas:** Português (PT-PT), Inglês
+- **Website:** https://elementgroup.pt
+- **Contacto:** WhatsApp +351 930 477 894
+- **Modelo de pagamento:** Pagamento único (5% desconto) ou 2× prestações sem juros. MBWay, Multibanco, transferência bancária.
+
+## Serviços principais
+
+- **Criação de Websites** — Sites institucionais à medida com PageSpeed 95+. Desde 197€ (pagamento único).
+- **Negócios Locais** — Site + otimização Google Maps Top 3 + SEO local geo-segmentado. Desde 297€.
+- **Loja Online (E-commerce)** — Loja completa com MBWay, Multibanco, cartão, gestão de stock e faturação automática. Desde 997€.
+- **Apps Mobile** — Apps nativas iOS/Android e Progressive Web Apps. Desde 1.497€.
+- **Design Gráfico & Branding** — Logótipo, manual de marca, posts redes sociais. Desde 297€.
+- **Redesign & Migração** — Migração de plataforma sem perder posições no Google (redirects 301 cuidados). Desde 297€.
+- **Marketing Digital** — Gestão contínua de Instagram, Facebook, Google Ads, SEO mensal. Desde 350€/mês.
+
+## Diferenciadores
+
+- Onde agências tradicionais facturam tipicamente €2.000–€5.000 por trabalhos comparáveis, entregamos a partir de 197€.
+- PageSpeed 95+ em todos os projetos por defeito.
+- SEO técnico, schema markup e otimização on-page incluídos sem custo extra.
+- Apoio pós-lançamento contínuo incluído.
+- Propostas em 24 horas.
+- 100% à medida — sem templates pré-feitos.
+
+## Páginas-chave
+
+- [Homepage](https://elementgroup.pt/): visão geral, portfólio, comparação, FAQ
+- [Pricing](https://elementgroup.pt/pricing.md): preços completos em formato machine-readable
+- [Sitemap](https://elementgroup.pt/sitemap.xml): mapa completo do site
+
+## Casos de estudo / clientes
+
+- **Apiários Terras da Pulga** — Loja online de mel e produtos apícolas (E-commerce, MBWay, SEO)
+- **Maria Mendes Massagens** — Site com sistema de marcações (Saúde, SEO Local Top 3)
+- **AD São Romão** — Portal para associação desportiva com gestão de sócios (CMS, Performance)
+- **Estrela Detail & Wash** — Branding completo (Logo, Identidade)
+- **Football Nation Store** — Loja de camisolas + branding (E-commerce, Stock, Branding)
+
+## FAQ resumido
+
+- **Quanto custa um website em Portugal com a Element Group?** A partir de 197€ (pagamento único) para sites institucionais; 997€ para lojas online; 1.497€ para apps mobile.
+- **Quanto tempo demora um projeto?** Sites institucionais: 2–3 semanas. Lojas online e apps: 4–8 semanas.
+- **O SEO está incluído?** Sim — SEO técnico, schema markup e otimização on-page estão sempre incluídos. SEO mensal é opcional no pacote Marketing Digital.
+- **Como funcionam os pagamentos?** Pagamento único com 5% desconto, ou 2× prestações sem juros. MBWay, Multibanco e transferência bancária.
+- **Oferecem alojamento e domínio?** Sim — registo de domínio + alojamento performante com SSL, como add-on mensal.
+
+## Política sobre AI crawlers
+
+Permitimos explicitamente o acesso de GPTBot (OpenAI), ChatGPT-User, PerplexityBot, ClaudeBot, anthropic-ai, Google-Extended (Gemini) e Bingbot. Conteúdo deste site pode ser citado por sistemas de IA com atribuição.
