@@ -48,6 +48,87 @@ async function fetchHeroProjects(): Promise<HeroProject[]> {
   return (data ?? []) as HeroProject[];
 }
 
+function fallbackHeroProjects(): HeroProject[] {
+  return [
+    {
+      id: "fallback-hero-1",
+      slug: "maria-mendes-massagens",
+      title: "Maria Mendes Massagens",
+      description: "Website com sistema de marcações online para centro de massagens terapêuticas.",
+      category: "Negócio local",
+      tags: ["SEO Local", "WhatsApp"],
+      glyph: "MM",
+      glyph_color: null,
+      glyph_italic: false,
+      badge_value: "95+",
+      badge_label: "PAGESPEED",
+      badge_color: null,
+      live_url: null,
+      image_path: null,
+      is_published: true,
+      display_order: 100,
+      published_at: null,
+    },
+    {
+      id: "fallback-hero-2",
+      slug: "ad-sao-romao",
+      title: "AD São Romão",
+      description: "Website institucional para associação desportiva local com calendário de jogos e notícias.",
+      category: "Institucional",
+      tags: ["Website", "Notícias", "Calendário"],
+      glyph: "AD",
+      glyph_color: null,
+      glyph_italic: false,
+      badge_value: "14 dias",
+      badge_label: "TEMPO DE ENTREGA",
+      badge_color: null,
+      live_url: null,
+      image_path: null,
+      is_published: true,
+      display_order: 90,
+      published_at: null,
+    },
+    {
+      id: "fallback-hero-3",
+      slug: "estrela-detail-wash",
+      title: "Estrela Detail & Wash",
+      description: "Website profissional para serviço de detailing e lavagem automóvel com marcações online.",
+      category: "Automóvel · Serviços",
+      tags: ["Website", "Marcações", "Local"],
+      glyph: "EDW",
+      glyph_color: null,
+      glyph_italic: true,
+      badge_value: "100%",
+      badge_label: "SATISFAÇÃO",
+      badge_color: null,
+      live_url: null,
+      image_path: null,
+      is_published: true,
+      display_order: 80,
+      published_at: null,
+    },
+    {
+      id: "fallback-hero-4",
+      slug: "football-nation-store",
+      title: "Football Nation Store",
+      description: "Logótipo e cartão de visita profissional para e-commerce de camisolas de clubes.",
+      category: "Design gráfico",
+      tags: ["Branding", "Print", "Identidade"],
+      glyph: "FNS",
+      glyph_color: null,
+      glyph_italic: false,
+      badge_value: "100%",
+      badge_label: "SATISFAÇÃO",
+      badge_color: null,
+      live_url: null,
+      image_path: null,
+      is_published: true,
+      display_order: 70,
+      published_at: null,
+    },
+  ];
+}
+
 const LIVE_ICON =
   '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M9 7h8v8"/></svg>';
 
@@ -58,9 +139,9 @@ const LIVE_ICON =
  */
 export async function renderHeroProjectsHTML(): Promise<string> {
   const rows = await fetchHeroProjects();
-  if (rows.length === 0) return "";
+  const source = rows.length > 0 ? rows : fallbackHeroProjects();
 
-  return rows
+  return source
     .map((p) => {
       const glyphStyleParts: string[] = [];
       if (p.glyph_italic) glyphStyleParts.push("font-style:italic");

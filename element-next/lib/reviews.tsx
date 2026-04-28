@@ -54,6 +54,56 @@ async function fetchReviews(): Promise<Review[]> {
   return (data ?? []) as Review[];
 }
 
+function fallbackReviews(): Review[] {
+  return [
+    {
+      id: "fallback-review-1",
+      slug: "rafael-figueiredo",
+      author_name: "Rafael Figueiredo",
+      author_role: "Presidente · ADSR",
+      initials: "RF",
+      avatar_path: null,
+      text: "Reitero em meu nome e em nome da ADSR um enorme agradecimento, bem como, a recomendação da Element Group, na pessoa do Ricardo Costa pela competência e profissionalismo demonstrados na concepção deste projeto.",
+      rating: 5,
+      source: null,
+      source_url: null,
+      is_published: true,
+      display_order: 100,
+      published_at: null,
+    },
+    {
+      id: "fallback-review-2",
+      slug: "matias-nature",
+      author_name: "Mafalda Costa",
+      author_role: "Fundadora · Matias Nature",
+      initials: "MC",
+      avatar_path: null,
+      text: "A equipa entregou um resultado acima do esperado. O novo site ficou rápido, bonito e já estamos a receber mais pedidos logo nas primeiras semanas.",
+      rating: 5,
+      source: null,
+      source_url: null,
+      is_published: true,
+      display_order: 90,
+      published_at: null,
+    },
+    {
+      id: "fallback-review-3",
+      slug: "football-nation-store",
+      author_name: "Bruno Martins",
+      author_role: "CEO · Football Nation Store",
+      initials: "BM",
+      avatar_path: null,
+      text: "Processo super simples e comunicação impecável. Saímos com branding e loja online prontos para vender, sem dores de cabeça.",
+      rating: 5,
+      source: null,
+      source_url: null,
+      is_published: true,
+      display_order: 80,
+      published_at: null,
+    },
+  ];
+}
+
 /**
  * Returns the HTML string for the testimonial carousel cards.
  * Replaces <!-- REVIEWS_MARKER --> inside .tx-stage in _body.html.
@@ -61,9 +111,9 @@ async function fetchReviews(): Promise<Review[]> {
  */
 export async function renderReviewsHTML(): Promise<string> {
   const rows = await fetchReviews();
-  if (rows.length === 0) return "";
+  const source = rows.length > 0 ? rows : fallbackReviews();
 
-  return rows
+  return source
     .map((r, idx) => {
       const initials = (r.initials ?? deriveInitials(r.author_name)).slice(0, 3);
       const stars = Array.from({ length: Math.max(0, Math.min(5, r.rating)) })

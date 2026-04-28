@@ -26,6 +26,23 @@ export default function SiteNav() {
     return () => window.removeEventListener('resize', close);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [open]);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    if (open) document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
   return (
     <>
       <div className="nav-wrap">
@@ -100,8 +117,12 @@ export default function SiteNav() {
             background: 'rgba(5,7,13,.97)',
             backdropFilter: 'blur(20px)',
             display: 'flex', flexDirection: 'column',
-            padding: '100px 24px 40px',
+            paddingTop: 'max(100px, calc(env(safe-area-inset-top) + 72px))',
+            paddingRight: '24px',
+            paddingBottom: 'max(40px, env(safe-area-inset-bottom))',
+            paddingLeft: '24px',
             gap: 6,
+            overflowY: 'auto',
           }}
           role="dialog"
           aria-label="Menu de navegação"

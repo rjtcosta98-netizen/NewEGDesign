@@ -26,7 +26,7 @@
   --font-serif:var(--font-instrument), ui-serif, Georgia, serif;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;max-width:100%}
 body{overflow-x:hidden;position:relative}
 
 /* ---------- Continuous global atmosphere (bridges all sections) ----------
@@ -129,10 +129,52 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   display:none;place-items:center;
   background:rgba(255,255,255,.04);border:1px solid var(--line-2);
 }
+.home-mobile-menu{
+  position:fixed;inset:0;z-index:49;
+  background:rgba(5,7,13,.97);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;gap:6px;
+  padding:max(100px, calc(env(safe-area-inset-top) + 72px)) 24px max(40px, env(safe-area-inset-bottom));
+  overflow-y:auto;
+}
+.home-mobile-menu[hidden]{display:none}
+.home-mobile-menu a{
+  display:block;padding:16px 0;
+  font-size:24px;font-weight:700;letter-spacing:-.02em;
+  color:#fff;border-bottom:1px solid var(--line);
+  text-decoration:none;
+}
+.home-mobile-menu-cta{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+.home-mobile-menu-cta .btn-primary{
+  justify-content:center;text-align:center;
+  padding:15px 24px;font-size:15px;
+}
 @media(max-width:980px){
+  .nav{padding:9px 10px 9px 12px}
+  .nav-cta{gap:8px}
+  .nav-cta .btn-primary{padding:10px 16px;font-size:13.5px}
   .nav-links{display:none}
   .nav-cta .btn-ghost{display:none}
   .menu-btn{display:grid}
+}
+@media(max-width:600px){
+  .nav-wrap{top:10px;padding:0 10px}
+  .nav{padding:8px 8px 8px 10px;border-radius:26px}
+  .brand{gap:8px}
+  .brand .mark{width:30px;height:30px;font-size:16px;border-radius:8px}
+  .brand .name b{font-size:13px}
+  .brand .name small{display:none}
+  .nav-cta{margin-left:auto}
+  .nav-cta .btn-primary{
+    padding:9px 12px;
+    font-size:11.5px;
+    line-height:1.18;
+    max-width:124px;
+    text-align:left;
+  }
+  .menu-btn{width:40px;height:40px}
+  .home-mobile-menu a{font-size:22px}
 }
 
 /* Mobile-only hero refinements (não toca em desktop ≥601px) */
@@ -230,7 +272,7 @@ h1.hero-title{
 
 /* ---------- Hero portfolio (substitui devices) ---------- */
 .hero-portfolio{
-  margin-top:80px;width:100vw;max-width:100vw;
+  margin-top:80px;width:100%;max-width:100%;
   position:relative;overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -252,6 +294,14 @@ h1.hero-title{
   transition:transform .35s ease, border-color .35s;
 }
 @media(max-width:980px){ .proj{flex-basis:320px;width:320px} }
+@media(max-width:600px){
+  .hero-portfolio{margin-top:52px}
+  .hp-track{gap:14px;padding:0 8px}
+  .proj{flex-basis:min(84vw,320px);width:min(84vw,320px)}
+  .proj .preview{height:164px}
+  .proj .glyph{font-size:52px}
+  .proj .info{padding:16px 16px 18px}
+}
 .proj:hover{transform:translateY(-4px);border-color:rgba(150,120,255,.35)}
 .proj .preview{
   position:relative;height:180px;
@@ -826,6 +876,27 @@ section.has-atmos:not(#funcionalidades):not(#resultados):not(#trabalhos):not(#te
   .card3d.is-prev,.card3d.is-next{transform:translate3d(0,0,-200px) scale(.6);opacity:0;pointer-events:none}
   .card3d.is-prev2,.card3d.is-next2{display:none}
 }
+@media(max-width:600px){
+  .svc3d{height:560px}
+  .card3d{
+    width:min(88vw,300px);
+    margin-left:calc(-1 * min(44vw,150px));
+    height:auto;
+    min-height:430px;
+    padding:24px 20px 20px;
+    gap:12px;
+  }
+  .card3d .c-pop{top:14px;right:14px}
+  .card3d h4{font-size:20px}
+  .card3d .c-price b{font-size:28px}
+  .card3d .c-list li{font-size:13px}
+  .svc3d-nav{width:44px;height:44px}
+  .svc3d-dots{bottom:-10px}
+  .kf-num{font-size:52px}
+  .kf-num small{font-size:24px}
+  .rc-bars{gap:6px;padding:10px 2px 28px}
+  .rc-foot{grid-template-columns:1fr}
+}
 
 /* ---------- Funcionalidades-chave (Key Features) ---------- */
 .kf-grid{
@@ -1282,11 +1353,66 @@ section.has-atmos:not(#funcionalidades):not(#resultados):not(#trabalhos):not(#te
   .ap-badge{right:auto;left:50%;transform:translateX(-50%)}
 }
 @media(max-width:520px){
+  .about-grid{gap:26px}
+  .about-photo{padding-top:4px}
+  .ap-stack{
+    max-width:420px;
+    aspect-ratio:1/1.08;
+  }
+  .ap-card-back{
+    left:0;
+    top:10%;
+    width:56%;
+    height:70%;
+    transform:rotate(-2.2deg);
+  }
+  .ap-card-front{
+    right:0;
+    bottom:2%;
+    width:66%;
+    height:76%;
+    transform:rotate(1.6deg);
+  }
+  .ap-badge{
+    top:6px;
+    left:50%;
+    right:auto;
+    transform:translateX(-50%);
+    gap:8px;
+    padding:8px 12px;
+  }
+  .ap-badge-text strong{font-size:11px}
+  .ap-badge-text em{font-size:9.5px}
+  .ap-flag{font-size:14px}
   .ap-card figcaption{left:10px;right:10px;bottom:10px;padding:7px 11px;border-radius:9px}
   .ap-card figcaption b{font-size:12.5px}
   .ap-card figcaption small{font-size:10.5px}
+  .about-text{gap:14px}
+  .about-text .section-title{
+    font-size:clamp(32px, 9vw, 38px);
+    line-height:1.08;
+  }
+  .about-lead{
+    font-size:15.5px;
+    line-height:1.62;
+  }
+  .about-cta{
+    width:100%;
+    flex-direction:column;
+  }
+  .about-cta .btn-primary,
+  .about-cta .btn-ghost{
+    width:100%;
+    justify-content:center;
+    padding:13px 16px;
+  }
   .about-pills{gap:8px}
-  .about-pills li{padding:8px 12px;font-size:12.5px}
+  .about-pills li{
+    padding:8px 12px;
+    font-size:12.5px;
+    width:calc(50% - 4px);
+    justify-content:center;
+  }
 }
 
 /* ---------- Tecnologias ---------- */
@@ -1584,7 +1710,7 @@ footer{padding:60px 20px 40px;color:var(--muted);font-size:14px}
 }
 .eg-projects__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 24px;
 }
 .eg-project {

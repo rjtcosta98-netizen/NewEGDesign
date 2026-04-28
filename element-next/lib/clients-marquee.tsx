@@ -40,6 +40,71 @@ async function fetchMarqueeLogos(): Promise<MarqueeLogo[]> {
   return (data ?? []) as MarqueeLogo[];
 }
 
+function fallbackMarqueeLogos(): MarqueeLogo[] {
+  return [
+    {
+      id: "fallback-logo-1",
+      slug: "maria-mendes",
+      name: "Maria Mendes Massagens",
+      initials: "MM",
+      color_class: "maria",
+      italic: true,
+      logo_path: null,
+      website: null,
+      is_published: true,
+      display_order: 100,
+    },
+    {
+      id: "fallback-logo-2",
+      slug: "ad-sao-romao",
+      name: "AD São Romão",
+      initials: "AD",
+      color_class: "adsr",
+      italic: false,
+      logo_path: null,
+      website: null,
+      is_published: true,
+      display_order: 90,
+    },
+    {
+      id: "fallback-logo-3",
+      slug: "estrela-detail-wash",
+      name: "Estrela Detail & Wash",
+      initials: "EDW",
+      color_class: "estrela",
+      italic: false,
+      logo_path: null,
+      website: null,
+      is_published: true,
+      display_order: 80,
+    },
+    {
+      id: "fallback-logo-4",
+      slug: "football-nation-store",
+      name: "Football Nation Store",
+      initials: "FNS",
+      color_class: "fns",
+      italic: false,
+      logo_path: null,
+      website: null,
+      is_published: true,
+      display_order: 70,
+    },
+    {
+      id: "fallback-logo-5",
+      slug: "matias-nature",
+      name: "Matias Nature",
+      initials: "MN",
+      color_class: "matias",
+      italic: true,
+      logo_path: null,
+      website: null,
+      is_published: true,
+      display_order: 60,
+    },
+  ];
+}
+
 function renderLogoMark(p: MarqueeLogo): string {
   const cover = publicAsset(LOGO_BUCKET, p.logo_path);
   if (cover) {
@@ -63,10 +128,10 @@ function renderLogoItem(p: MarqueeLogo, ariaHidden: boolean): string {
  */
 export async function renderMarqueeLogosHTML(): Promise<string> {
   const rows = await fetchMarqueeLogos();
-  if (rows.length === 0) return "";
+  const source = rows.length > 0 ? rows : fallbackMarqueeLogos();
 
-  const cycle1 = rows.map((p) => renderLogoItem(p, false)).join("\n        ");
-  const cycle2 = rows.map((p) => renderLogoItem(p, true)).join("\n        ");
+  const cycle1 = source.map((p) => renderLogoItem(p, false)).join("\n        ");
+  const cycle2 = source.map((p) => renderLogoItem(p, true)).join("\n        ");
 
   return `<!-- ciclo 1 -->\n        ${cycle1}\n        <!-- ciclo 2 (duplicado para loop infinito) -->\n        ${cycle2}`;
 }

@@ -2,6 +2,37 @@
 const hpTrack = document.querySelector('.hp-track');
 if(hpTrack){ hpTrack.insertAdjacentHTML('beforeend', hpTrack.innerHTML); }
 
+// Menu mobile da homepage
+(function(){
+  const menuBtn = document.getElementById('home-menu-btn');
+  const menu = document.getElementById('home-mobile-menu');
+  if(!menuBtn || !menu) return;
+
+  const setOpen = (open) => {
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+    setOpen(!isOpen);
+  });
+
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  window.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape') setOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 980) setOpen(false);
+  });
+})();
+
 // Carrossel 3D dos serviços
 (function(){
   const stage = document.querySelector('.svc3d-stage');

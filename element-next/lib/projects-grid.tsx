@@ -30,6 +30,101 @@ async function getProjects(): Promise<Row[]> {
   return (data ?? []) as unknown as Row[];
 }
 
+function fallbackProjects(): Row[] {
+  return [
+    {
+      id: "fallback-project-1",
+      slug: "apiarios-terras-pulga",
+      title: "Apiários Terras da Pulga",
+      client_id: null,
+      description: "Loja online para venda de mel e produtos apícolas com checkout MBWay e Multibanco.",
+      category: "website",
+      cover_path: null,
+      gallery: [],
+      url: null,
+      is_published: true,
+      display_order: 110,
+      published_at: null,
+      client: { id: "c1", slug: "apiarios", name: "Apiários Terras da Pulga", industry: null, website: null, logo_path: null },
+    },
+    {
+      id: "fallback-project-2",
+      slug: "maria-mendes-massagens",
+      title: "Maria Mendes Massagens",
+      client_id: null,
+      description: "Website com sistema de marcações online para centro de massagens terapêuticas.",
+      category: "website",
+      cover_path: null,
+      gallery: [],
+      url: null,
+      is_published: true,
+      display_order: 100,
+      published_at: null,
+      client: { id: "c2", slug: "maria", name: "Maria Mendes Massagens", industry: null, website: null, logo_path: null },
+    },
+    {
+      id: "fallback-project-3",
+      slug: "ad-sao-romao",
+      title: "AD São Romão",
+      client_id: null,
+      description: "Website institucional para associação desportiva local com calendário de jogos e notícias.",
+      category: "website",
+      cover_path: null,
+      gallery: [],
+      url: null,
+      is_published: true,
+      display_order: 90,
+      published_at: null,
+      client: { id: "c3", slug: "ad-sr", name: "AD São Romão", industry: null, website: null, logo_path: null },
+    },
+    {
+      id: "fallback-project-4",
+      slug: "estrela-detail-wash",
+      title: "Estrela Detail & Wash",
+      client_id: null,
+      description: "Website profissional para serviço de detailing e lavagem automóvel com marcações online.",
+      category: "website",
+      cover_path: null,
+      gallery: [],
+      url: null,
+      is_published: true,
+      display_order: 80,
+      published_at: null,
+      client: { id: "c4", slug: "estrela", name: "Estrela Detail & Wash", industry: null, website: null, logo_path: null },
+    },
+    {
+      id: "fallback-project-5",
+      slug: "football-nation-store-branding",
+      title: "Football Nation Store — Branding",
+      client_id: null,
+      description: "Logótipo e cartão de visita profissional para e-commerce de camisolas de clubes.",
+      category: "branding",
+      cover_path: null,
+      gallery: [],
+      url: null,
+      is_published: true,
+      display_order: 70,
+      published_at: null,
+      client: { id: "c5", slug: "fns", name: "Football Nation Store", industry: null, website: null, logo_path: null },
+    },
+    {
+      id: "fallback-project-6",
+      slug: "matias-nature",
+      title: "Matias Nature",
+      client_id: null,
+      description: "E-commerce + App PWA para marca de produtos naturais. Catálogo, checkout e área de cliente.",
+      category: "website",
+      cover_path: null,
+      gallery: [],
+      url: null,
+      is_published: true,
+      display_order: 60,
+      published_at: null,
+      client: { id: "c6", slug: "matias", name: "Matias Nature", industry: null, website: null, logo_path: null },
+    },
+  ];
+}
+
 function variantFor(category: string | null, index: number): Variant {
   const c = (category ?? "").toLowerCase();
   if (/(loja|shop|ecommerce|e-commerce|store)/.test(c)) return 2;
@@ -71,9 +166,9 @@ function screenBody(variant: Variant, cover: string | null, alt: string): string
  */
 export async function renderProjectsGridHTML(): Promise<string> {
   const projects = await getProjects();
-  if (projects.length === 0) return "";
+  const source = projects.length > 0 ? projects : fallbackProjects();
 
-  return projects
+  return source
     .map((p, i) => {
       const color = COLOR_CYCLE[i % COLOR_CYCLE.length];
       const WA_URL = "https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento.";
