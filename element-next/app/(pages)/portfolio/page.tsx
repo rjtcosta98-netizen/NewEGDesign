@@ -1,9 +1,9 @@
+import { cache } from 'react';
 import type { Metadata } from 'next';
 import {
   getSupabase,
   publicAsset,
   PROJECT_IMAGES,
-  CLIENT_LOGOS,
   type Project,
   type Client,
 } from '@/lib/supabase';
@@ -183,7 +183,7 @@ const STATIC_PROJECTS: PortfolioProject[] = [
 /* ─── Supabase fetch ─── */
 type SupabaseRow = Project & { client: Client | null };
 
-async function fetchFromSupabase(): Promise<PortfolioProject[]> {
+const fetchFromSupabase = cache(async (): Promise<PortfolioProject[]> => {
   const sb = getSupabase();
   if (!sb) return [];
 
@@ -216,7 +216,7 @@ async function fetchFromSupabase(): Promise<PortfolioProject[]> {
     testimonial: undefined,
     source: 'supabase' as const,
   }));
-}
+});
 
 export default async function PortfolioPage() {
   const supabaseProjects = await fetchFromSupabase();

@@ -1,4 +1,6 @@
+import { cache } from "react";
 import { getSupabase, publicAsset } from "./supabase";
+import { esc } from "./utils";
 
 const HERO_BUCKET = "hero-images";
 
@@ -22,16 +24,7 @@ export type HeroProject = {
   published_at: string | null;
 };
 
-function esc(s: string | null | undefined): string {
-  return String(s ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-async function fetchHeroProjects(): Promise<HeroProject[]> {
+const fetchHeroProjects = cache(async (): Promise<HeroProject[]> => {
   const sb = getSupabase();
   if (!sb) return [];
   const { data, error } = await sb
@@ -46,7 +39,7 @@ async function fetchHeroProjects(): Promise<HeroProject[]> {
     return [];
   }
   return (data ?? []) as HeroProject[];
-}
+});
 
 function fallbackHeroProjects(): HeroProject[] {
   return [

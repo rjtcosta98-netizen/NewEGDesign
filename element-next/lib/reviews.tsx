@@ -1,4 +1,6 @@
+import { cache } from "react";
 import { getSupabase, publicAsset } from "./supabase";
+import { esc } from "./utils";
 
 const AVATAR_BUCKET = "review-avatars";
 
@@ -18,15 +20,6 @@ export type Review = {
   published_at: string | null;
 };
 
-function esc(s: string | null | undefined): string {
-  return String(s ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
 function deriveInitials(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return "??";
@@ -37,7 +30,7 @@ function deriveInitials(name: string): string {
 const QUOTE_SVG =
   '<svg class="tx-quote" width="42" height="34" viewBox="0 0 38 32" fill="currentColor"><path d="M0 18C0 8 6 2 16 0v6c-5 1-8 5-8 10h8v16H0V18zm22 0c0-10 6-16 16-18v6c-5 1-8 5-8 10h8v16H22V18z"/></svg>';
 
-async function fetchReviews(): Promise<Review[]> {
+const fetchReviews = cache(async (): Promise<Review[]> => {
   const sb = getSupabase();
   if (!sb) return [];
   const { data, error } = await sb
@@ -52,7 +45,7 @@ async function fetchReviews(): Promise<Review[]> {
     return [];
   }
   return (data ?? []) as Review[];
-}
+});
 
 function fallbackReviews(): Review[] {
   return [

@@ -1,3 +1,4 @@
+import { cache } from "react";
 import {
   getSupabase,
   publicAsset,
@@ -5,13 +6,14 @@ import {
   type Project,
   type Client,
 } from "./supabase";
+import { esc } from "./utils";
 
 type Row = Project & { client: Client | null };
 type Variant = 1 | 2 | 3 | 4;
 
 const COLOR_CYCLE = ["violet", "green", "cyan", "yellow"] as const;
 
-async function getProjects(): Promise<Row[]> {
+const getProjects = cache(async (): Promise<Row[]> => {
   const sb = getSupabase();
   if (!sb) return [];
   const { data, error } = await sb
@@ -28,7 +30,7 @@ async function getProjects(): Promise<Row[]> {
     return [];
   }
   return (data ?? []) as unknown as Row[];
-}
+});
 
 function fallbackProjects(): Row[] {
   return [
@@ -125,22 +127,18 @@ function fallbackProjects(): Row[] {
   ];
 }
 
+const RE_ECOMMERCE = /(loja|shop|ecommerce|e-commerce|store)/;
+const RE_LOCAL     = /(bistro|restaur|local|food|negóc|negoc)/;
+const RE_APP       = /(app|mobile|ios|android|fitness|saúde|saude)/;
+const RE_WEB       = /(web|site|website|brand|design|landing)/;
+
 function variantFor(category: string | null, index: number): Variant {
   const c = (category ?? "").toLowerCase();
-  if (/(loja|shop|ecommerce|e-commerce|store)/.test(c)) return 2;
-  if (/(bistro|restaur|local|food|negóc|negoc)/.test(c)) return 3;
-  if (/(app|mobile|ios|android|fitness|saúde|saude)/.test(c)) return 4;
-  if (/(web|site|website|brand|design|landing)/.test(c)) return 1;
+  if (RE_ECOMMERCE.test(c)) return 2;
+  if (RE_LOCAL.test(c))     return 3;
+  if (RE_APP.test(c))       return 4;
+  if (RE_WEB.test(c))       return 1;
   return ((index % 4) + 1) as Variant;
-}
-
-function esc(s: string | null | undefined): string {
-  return String(s ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
 }
 
 function screenBody(variant: Variant, cover: string | null, alt: string): string {

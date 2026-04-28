@@ -115,7 +115,7 @@ export default function PortfolioClient({ projects }: { projects: PortfolioProje
         )}
 
         {/* Testimonials panel */}
-        {filtered.some(p => p.testimonial) && (
+        {filtered.some(p => p.testimonial) ? (
           <div className="pf-ts-panel">
             <div className="pf-ts-head">
               <p className="pf-ts-eyebrow">O que dizem os nossos clientes</p>
@@ -142,7 +142,7 @@ export default function PortfolioClient({ projects }: { projects: PortfolioProje
               ))}
             </div>
           </div>
-        )}
+        ) : null}
 
         {/* CTA */}
         <div className="pf-cta">
@@ -227,12 +227,12 @@ function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: numb
         {/* Badges */}
         <div className="pf-card__badges">
           <span className="pf-card__badge">{p.category}</span>
-          {p.url && (
+          {p.url ? (
             <span className="pf-card__live">
               <span className="pf-card__live-dot" />
               Live
             </span>
-          )}
+          ) : null}
         </div>
 
         {/* Index number */}
@@ -249,13 +249,13 @@ function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: numb
         <div className="pf-card__info">
           <h3 className="pf-card__title">{p.client}</h3>
           <p className="pf-card__sub">{p.headline}</p>
-          {p.results.length > 0 && (
+          {p.results.length > 0 ? (
             <div className="pf-card__results">
               {p.results.slice(0, 3).map((r, i) => (
                 <span key={i} className="pf-card__result">{r.value}</span>
               ))}
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </a>
@@ -317,7 +317,7 @@ function ListItem({ project: p, idx }: { project: PortfolioProject; idx: number 
           <p className="pf-list-headline">{p.headline}</p>
 
           {/* Results */}
-          {p.results.length > 0 && (
+          {p.results.length > 0 ? (
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
               {p.results.map((r, i) => (
                 <div key={i} style={{
@@ -330,16 +330,16 @@ function ListItem({ project: p, idx }: { project: PortfolioProject; idx: number 
                 </div>
               ))}
             </div>
-          )}
+          ) : null}
 
           {/* Deliverables */}
-          {p.deliverables.length > 0 && (
+          {p.deliverables.length > 0 ? (
             <div className="pf-list-delivs">
               {p.deliverables.map((d, i) => (
                 <span key={i} className="pf-list-deliv">{d}</span>
               ))}
             </div>
-          )}
+          ) : null}
 
           {/* Footer */}
           <div className="pf-list-footer">

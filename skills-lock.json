@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "content-creator": {
+      "source": "shubhamsaboo/awesome-llm-apps",
+      "sourceType": "github",
+      "skillPath": "awesome_agent_skills/content-creator/SKILL.md",
+      "computedHash": "8a40efacec188736eb229b9605df4d6a3c9d42e5ec08765e31dd5d2ad2c679cb"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",

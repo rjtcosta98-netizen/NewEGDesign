@@ -1,4 +1,6 @@
+import { cache } from "react";
 import { getSupabase, publicAsset } from "./supabase";
+import { esc } from "./utils";
 
 const LOGO_BUCKET = "client-logos";
 
@@ -15,16 +17,7 @@ export type MarqueeLogo = {
   display_order: number;
 };
 
-function esc(s: string | null | undefined): string {
-  return String(s ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-async function fetchMarqueeLogos(): Promise<MarqueeLogo[]> {
+const fetchMarqueeLogos = cache(async (): Promise<MarqueeLogo[]> => {
   const sb = getSupabase();
   if (!sb) return [];
   const { data, error } = await sb
@@ -38,7 +31,7 @@ async function fetchMarqueeLogos(): Promise<MarqueeLogo[]> {
     return [];
   }
   return (data ?? []) as MarqueeLogo[];
-}
+});
 
 function fallbackMarqueeLogos(): MarqueeLogo[] {
   return [
