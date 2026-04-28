@@ -3,34 +3,75 @@
 
 <!-- ========= NAV ========= -->
 <div class="nav-wrap">
-  <nav class="nav">
-    <a class="brand" href="#">
-      <span class="mark">E</span>
-      <span class="name"><b>Element Group</b><small>Digital Solutions</small></span>
+  <nav class="nav" id="home-nav">
+    <a class="brand" href="/" aria-label="Element Group — Início">
+      <div class="mark">E</div>
+      <div class="name"><b>Element Group</b><small>Digital Solutions</small></div>
     </a>
-    <div class="nav-links">
-      <a href="/servicos">Serviços</a>
-      <a href="/portfolio">Portfolio</a>
-      <a href="/sobre">Sobre</a>
-      <a href="#faq">FAQ</a>
-    </div>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="/servicos" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+        Serviços
+      </a>
+      <a href="/portfolio" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+        Portfolio
+      </a>
+      <a href="/blog" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+        Blog
+      </a>
+      <a href="/sobre" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg></span>
+        Sobre
+      </a>
+      <a href="/contacto" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        Contacto
+      </a>
+    </nav>
     <div class="nav-cta">
-      <a class="btn-ghost" href="/contacto">Contacto</a>
-      <a class="btn-primary" href="/contacto">Pedir Orçamento</a>
+      <a class="btn-primary" href="/contacto">
+        <span>Pedir orçamento</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
       <button class="menu-btn" id="home-menu-btn" type="button" aria-label="Abrir menu" aria-controls="home-mobile-menu" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+        <svg id="home-menu-icon-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <svg id="home-menu-icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true" style="display:none"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
   </nav>
 </div>
 
 <div class="home-mobile-menu" id="home-mobile-menu" hidden>
-  <a href="/servicos">Serviços</a>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/sobre">Sobre</a>
-  <a href="#faq">FAQ</a>
+  <a class="brand" href="/" style="margin-bottom:16px;align-self:flex-start" aria-label="Element Group — Início">
+    <div class="mark">E</div>
+    <div class="name"><b>Element Group</b><small>Digital Solutions</small></div>
+  </a>
+  <a href="/servicos" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+    Serviços
+  </a>
+  <a href="/portfolio" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+    Portfolio
+  </a>
+  <a href="/blog" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+    Blog
+  </a>
+  <a href="/sobre" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg></span>
+    Sobre
+  </a>
+  <a href="/contacto" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+    Contacto
+  </a>
   <div class="home-mobile-menu-cta">
-    <a class="btn-primary" href="/contacto">Pedir orçamento grátis</a>
+    <a class="btn-primary" href="/contacto" style="text-align:center;justify-content:center;padding:15px 24px;font-size:15px">
+      Pedir orçamento grátis
+    </a>
   </div>
 </div>
 

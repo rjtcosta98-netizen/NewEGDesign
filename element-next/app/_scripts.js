@@ -6,6 +6,9 @@ if(hpTrack){ hpTrack.insertAdjacentHTML('beforeend', hpTrack.innerHTML); }
 (function(){
   const menuBtn = document.getElementById('home-menu-btn');
   const menu = document.getElementById('home-mobile-menu');
+  const nav = document.getElementById('home-nav');
+  const iconOpen = document.getElementById('home-menu-icon-open');
+  const iconClose = document.getElementById('home-menu-icon-close');
   if(!menuBtn || !menu) return;
 
   const setOpen = (open) => {
@@ -13,6 +16,8 @@ if(hpTrack){ hpTrack.insertAdjacentHTML('beforeend', hpTrack.innerHTML); }
     menuBtn.setAttribute('aria-expanded', String(open));
     menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
     document.body.style.overflow = open ? 'hidden' : '';
+    if(iconOpen) iconOpen.style.display = open ? 'none' : '';
+    if(iconClose) iconClose.style.display = open ? '' : 'none';
   };
 
   menuBtn.addEventListener('click', () => {
@@ -31,6 +36,13 @@ if(hpTrack){ hpTrack.insertAdjacentHTML('beforeend', hpTrack.innerHTML); }
   window.addEventListener('resize', () => {
     if(window.innerWidth > 980) setOpen(false);
   });
+
+  // Scroll shadow effect (matches SiteNav behaviour)
+  if(nav) {
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 12 ? '0 30px 60px -30px rgba(0,0,0,.7)' : '';
+    }, { passive: true });
+  }
 })();
 
 // Carrossel 3D dos serviços

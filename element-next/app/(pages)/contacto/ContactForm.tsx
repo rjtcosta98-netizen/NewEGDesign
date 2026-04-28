@@ -58,7 +58,7 @@ export function ContactForm() {
       {/* Form header */}
       <div className="ct-form-header">
         <span className="ct-form-eyebrow">Enviar mensagem</span>
-        <h2 className="ct-form-title">Conta-nos o teu projeto</h2>
+        <h2 className="ct-form-title">Conta-nos<br />o teu projeto</h2>
       </div>
 
       {/* Name + Email */}
