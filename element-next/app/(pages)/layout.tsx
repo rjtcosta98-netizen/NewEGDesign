@@ -38,7 +38,6 @@ export default function PagesLayout({ children }: { children: React.ReactNode })
               <div className="site-footer-links">
                 <Link href="/">Inicio</Link>
                 <Link href="/servicos">Servicos</Link>
-                <Link href="/pricing">Precos</Link>
                 <Link href="/portfolio">Portfolio</Link>
                 <Link href="/sobre">Sobre</Link>
               </div>
