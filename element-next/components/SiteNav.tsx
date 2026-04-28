@@ -3,10 +3,11 @@
 import { useState, useEffect } from 'react';
 
 const NAV_LINKS = [
-  { label: 'Serviços', href: '/servicos' },
+  { label: 'Serviços',  href: '/servicos' },
   { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Sobre', href: '/#sobre' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: 'Sobre',     href: '/#sobre' },
+  { label: 'FAQ',       href: '/#faq' },
+  { label: 'Contacto',  href: '/contacto' },
 ];
 
 export default function SiteNav() {
@@ -68,14 +69,6 @@ export default function SiteNav() {
 
           {/* Desktop CTAs */}
           <div className="nav-cta">
-            <a
-              className="btn-ghost"
-              href="https://wa.me/351930477894"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Contacto
-            </a>
             <a
               className="btn-primary"
               href="https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento."

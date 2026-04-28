@@ -10,3 +10,6 @@ binding = "ASSETS"
 [vars]
 NEXT_PUBLIC_SUPABASE_URL = "https://ctflpbjvsepkbfjpgkuh.supabase.co"
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "sb_publishable_3ysxmlZ4DavvP9ZAaQOYBg_AdHYK995"
+SMTP_HOST = "mail6.mailbox.pt"
+SMTP_USER = "info@elementgroup.pt"
+SMTP_TO   = "info@elementgroup.pt"

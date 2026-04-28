@@ -93,13 +93,13 @@ const ORG_LD = {
     "@type": "OfferCatalog",
     name: "Serviços Element Group",
     itemListElement: [
-      { "@type": "Offer", name: "Criação de Websites", description: "Sites institucionais à medida com PageSpeed 95+", price: "197", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/#servicos` },
-      { "@type": "Offer", name: "Negócios Locais (Site + Google Maps Top 3)", description: "Solução completa para negócios físicos: site + SEO local", price: "297", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/#servicos` },
-      { "@type": "Offer", name: "Loja Online", description: "E-commerce com MBWay, Multibanco, gestão de stock", price: "997", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/#servicos` },
-      { "@type": "Offer", name: "Apps Mobile", description: "Apps nativas iOS/Android e PWA", price: "1497", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/#servicos` },
-      { "@type": "Offer", name: "Design Gráfico & Branding", description: "Logótipo + manual de marca completo", price: "297", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/#servicos` },
-      { "@type": "Offer", name: "Redesign & Migração", description: "Migração de plataforma sem perder posições no Google", price: "297", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/#servicos` },
-      { "@type": "Offer", name: "Marketing Digital (mensal)", description: "Gestão Instagram, Facebook, Google Ads e SEO mensal", price: "350", priceCurrency: "EUR", priceSpecification: { "@type": "UnitPriceSpecification", price: "350", priceCurrency: "EUR", unitText: "MONTH" }, availability: "https://schema.org/InStock", url: `${SITE_URL}/#servicos` },
+      { "@type": "Offer", name: "Criação de Websites", description: "Sites institucionais à medida com PageSpeed 95+", price: "197", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/servicos/criacao-de-websites` },
+      { "@type": "Offer", name: "Negócios Locais (Site + Google Maps Top 3)", description: "Solução completa para negócios físicos: site + SEO local", price: "297", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/servicos/negocios-locais` },
+      { "@type": "Offer", name: "Loja Online", description: "E-commerce com MBWay, Multibanco, gestão de stock", price: "997", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/servicos/loja-online` },
+      { "@type": "Offer", name: "Apps Mobile", description: "Apps nativas iOS/Android e PWA", price: "1497", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/servicos/apps-mobile` },
+      { "@type": "Offer", name: "Design Gráfico & Branding", description: "Logótipo + manual de marca completo", price: "297", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/servicos/design-grafico` },
+      { "@type": "Offer", name: "Redesign & Migração", description: "Migração de plataforma sem perder posições no Google", price: "297", priceCurrency: "EUR", availability: "https://schema.org/InStock", url: `${SITE_URL}/servicos/redesign-migracao` },
+      { "@type": "Offer", name: "Marketing Digital (mensal)", description: "Gestão Instagram, Facebook, Google Ads e SEO mensal", price: "350", priceCurrency: "EUR", priceSpecification: { "@type": "UnitPriceSpecification", price: "350", priceCurrency: "EUR", unitText: "MONTH" }, availability: "https://schema.org/InStock", url: `${SITE_URL}/servicos/marketing-digital` },
     ],
   },
   sameAs: [
@@ -126,9 +126,9 @@ const BREADCRUMB_LD = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
-    { "@type": "ListItem", position: 2, name: "Serviços", item: `${SITE_URL}/#servicos` },
-    { "@type": "ListItem", position: 3, name: "Portfólio", item: `${SITE_URL}/#portfolio` },
-    { "@type": "ListItem", position: 4, name: "FAQ", item: `${SITE_URL}/#faq` },
+    { "@type": "ListItem", position: 2, name: "Serviços", item: `${SITE_URL}/servicos` },
+    { "@type": "ListItem", position: 3, name: "Portfólio", item: `${SITE_URL}/portfolio` },
+    { "@type": "ListItem", position: 4, name: "Blog", item: `${SITE_URL}/blog` },
     { "@type": "ListItem", position: 5, name: "Contacto", item: `${SITE_URL}/#contacto` },
   ],
 };

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Serviços | Websites, E-commerce, Apps & Marketing | Element Group',
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 
 /* ─── Service data (icons rendered via switch, not stored as JSX) ─── */
 type ServiceItem = {
+  slug: string;
   color: string;
   popular: boolean;
   iconId: string;
@@ -27,42 +29,49 @@ type ServiceItem = {
 
 const SERVICES: ServiceItem[] = [
   {
+    slug: 'criacao-de-websites',
     color: 'violet', popular: true, iconId: 'globe',
     title: 'Criação de Websites', price: 'desde 197€', period: 'pagamento único',
     desc: 'Sites profissionais à medida com PageSpeed 95+ e tecnologia moderna. Código 100% original, sem templates.',
     features: ['Design 100% à medida', 'SEO técnico incluído', 'Mobile-first & Core Web Vitals', 'Apoio pós-lançamento'],
   },
   {
+    slug: 'negocios-locais',
     color: 'yellow', popular: false, iconId: 'pin',
     title: 'Negócios Locais', price: 'desde 297€', period: 'pagamento único',
     desc: 'Solução completa para negócios físicos: website + Google Maps Top 3 + SEO geo-segmentado.',
     features: ['Ficha Google otimizada', 'SEO local geo-segmentado', 'Reservas e contactos online', 'Schema markup incluído'],
   },
   {
+    slug: 'loja-online',
     color: 'green', popular: false, iconId: 'shop',
     title: 'Loja Online', price: 'desde 997€', period: 'pagamento único',
     desc: 'Loja e-commerce completa com pagamentos portugueses, gestão de stock e faturação automática.',
     features: ['MBWay, Multibanco e cartão', 'Gestão de produtos e stock', 'Faturação automática', 'SEO e-commerce incluído'],
   },
   {
+    slug: 'apps-mobile',
     color: 'cyan', popular: false, iconId: 'mobile',
     title: 'Apps Mobile', price: 'desde 1.497€', period: 'pagamento único',
     desc: 'Apps nativas e Progressive Web Apps para iOS e Android. Notificações push e integração com APIs.',
     features: ['iOS, Android e PWA', 'Notificações push', 'Integração com APIs externas', 'Painel de gestão incluído'],
   },
   {
+    slug: 'design-grafico',
     color: 'red', popular: false, iconId: 'palette',
     title: 'Design Gráfico', price: 'desde 297€', period: 'pagamento único',
     desc: 'Logótipo + manual de marca completo. Identidade visual profissional para destacar o teu negócio.',
     features: ['Logótipo + variações', 'Manual de marca', 'Posts redes sociais', 'Ficheiros editáveis incluídos'],
   },
   {
+    slug: 'redesign-migracao',
     color: 'teal', popular: false, iconId: 'pencil',
     title: 'Redesign & Migração', price: 'desde 297€', period: 'pagamento único',
     desc: 'Migra de plataforma sem perder posições no Google. Redirects 301 cuidados e SEO preservado.',
     features: ['Redirects 301 cuidados', 'Preservação de SEO', 'Performance 95+', 'Zero downtime garantido'],
   },
   {
+    slug: 'marketing-digital',
     color: 'yellow', popular: false, iconId: 'megaphone',
     title: 'Marketing Digital', price: 'desde 350€', period: 'por mês',
     desc: 'Gestão contínua de redes sociais, Google Ads e SEO mensal. Relatórios mensais de performance.',
@@ -175,17 +184,30 @@ export default function ServicosPage() {
               <ul className="sv-card__list">
                 {s.features.map((f, j) => <li key={j}>{f}</li>)}
               </ul>
-              <a
-                href={`https://wa.me/351930477894?text=${encodeURIComponent(`Olá! Tenho interesse no serviço de ${s.title}. Podiam enviar um orçamento?`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="sv-card__cta"
-              >
-                Pedir orçamento
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                  <path d="M5 12h14M13 5l7 7-7 7"/>
-                </svg>
-              </a>
+              <div style={{ display: 'flex', gap: 8, marginTop: 'auto' }}>
+                <Link
+                  href={`/servicos/${s.slug}`}
+                  className="sv-card__cta"
+                  style={{ flex: 1 }}
+                >
+                  Ver detalhes
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                    <path d="M5 12h14M13 5l7 7-7 7"/>
+                  </svg>
+                </Link>
+                <a
+                  href={`https://wa.me/351930477894?text=${encodeURIComponent(`Olá! Tenho interesse no serviço de ${s.title}. Podiam enviar um orçamento?`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sv-card__cta"
+                  style={{ background: 'rgba(255,255,255,.05)', border: '1px solid var(--line-2)', color: 'var(--muted)', boxShadow: 'none' }}
+                  aria-label={`Pedir orçamento para ${s.title} via WhatsApp`}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                  </svg>
+                </a>
+              </div>
             </article>
           ))}
         </div>
