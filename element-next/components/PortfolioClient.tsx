@@ -189,9 +189,9 @@ function GridView({ projects }: { projects: PortfolioProject[] }) {
 }
 
 function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: number }) {
-  const href = p.source === 'supabase' && p.url
-    ? p.url
-    : `/portfolio/${p.slug}`;
+  const href = p.source === 'static'
+    ? `/portfolio/${p.slug}`
+    : (p.url ?? `/portfolio/${p.slug}`);
   const isExternal = p.source === 'supabase' && !!p.url;
 
   return (
@@ -274,9 +274,9 @@ function ListView({ projects }: { projects: PortfolioProject[] }) {
 }
 
 function ListItem({ project: p, idx }: { project: PortfolioProject; idx: number }) {
-  const href = p.source === 'supabase' && p.url
-    ? p.url
-    : `/portfolio/${p.slug}`;
+  const href = p.source === 'static'
+    ? `/portfolio/${p.slug}`
+    : (p.url ?? `/portfolio/${p.slug}`);
   const isExternal = p.source === 'supabase' && !!p.url;
 
   return (
