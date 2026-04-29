@@ -154,6 +154,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-PT" className={`${jakarta.variable} ${instrument.variable}`}>
+      <head>
+        {/* Establish connection early to Supabase CDN so hero images load faster */}
+        <link rel="preconnect" href="https://ctflpbjvsepkbfjpgkuh.supabase.co" />
+        <link rel="dns-prefetch" href="https://ctflpbjvsepkbfjpgkuh.supabase.co" />
+      </head>
       <body>
         {children}
         <script

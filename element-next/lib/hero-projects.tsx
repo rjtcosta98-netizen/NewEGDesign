@@ -1,5 +1,5 @@
 import { cache } from "react";
-import { getSupabase, publicAssetOptimized } from "./supabase";
+import { getSupabase, publicAsset } from "./supabase";
 import { esc } from "./utils";
 
 const HERO_BUCKET = "hero-images";
@@ -147,13 +147,10 @@ export async function renderHeroProjectsHTML(): Promise<string> {
       : "";
     const badgeStyle = p.badge_color ? ` style="color:${p.badge_color}"` : "";
 
-    // LCP candidate: first original card gets a larger optimised image + eager loading.
-    // All other cards (including clones) use a smaller size and lazy loading.
+    // LCP candidate: first original card gets eager loading + high priority.
+    // All other cards (including clones) are lazy.
     const isLcp = idx === 0 && !isClone;
-    const cover = publicAssetOptimized(HERO_BUCKET, p.image_path, {
-      width: isLcp ? 1200 : 800,
-      height: isLcp ? 900 : 600,
-    });
+    const cover = publicAsset(HERO_BUCKET, p.image_path);
     const imgLoading = isLcp ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
     const imgAlt = isClone ? "" : esc(p.title);
     const previewBody = cover
