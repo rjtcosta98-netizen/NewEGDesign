@@ -5,7 +5,7 @@ export const revalidate = false; // statically generated at build time
 export const metadata: Metadata = {
   title: "Sobre a Element Group — Agência Digital Portugal",
   description:
-    "Conhece a Element Group, agência digital portuguesa fundada por Ricardo Jorge. Especialistas em websites, lojas online, apps mobile e marketing digital para PMEs.",
+    "Conhece a Element Group, agência digital portuguesa. Especialistas em websites, lojas online, apps e marketing digital para PMEs portuguesas.",
   alternates: { canonical: "/sobre" },
   openGraph: {
     title: "Sobre a Element Group",

@@ -99,7 +99,7 @@ export default function RecursosPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
       />
 
-      <main className="lm-hub-page">
+      <div className="lm-hub-page">
         {/* Hero */}
         <section className="lm-hub-hero">
           <div className="lm-hub-hero-inner">
@@ -195,7 +195,7 @@ export default function RecursosPage() {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }

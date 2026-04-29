@@ -37,7 +37,9 @@ export default async function Page() {
       {lcpImageUrl && (
         <link rel="preload" as="image" href={lcpImageUrl} fetchPriority="high" />
       )}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <main id="main-content">
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </main>
       <InlineScripts code={SCRIPTS} />
     </>
   );

@@ -202,7 +202,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     url: 'https://apiariosterrasdapulga.pt',
     metaTitle: 'Apiários Terras da Pulga — +40% Vendas Online & Top 3 Google | Element Group',
     metaDescription:
-      'Como a Element Group ajudou os Apiários Terras da Pulga a aumentar as vendas de mel em 40% em 60 dias com loja e-commerce, SEO local e PageSpeed 95. Caso de estudo real.',
+      'Como a Element Group aumentou as vendas de mel dos Apiários Terras da Pulga em 40% em 60 dias com e-commerce e SEO local. Caso de estudo.',
     image: '/images/APIARIOSWEB.webp',
     heroHeadline: 'Tradição encontra digital. Vendas 24h/dia.',
     heroSub:
@@ -334,9 +334,9 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     category: 'Websites',
     year: '2026',
     url: 'https://adsaoromao.pt',
-    metaTitle: 'AD São Romão — Website Institucional com SEO 92/100 em 10 dias | Element Group',
+    metaTitle: 'AD São Romão — Website Institucional | Element Group',
     metaDescription:
-      'Como a Element Group criou o website da Associação Desportiva São Romão em 10 dias com PageSpeed 100 e SEO Score 92/100. Caso de estudo: associação desportiva em Portugal.',
+      'Como a Element Group criou o website da AD São Romão em 10 dias com PageSpeed 100 e SEO 92/100. Caso de estudo de website institucional.',
     image: '/images/ADSRWEB.webp',
     heroHeadline: 'Uma associação com presença digital à altura da sua história.',
     heroSub:
@@ -400,7 +400,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     category: 'Design',
     year: '2026',
     url: null,
-    metaTitle: 'Estrela Detail & Wash — Branding Premium para Detailing Automóvel | Element Group',
+    metaTitle: 'Estrela Detail & Wash — Branding Premium | Element Group',
     metaDescription:
       'Como a Element Group criou a identidade visual premium da Estrela Detail & Wash: logótipo profissional, manual de marca e banner promocional. Caso de estudo de branding.',
     image: '/images/BannerEstrela.webp',
@@ -466,7 +466,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     category: 'Design',
     year: '2026',
     url: null,
-    metaTitle: 'Football Nation Store — Branding de Raiz para E-commerce de Futebol | Element Group',
+    metaTitle: 'Football Nation Store — Branding & Identidade Visual',
     metaDescription:
       'Como a Element Group criou a identidade visual completa da Football Nation Store de raiz: logótipo, cartão de visita e brand guidelines. Caso de estudo de branding.',
     image: '/images/mockuplogofootball.webp',

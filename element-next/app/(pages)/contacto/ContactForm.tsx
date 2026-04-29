@@ -78,9 +78,9 @@ export function ContactForm() {
   return (
     <form className="ct-form" action={action} noValidate>
       {/* Honeypot — invisible to humans, bots fill this in */}
-      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
-        <label htmlFor="ct-website">Website</label>
-        <input id="ct-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+        <label htmlFor="ct-website" aria-hidden="true">Website</label>
+        <input id="ct-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       </div>
 
       {/* Form header */}

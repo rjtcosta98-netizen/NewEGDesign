@@ -158,8 +158,8 @@ export default async function CaseStudyPage(
       <header className="cs-hero">
         {/* Background image */}
         {cs.image && (
-          <div className="cs-hero-img" aria-hidden="true">
-            <img src={cs.image} alt="" width={1600} height={900} />
+          <div className="cs-hero-img">
+            <img src={cs.image} alt={cs.heroHeadline} width={1600} height={900} />
           </div>
         )}
         <div className="cs-hero-overlay" aria-hidden="true" />

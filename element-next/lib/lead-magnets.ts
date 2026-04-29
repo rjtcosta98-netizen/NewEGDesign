@@ -32,9 +32,9 @@ export const LEAD_MAGNETS: Record<string, LeadMagnet> = {
     subtitle: '20 pontos para subir no Google em 2026',
     description:
       'Um checklist prático e direto ao ponto para proprietários de pequenas e médias empresas em Portugal. Sem jargão técnico — só o que realmente importa para aparecer no Google.',
-    metaTitle: 'Checklist SEO para PMEs: 20 Pontos para o Google em 2026 — Grátis | Element Group',
+    metaTitle: 'Checklist SEO para PMEs — 20 Pontos Google | Element Group',
     metaDescription:
-      'Descarrega grátis o Checklist SEO para PMEs Portuguesas: 20 pontos verificáveis para subir no Google em 2026. Sem jargão, 100% prático. Criado pela Element Group.',
+      'Checklist SEO gratuito para PMEs portuguesas: 20 pontos verificáveis para subir no Google. Sem jargão, 100% prático. Da Element Group.',
     category: 'SEO',
     readTime: '10 min',
     format: 'Checklist PDF',
@@ -116,9 +116,9 @@ export const LEAD_MAGNETS: Record<string, LeadMagnet> = {
     subtitle: 'O guia completo para preparar o brief da tua empresa',
     description:
       'Tudo o que uma agência digital precisa de saber antes de começar o teu projeto. Preenche este template e recebe propostas mais precisas, mais rápidas — e sem surpresas a meio do projeto.',
-    metaTitle: 'Template de Brief de Website Grátis — Como Preparar o Brief da tua Empresa | Element Group',
+    metaTitle: 'Template Brief de Website Grátis | Element Group',
     metaDescription:
-      'Descarrega grátis o Template de Brief de Website: 7 secções com todas as perguntas que uma agência precisa. Proposta mais rápida, projeto mais bem sucedido. Element Group.',
+      'Template gratuito de brief de website com 7 secções: tudo o que a tua agência precisa para uma proposta rápida e um projeto bem sucedido.',
     category: 'Planeamento',
     readTime: '15 min',
     format: 'Template Preenchível',
