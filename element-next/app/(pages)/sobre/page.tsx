@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./sobre.css";
 
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: "Sobre a Element Group — Agência Digital Portugal",
+  title: "Sobre a Element Group — Agência Digital em Portugal",
   description:
-    "Conhece a Element Group, agência digital portuguesa. Especialistas em websites, lojas online, apps e marketing digital para PMEs portuguesas.",
+    "Conhece a Element Group: a agência digital portuguesa que entrega sites à medida com PageSpeed 95+, a partir de 197€, sem intermediários. Fundada por Ricardo Jorge.",
   alternates: { canonical: "/sobre" },
   openGraph: {
     title: "Sobre a Element Group",
@@ -27,8 +28,9 @@ const PERSON_LD = {
   url: "https://elementgroup.pt/sobre",
   nationality: { "@type": "Country", name: "Portugal" },
   knowsAbout: [
-    "Web Development","Next.js","React","E-commerce","SEO técnico",
-    "Schema markup","Performance web (Core Web Vitals)","Marketing digital para PMEs","Branding","UI/UX design",
+    "Web Development", "Next.js", "React", "E-commerce",
+    "SEO técnico", "Schema markup", "Core Web Vitals",
+    "Marketing digital para PMEs", "Branding", "UI/UX design",
   ],
   knowsLanguage: ["pt-PT", "en"],
   sameAs: [
@@ -57,360 +59,364 @@ const BREADCRUMB_LD = {
   ],
 };
 
+const DIFFERENTIATORS = [
+  {
+    accent: "default",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+    title: "PageSpeed 95+ por defeito",
+    desc: "Não é um extra. Todos os projetos são entregues com performance de topo — incluída no preço base.",
+  },
+  {
+    accent: "cyan",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+    title: "Código 100% à medida",
+    desc: "Sem WordPress, sem templates reciclados, sem page builders. O teu site é único e construído de raiz.",
+  },
+  {
+    accent: "green",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+    ),
+    title: "SEO técnico incluído",
+    desc: "Schema markup, Core Web Vitals e otimização on-page fazem parte de todos os projetos — não são cobrados à parte.",
+  },
+  {
+    accent: "blue",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    title: "Sem intermediários",
+    desc: "Falas diretamente com o developer. O que pedes é o que entregamos — sem account managers nem departamentos.",
+  },
+  {
+    accent: "orange",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+      </svg>
+    ),
+    title: "Proposta em 24 horas",
+    desc: "Recebes um orçamento detalhado e sem compromisso no próprio dia — sem reuniões de descoberta obrigatórias.",
+  },
+  {
+    accent: "pink",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    ),
+    title: "Apoio pós-lançamento",
+    desc: "Acompanhamento contínuo após a entrega, dentro do âmbito acordado, sem mensalidade obrigatória.",
+  },
+];
+
+const CLIENT_TYPES = [
+  "Restaurantes & Cafés",
+  "Clínicas & Saúde",
+  "Ginásios & Fitness",
+  "Lojas D2C",
+  "Profissionais Liberais",
+  "Associações",
+  "Produtores Artesanais",
+  "Hotéis & Alojamento",
+  "Serviços Locais",
+  "E-commerce",
+];
+
 export default function SobrePage() {
   return (
-    <div className="sob-page">
+    <div className="sb-page">
 
-      {/* ── HERO ── */}
-      <section className="sob-hero has-atmos">
-        <div className="section-atmos" aria-hidden="true">
-          <div className="rings"><span /></div>
-          <div className="section-sparkles">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <span key={i} style={{ top: `${10 + i * 8}%`, left: `${5 + i * 9}%`, animationDelay: `${i * 0.4}s` }} />
-            ))}
-          </div>
-        </div>
-
-        <div className="sob-hero-label">
-          <span />
-          Sobre nós
-        </div>
-        <h1>
-          Uma agência digital<br />feita para <em>PMEs portuguesas.</em>
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section className="sb-hero">
+        <div className="sb-hero__label">Sobre nós</div>
+        <h1 className="sb-hero__h1">
+          Websites à medida,<br />sem intermediários,<br />para <em>PMEs portuguesas.</em>
         </h1>
-        <p className="sob-hero-sub">
-          A maioria das PMEs portuguesas paga milhares por sites lentos, templates reciclados
-          e plugins inseguros. A Element Group existe para mudar isso: websites à medida com
-          PageSpeed 95+, a partir de 197€, entregues em 2 a 3 semanas.
+        <p className="sb-hero__sub">
+          A maioria das agências em Portugal cobra €2.000–€5.000 por templates reciclados
+          que ninguém encontra no Google. A Element Group existe para mudar isso: sites
+          construídos de raiz com PageSpeed 95+, a partir de 197€, entregues em 2–3 semanas.
         </p>
-        <div className="sob-hero-actions">
-          <a href="/contacto" className="btn-primary">
-            Pedir orçamento grátis
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+        <div className="sb-hero__ctas">
+          <a
+            href="https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sb-btn-primary"
+          >
+            Pedir orçamento gratuito
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg>
           </a>
-          <a href="/portfolio" className="btn-ghost">Ver portfolio</a>
+          <Link href="/servicos" className="sb-btn-secondary">
+            Ver serviços e preços
+          </Link>
         </div>
 
-        <div className="sob-stats-bar">
-          <div className="sob-stat">
-            <span className="sob-stat-num">95+</span>
-            <span className="sob-stat-label">PageSpeed Score</span>
+        <div className="sb-stats">
+          <div className="sb-stat">
+            <div className="sb-stat__val">95+</div>
+            <div className="sb-stat__label">PageSpeed Score</div>
           </div>
-          <div className="sob-stat">
-            <span className="sob-stat-num">197€</span>
-            <span className="sob-stat-label">A partir de</span>
+          <div className="sb-stat">
+            <div className="sb-stat__val">24h</div>
+            <div className="sb-stat__label">Proposta enviada</div>
           </div>
-          <div className="sob-stat">
-            <span className="sob-stat-num">2–3 sem</span>
-            <span className="sob-stat-label">Tempo de entrega</span>
+          <div className="sb-stat">
+            <div className="sb-stat__val">197€</div>
+            <div className="sb-stat__label">Desde</div>
           </div>
-          <div className="sob-stat">
-            <span className="sob-stat-num">&lt;2h</span>
-            <span className="sob-stat-label">Resposta WhatsApp</span>
+          <div className="sb-stat">
+            <div className="sb-stat__val">5★</div>
+            <div className="sb-stat__label">Avaliação Google</div>
           </div>
         </div>
       </section>
 
-      {/* ── MISSÃO ── */}
-      <section className="sob-section">
-        <div className="sob-section-head">
-          <div className="sob-section-label">A nossa missão</div>
-          <h2 className="sob-section-title">
-            Tecnologia de topo <em>acessível</em> a todos
+      {/* ── Missão ───────────────────────────────────────────── */}
+      <div className="sb-container">
+        <section className="sb-section sb-section--first">
+          <div className="sb-two-col">
+            <div>
+              <p className="sb-section-eyebrow">A nossa missão</p>
+              <h2 className="sb-section-h2">
+                PMEs portuguesas merecem<br /><em>tecnologia de topo.</em>
+              </h2>
+              <p className="sb-section-body">
+                Em Portugal, um site profissional com WordPress e um template pré-feito
+                chega a custar <b>€3.000–€5.000</b> — e ainda fica lento, cheio de plugins
+                e difícil de encontrar no Google.
+              </p>
+              <p className="sb-section-body">
+                A Element Group usa a mesma stack moderna que potencia a Netflix, o TikTok
+                e o GitHub — <b>Next.js, React e Vercel</b> — para entregar sites mais
+                rápidos, mais seguros e melhor posicionados, a uma fração do custo
+                tradicional. Sem compromissos, sem letra pequena.
+              </p>
+            </div>
+            <div className="sb-quote-block">
+              <p className="sb-quote-text">
+                "O objetivo não é ser a agência mais barata. É ser a que entrega mais
+                valor por cada euro investido — com transparência total, do primeiro
+                contacto à entrega final."
+              </p>
+              <p className="sb-quote-author">
+                — <span>Ricardo Jorge</span>, Fundador da Element Group
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Fundador ──────────────────────────────────────────── */}
+        <section className="sb-section">
+          <div className="sb-two-col sb-two-col--flipped">
+            <div>
+              <p className="sb-section-eyebrow">Quem está por trás</p>
+              <h2 className="sb-section-h2">
+                Uma pessoa.<br /><em>Responsabilidade total.</em>
+              </h2>
+              <p className="sb-section-body">
+                A Element Group não tem account managers, departamentos nem reuniões de
+                apresentação inúteis. Quando falas connosco, falas diretamente com
+                <b> Ricardo Jorge</b> — o developer que vai construir o teu projeto.
+              </p>
+              <p className="sb-section-body">
+                Isso significa <b>resposta em horas</b>, decisões técnicas explicadas em
+                português claro, e total transparência em prazos e preços. O que está
+                no contrato é o que entregamos — sem surpresas.
+              </p>
+            </div>
+            <div className="sb-two-col-media">
+              <div className="sb-founder-card">
+                <div className="sb-founder-avatar">R</div>
+                <div className="sb-founder-name">Ricardo Jorge</div>
+                <div className="sb-founder-role">Fundador &amp; Developer Principal</div>
+                <p className="sb-founder-bio">
+                  Especializado em <b>Next.js, React e TypeScript</b>, com foco em
+                  SEO técnico avançado, schema markup e otimização de Core Web Vitals.
+                  Lidera todos os projetos do início ao fim — sem intermediários.
+                </p>
+                <div className="sb-founder-skills">
+                  {["Next.js", "React", "TypeScript", "SEO técnico", "Core Web Vitals", "Schema markup", "UI/UX"].map((s) => (
+                    <span key={s} className="sb-skill-tag">{s}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Diferenciais ──────────────────────────────────────── */}
+        <section className="sb-section">
+          <p className="sb-section-eyebrow">O que nos diferencia</p>
+          <h2 className="sb-section-h2" style={{ marginBottom: 32 }}>
+            Não é marketing. É a <em>forma como trabalhamos.</em>
           </h2>
-          <p className="sob-section-sub">
-            Construímos sobre a mesma stack que potencia Netflix, TikTok e GitHub — a preços que fazem sentido para PMEs.
-          </p>
-        </div>
-
-        <div className="sob-mission-grid">
-          <div className="sob-mission-main reveal">
-            <div className="sob-mission-eyebrow">Por que existimos</div>
-            <h3 className="sob-mission-title">
-              Sites à medida com <em>performance real</em>, sem o custo de uma agência tradicional.
-            </h3>
-            <p className="sob-mission-body">
-              Em Portugal, a maioria das PMEs paga entre <b>€2.000 e €5.000</b> por websites
-              com performance medíocre, templates reciclados e plugins inseguros.
-              A Element Group existe para mudar isto: entregamos sites com <b>PageSpeed 95+
-              a partir de 197€</b>, construídos sobre Next.js, React e Cloudflare — a mesma
-              stack moderna de empresas como Netflix, TikTok e GitHub.
-            </p>
-            <ul className="sob-mission-list">
-              {[
-                "Código 100% à medida, sem templates WordPress",
-                "SEO técnico + schema markup incluídos, não cobrados à parte",
-                "Apoio pós-lançamento contínuo sem mensalidade obrigatória",
-                "Propostas em 24 horas via WhatsApp ou email",
-                "Preços transparentes publicados em /servicos",
-              ].map((item) => (
-                <li key={item}>
-                  <span className="sob-mission-check">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <div className="sb-diff-grid">
+            {DIFFERENTIATORS.map((d) => (
+              <div key={d.title} className="sb-diff-card" data-accent={d.accent}>
+                <div className="sb-diff-icon">{d.icon}</div>
+                <div className="sb-diff-title">{d.title}</div>
+                <div className="sb-diff-desc">{d.desc}</div>
+              </div>
+            ))}
           </div>
+        </section>
 
-          <div className="sob-info-card reveal">
-            <div className="sob-info-card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            <h3>O que nos diferencia</h3>
-            <p>
-              <b>PageSpeed 95+</b> em todos os projetos, por defeito (não como upsell).
-              Cada site é construído de raiz com otimização de Core Web Vitals desde o primeiro commit.
-            </p>
-          </div>
-
-          <div className="sob-info-card reveal">
-            <div className="sob-info-card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
-              </svg>
-            </div>
-            <h3>A quem servimos</h3>
-            <p>
-              <b>PMEs em todo o território português</b> (Continente, Madeira, Açores), remotamente.
-              Produtores artesanais, restaurantes, clínicas, ginásios, lojas D2C e profissionais liberais.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── EQUIPA ── */}
-      <section className="sob-section" style={{ paddingTop: 0 }}>
-        <div className="sob-section-head">
-          <div className="sob-section-label">A equipa</div>
-          <h2 className="sob-section-title">
-            Quem está <em>por trás</em>
+        {/* ── Clientes ──────────────────────────────────────────── */}
+        <section className="sb-section">
+          <p className="sb-section-eyebrow">A quem servimos</p>
+          <h2 className="sb-section-h2">
+            PMEs em todo o <em>território nacional.</em>
           </h2>
-        </div>
-
-        <div className="sob-team-card reveal">
-          <div className="sob-team-avatar">R</div>
-          <div className="sob-team-info">
-            <div className="sob-team-role">Fundador & Developer Principal</div>
-            <h3 className="sob-team-name">Ricardo Jorge</h3>
-            <p className="sob-team-bio">
-              Com formação e experiência prática em <b>desenvolvimento web moderno</b> (React, Next.js,
-              TypeScript), SEO técnico avançado, schema markup e otimização de Core Web Vitals, lidera
-              todos os projetos de início ao fim — sem intermediários, sem account managers, sem
-              departamentos a passar o teu projeto entre mãos.
-              <br /><br />
-              Esta abordagem direta significa <b>resposta em horas, não dias</b>; decisões técnicas
-              explicadas em português claro; e total transparência em prazos e preços.
-            </p>
-            <div className="sob-team-links">
-              <a href="https://www.linkedin.com/in/elementgroup/" target="_blank" rel="noopener noreferrer" className="sob-team-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-                LinkedIn
-              </a>
-              <a href="https://www.instagram.com/elementgroup.pt" target="_blank" rel="noopener noreferrer" className="sob-team-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                </svg>
-                Instagram
-              </a>
-              <a href="https://wa.me/351930477894" target="_blank" rel="noopener noreferrer" className="sob-team-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                </svg>
-                WhatsApp
-              </a>
-            </div>
+          <p className="sb-clients-intro">
+            Trabalhamos 100% remotamente com negócios em todo o país —
+            <b> Continente, Madeira e Açores</b>. Os nossos clientes são pequenas e médias
+            empresas que precisam de uma presença digital profissional sem o custo de uma
+            agência tradicional.
+          </p>
+          <div className="sb-client-types">
+            {CLIENT_TYPES.map((type) => (
+              <div key={type} className="sb-client-type">
+                <span className="sb-client-type-dot" />
+                {type}
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── DIFERENCIAIS ── */}
-      <section className="sob-section" style={{ paddingTop: 0 }}>
-        <div className="sob-section-head">
-          <div className="sob-section-label">Diferenciais</div>
-          <h2 className="sob-section-title">
-            Por que a Element Group <em>é diferente</em>
+        {/* ── Contacto ──────────────────────────────────────────── */}
+        <section className="sb-section">
+          <p className="sb-section-eyebrow">Contacto</p>
+          <h2 className="sb-section-h2">
+            Fala connosco <em>hoje.</em>
           </h2>
-          <p className="sob-section-sub">
-            Não somos uma agência tradicional com processos lentos e margens inflacionadas.
+          <p className="sb-section-body">
+            Resposta típica em menos de 2 horas. WhatsApp, email ou formulário — escolhe
+            o que for mais cómodo para ti.
           </p>
-        </div>
-
-        <div className="sob-diff-grid">
-          {[
-            {
-              icon: (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          <div className="sb-contact-grid">
+            <a
+              href="https://wa.me/351930477894"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sb-contact-item"
+            >
+              <div className="sb-contact-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
-              ),
-              title: "PageSpeed 95+ por defeito",
-              desc: "Otimização de Core Web Vitals em todos os projetos, como padrão — não como upsell pago.",
-            },
-            {
-              icon: (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </div>
+              <div>
+                <div className="sb-contact-label">WhatsApp</div>
+                <div className="sb-contact-value">+351 930 477 894</div>
+              </div>
+            </a>
+            <a
+              href="mailto:info@elementgroup.pt"
+              className="sb-contact-item"
+            >
+              <div className="sb-contact-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
                 </svg>
-              ),
-              title: "Código 100% à medida",
-              desc: "Nada de templates WordPress, page builders, ou plugins inseguros. Stack moderna, limpa e rápida.",
-            },
-            {
-              icon: (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </div>
+              <div>
+                <div className="sb-contact-label">Email</div>
+                <div className="sb-contact-value">info@elementgroup.pt</div>
+              </div>
+            </a>
+            <div className="sb-contact-item" style={{ cursor: "default" }}>
+              <div className="sb-contact-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="10" r="3" />
+                  <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
                 </svg>
-              ),
-              title: "SEO técnico incluído",
-              desc: "Schema markup, sitemap dinâmico, metadata otimizada e Open Graph — tudo incluído, sem custo extra.",
-            },
-            {
-              icon: (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              ),
-              title: "Sem intermediários",
-              desc: "O Ricardo lida diretamente contigo em todos os projetos. Nada passa por account managers ou departamentos.",
-            },
-            {
-              icon: (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
-                </svg>
-              ),
-              title: "Preços transparentes",
-              desc: "Publicamos os preços em /servicos e em /pricing.md (machine-readable para AI agents). Sem surpresas.",
-            },
-            {
-              icon: (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                </svg>
-              ),
-              title: "Resposta em &lt;2 horas",
-              desc: "Segunda a Sábado, 9h–20h. Proposta sem compromisso em 24h. Sem pré-pagamento até aprovação.",
-            },
-          ].map((card) => (
-            <div key={card.title} className="sob-diff-card reveal">
-              <div className="sob-diff-icon">{card.icon}</div>
-              <h3>{card.title}</h3>
-              <p dangerouslySetInnerHTML={{ __html: card.desc }} />
+              </div>
+              <div>
+                <div className="sb-contact-label">Localização</div>
+                <div className="sb-contact-value">Portugal · todo o país</div>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── CONTACTO ── */}
-      <section className="sob-contact-strip">
-        <div className="sob-section-head" style={{ marginBottom: 36 }}>
-          <div className="sob-section-label">Contacto</div>
-          <h2 className="sob-section-title">Fala <em>connosco</em></h2>
-        </div>
-        <div className="sob-contact-grid">
-          <a href="https://wa.me/351930477894?text=Olá!%20Gostaria%20de%20pedir%20um%20orçamento." target="_blank" rel="noopener noreferrer" className="sob-contact-item reveal">
-            <div className="sob-contact-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-              </svg>
+            <div className="sb-contact-item" style={{ cursor: "default" }}>
+              <div className="sb-contact-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <div className="sb-contact-label">Horário</div>
+                <div className="sb-contact-value">Seg–Sáb · 9h–20h</div>
+              </div>
             </div>
-            <div className="sob-contact-label">WhatsApp</div>
-            <div className="sob-contact-val">+351 930 477 894</div>
-          </a>
-          <a href="mailto:info@elementgroup.pt" className="sob-contact-item reveal">
-            <div className="sob-contact-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div className="sob-contact-label">Email</div>
-            <div className="sob-contact-val">info@elementgroup.pt</div>
-          </a>
-          <div className="sob-contact-item">
-            <div className="sob-contact-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 14 8 14s8-8.75 8-14a8 8 0 0 0-8-8z"/>
-              </svg>
-            </div>
-            <div className="sob-contact-label">Localização</div>
-            <div className="sob-contact-val">Portugal<br /><small>Servimos todo o país remotamente</small></div>
           </div>
-          <div className="sob-contact-item">
-            <div className="sob-contact-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <div className="sob-contact-label">Horário</div>
-            <div className="sob-contact-val">Seg–Sáb, 9h–20h<br /><small>Resposta típica em &lt;2 horas</small></div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── CTA ── */}
-      <div className="sob-cta-wrap">
-        <div className="sob-cta-box reveal">
-          <div className="sob-cta-badge">
-            <span />
-            Pronto para começar?
-          </div>
-          <h2>Transforma o teu negócio <em>online</em></h2>
-          <p>
-            Resposta em &lt;2h via WhatsApp · Proposta sem compromisso em 24h ·
-            Sem pré-pagamento até aprovação
+          <p className="sb-updated">
+            Última atualização: <time dateTime="2026-04-29">29 de abril de 2026</time>
           </p>
-          <div className="sob-cta-actions">
-            <a href="https://wa.me/351930477894?text=Olá!%20Gostaria%20de%20pedir%20um%20orçamento." target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: "15px 28px", fontSize: 15 }}>
-              Falar com o Ricardo no WhatsApp
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+        </section>
+      </div>
+
+      {/* ── CTA banner ───────────────────────────────────────── */}
+      <div className="sb-container">
+        <div className="sb-cta">
+          <h2 className="sb-cta__h2">Pronto para começar?</h2>
+          <p className="sb-cta__sub">
+            Orçamento gratuito em 24h · Sem pré-pagamento até aprovação ·
+            Resposta em &lt;2h via WhatsApp
+          </p>
+          <div className="sb-cta__actions">
+            <a
+              href="https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sb-btn-primary"
+            >
+              Falar com o Ricardo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </a>
-            <a href="/contacto" className="btn-ghost">
+            <Link href="/contacto" className="sb-btn-secondary">
               Formulário de contacto
-            </a>
-            <div className="sob-cta-trust">
-              <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                PageSpeed 95+
-              </span>
-              <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                Sem pré-pagamento
-              </span>
-              <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Entrega em 2–3 semanas
-              </span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
 
-      <p style={{ textAlign: "center", padding: "0 20px 40px", fontSize: 12, color: "var(--muted-2)" }}>
-        Última atualização: <time dateTime="2026-04-27">27 de abril de 2026</time>
-      </p>
-
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_LD) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_LD) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_LD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_LD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }}
+      />
     </div>
   );
 }
