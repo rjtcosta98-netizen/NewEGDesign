@@ -57,6 +57,7 @@ body::after{
 }
 @media (prefers-reduced-motion:reduce){
   body::before{animation:none}
+  .pill,h1.hero-title,.hero-sub,.cta-row,.hero-portfolio{animation:none;opacity:1;transform:none}
 }
 
 a{color:inherit;text-decoration:none}
@@ -352,8 +353,8 @@ h1.hero-title{
   will-change:transform;
 }
 .hero-portfolio:hover .hp-track{animation-play-state:paused}
-@keyframes hpScroll{ from{transform:translateX(0)} to{transform:translateX(calc(-1 * (400px + 18px) * 6))} }
-@media(max-width:980px){ @keyframes hpScroll{ from{transform:translateX(0)} to{transform:translateX(calc(-1 * (320px + 18px) * 6))} } }
+@keyframes hpScroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@media(max-width:980px){ @keyframes hpScroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} } }
 .proj{
   position:relative;border-radius:18px;overflow:hidden;flex:0 0 400px;width:400px;
   background:linear-gradient(180deg,#10182a,#070b16);

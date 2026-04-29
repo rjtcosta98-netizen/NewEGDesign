@@ -3,34 +3,91 @@
 
 <!-- ========= NAV ========= -->
 <div class="nav-wrap">
-  <nav class="nav">
-    <a class="brand" href="#">
-      <span class="mark">E</span>
-      <span class="name"><b>Element Group</b><small>Digital Solutions</small></span>
+  <nav class="nav" id="home-nav">
+    <a class="brand" href="/" aria-label="Element Group Digital Solutions — Início">
+      <div class="mark" aria-hidden="true">E</div>
+      <div class="name"><b>Element Group</b> <small>Digital Solutions</small></div>
     </a>
-    <div class="nav-links">
-      <a href="/servicos">Serviços</a>
-      <a href="/portfolio">Portfolio</a>
-      <a href="/sobre">Sobre</a>
-      <a href="#faq">FAQ</a>
-    </div>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="/servicos" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+        Serviços
+      </a>
+      <a href="/portfolio" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+        Portfolio
+      </a>
+      <a href="/blog" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+        Blog
+      </a>
+      <a href="/sobre" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg></span>
+        Sobre
+      </a>
+      <a href="/recursos" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+        Recursos
+      </a>
+      <a href="/parcerias" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        Parcerias
+      </a>
+      <a href="/contacto" class="nav-link">
+        <span class="nav-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        Contacto
+      </a>
+    </nav>
     <div class="nav-cta">
-      <a class="btn-ghost" href="/contacto">Contacto</a>
-      <a class="btn-primary" href="/contacto">Pedir Orçamento</a>
+      <a class="btn-primary" href="/contacto">
+        <span>Pedir orçamento</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
       <button class="menu-btn" id="home-menu-btn" type="button" aria-label="Abrir menu" aria-controls="home-mobile-menu" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+        <svg id="home-menu-icon-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <svg id="home-menu-icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true" style="display:none"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
   </nav>
 </div>
 
 <div class="home-mobile-menu" id="home-mobile-menu" hidden>
-  <a href="/servicos">Serviços</a>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/sobre">Sobre</a>
-  <a href="#faq">FAQ</a>
+  <a class="brand" href="/" style="margin-bottom:16px;align-self:flex-start" aria-label="Element Group Digital Solutions — Início">
+    <div class="mark" aria-hidden="true">E</div>
+    <div class="name"><b>Element Group</b> <small>Digital Solutions</small></div>
+  </a>
+  <a href="/servicos" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+    Serviços
+  </a>
+  <a href="/portfolio" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+    Portfolio
+  </a>
+  <a href="/blog" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+    Blog
+  </a>
+  <a href="/sobre" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg></span>
+    Sobre
+  </a>
+  <a href="/recursos" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+    Recursos
+  </a>
+  <a href="/parcerias" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+    Parcerias
+  </a>
+  <a href="/contacto" class="mobile-nav-link">
+    <span class="mobile-nav-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+    Contacto
+  </a>
   <div class="home-mobile-menu-cta">
-    <a class="btn-primary" href="/contacto">Pedir orçamento grátis</a>
+    <a class="btn-primary" href="/contacto" style="text-align:center;justify-content:center;padding:15px 24px;font-size:15px">
+      Pedir orçamento grátis
+    </a>
   </div>
 </div>
 
@@ -89,20 +146,13 @@
 <!-- ========= WHY US ========= -->
 <section id="why">
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:18%;top:80px;animation-delay:.2s"></span>
       <span style="left:24%;top:160px;animation-delay:1.4s"></span>
       <span style="left:32%;top:50px;animation-delay:2.6s"></span>
       <span style="left:40%;top:120px;animation-delay:.9s"></span>
       <span style="left:48%;top:200px;animation-delay:3.1s"></span>
-      <span style="left:56%;top:60px;animation-delay:1.7s"></span>
-      <span style="left:64%;top:170px;animation-delay:2.2s"></span>
-      <span style="left:72%;top:90px;animation-delay:.5s"></span>
-      <span style="left:80%;top:140px;animation-delay:2.9s"></span>
-      <span style="left:86%;top:210px;animation-delay:1.1s"></span>
-      <span style="left:14%;top:230px;animation-delay:3.4s"></span>
-      <span style="left:50%;top:280px;animation-delay:.7s"></span>
     </div>
   </div>
   <div class="container">
@@ -155,14 +205,14 @@
         <div class="ap-stack">
           <div class="ap-glow" aria-hidden="true"></div>
           <figure class="ap-card ap-card-back">
-            <img src="/team/mafalda.jpg" alt="Mafalda Garcia — Marketing &amp; Social Media da Element" loading="lazy" decoding="async" />
+            <img src="/team/mafalda.jpg" alt="Mafalda Garcia — Marketing &amp; Social Media da Element" width="320" height="400" loading="eager" decoding="async" />
             <figcaption>
               <b>Mafalda Garcia</b>
               <small>Marketing &amp; Social</small>
             </figcaption>
           </figure>
           <figure class="ap-card ap-card-front">
-            <img src="/team/ricardo.jpg" alt="Ricardo Jorge — CEO &amp; Co-Fundador da Element" loading="lazy" decoding="async" />
+            <img src="/team/ricardo.jpg" alt="Ricardo Jorge — CEO &amp; Co-Fundador da Element" width="320" height="400" loading="eager" fetchpriority="high" decoding="async" />
             <figcaption>
               <b>Ricardo Jorge</b>
               <small>CEO · Design &amp; Dev</small>
@@ -208,18 +258,13 @@
 <!-- ========= SERVIÇOS ========= -->
 <section id="servicos">
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:16%;top:90px;animation-delay:.3s"></span>
       <span style="left:26%;top:180px;animation-delay:1.6s"></span>
       <span style="left:34%;top:60px;animation-delay:2.1s"></span>
       <span style="left:44%;top:140px;animation-delay:.8s"></span>
       <span style="left:52%;top:220px;animation-delay:3.3s"></span>
-      <span style="left:60%;top:70px;animation-delay:1.2s"></span>
-      <span style="left:68%;top:160px;animation-delay:2.7s"></span>
-      <span style="left:76%;top:100px;animation-delay:.6s"></span>
-      <span style="left:82%;top:200px;animation-delay:2.4s"></span>
-      <span style="left:88%;top:240px;animation-delay:1.0s"></span>
     </div>
   </div>
   <div class="container">
@@ -387,17 +432,13 @@
 <!-- ========= PROCESSO ========= -->
 <section id="processo">
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:18%;top:70px;animation-delay:1.1s"></span>
       <span style="left:28%;top:170px;animation-delay:.4s"></span>
       <span style="left:36%;top:50px;animation-delay:3.0s"></span>
       <span style="left:46%;top:130px;animation-delay:1.8s"></span>
       <span style="left:54%;top:210px;animation-delay:.9s"></span>
-      <span style="left:62%;top:80px;animation-delay:2.5s"></span>
-      <span style="left:70%;top:150px;animation-delay:1.3s"></span>
-      <span style="left:78%;top:90px;animation-delay:2.8s"></span>
-      <span style="left:84%;top:230px;animation-delay:.5s"></span>
     </div>
   </div>
   <div class="container">
@@ -438,14 +479,13 @@
 <!-- ========= FUNCIONALIDADES-CHAVE (Key Features Overview) ========= -->
 <section id="funcionalidades" class="has-atmos">
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:14%;top:90px;animation-delay:1.2s"></span>
       <span style="left:26%;top:200px;animation-delay:.5s"></span>
       <span style="left:40%;top:60px;animation-delay:2.4s"></span>
       <span style="left:58%;top:170px;animation-delay:1.6s"></span>
       <span style="left:72%;top:90px;animation-delay:.8s"></span>
-      <span style="left:84%;top:220px;animation-delay:2.1s"></span>
     </div>
   </div>
   <div class="container">
@@ -505,9 +545,6 @@
       <span style="left:34%;top:60px;animation-delay:2.2s"></span>
       <span style="left:46%;top:160px;animation-delay:1.5s"></span>
       <span style="left:56%;top:80px;animation-delay:.8s"></span>
-      <span style="left:68%;top:190px;animation-delay:2.6s"></span>
-      <span style="left:80%;top:110px;animation-delay:1.2s"></span>
-      <span style="left:88%;top:60px;animation-delay:.5s"></span>
     </div>
   </div>
   <div class="container">
@@ -579,7 +616,7 @@
 <section id="tecnologias" class="has-atmos atmos-pro">
   <div class="atmos-rays" aria-hidden="true"></div>
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:14%;top:90px;animation-delay:1.0s"></span>
       <span style="left:30%;top:180px;animation-delay:.4s"></span>
@@ -644,7 +681,7 @@
 <!-- ========= TRABALHOS / WORKS ========= -->
 <section id="trabalhos" class="has-atmos">
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:12%;top:100px;animation-delay:1.0s"></span>
       <span style="left:30%;top:200px;animation-delay:.3s"></span>
@@ -666,18 +703,13 @@
 <!-- ========= COMPARAÇÃO ========= -->
 <section class="has-atmos">
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:14%;top:80px;animation-delay:.7s"></span>
       <span style="left:22%;top:180px;animation-delay:2.0s"></span>
       <span style="left:30%;top:60px;animation-delay:1.5s"></span>
       <span style="left:42%;top:130px;animation-delay:.3s"></span>
       <span style="left:50%;top:200px;animation-delay:2.6s"></span>
-      <span style="left:58%;top:90px;animation-delay:1.0s"></span>
-      <span style="left:66%;top:170px;animation-delay:3.2s"></span>
-      <span style="left:74%;top:60px;animation-delay:1.9s"></span>
-      <span style="left:82%;top:150px;animation-delay:.5s"></span>
-      <span style="left:88%;top:220px;animation-delay:2.4s"></span>
     </div>
   </div>
   <div class="container">
@@ -731,7 +763,7 @@
       <ul style="list-style:none;padding:0;margin:28px auto 32px;max-width:820px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;text-align:left">
         <li style="padding:18px 20px;border-radius:14px;border:1px solid var(--line-2);background:rgba(255,255,255,.03)">
           <strong style="display:block;font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em">88%</strong>
-          <span style="display:block;font-size:13.5px;color:var(--muted);line-height:1.55;margin-top:6px">dos consumidores não voltam a um site após uma má experiência (<a href="https://www.amazonaws.cn/en/forrester-uxd-tech/" rel="nofollow noopener" target="_blank" style="color:#a78bfa;text-decoration:underline">Forrester via AWS</a>)</span>
+          <span style="display:block;font-size:13.5px;color:var(--muted);line-height:1.55;margin-top:6px">dos consumidores não voltam a um site após uma má experiência (Forrester Research)</span>
         </li>
         <li style="padding:18px 20px;border-radius:14px;border:1px solid var(--line-2);background:rgba(255,255,255,.03)">
           <strong style="display:block;font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em">+32%</strong>
@@ -752,7 +784,7 @@
 <section id="testemunhos" class="has-atmos atmos-pro">
   <div class="atmos-rays" aria-hidden="true"></div>
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:18%;top:80px;animation-delay:1.0s"></span>
       <span style="left:32%;top:200px;animation-delay:.5s"></span>
@@ -768,8 +800,8 @@
       <p class="section-sub">Descobre o que os nossos clientes dizem sobre as suas experiências e sucesso a trabalhar connosco.</p>
     </div>
     <div class="tx-wrap reveal">
-      <button class="tx-arc tx-arc-l" aria-hidden="true"></button>
-      <button class="tx-arc tx-arc-r" aria-hidden="true"></button>
+      <button class="tx-arc tx-arc-l" type="button" aria-label="Depoimento anterior"></button>
+      <button class="tx-arc tx-arc-r" type="button" aria-label="Próximo depoimento"></button>
       <div class="tx-stage">
         <!-- REVIEWS_MARKER -->
       </div>
@@ -782,18 +814,13 @@
 <section id="faq" class="atmos-pro">
   <div class="atmos-rays" aria-hidden="true"></div>
   <div class="section-atmos" aria-hidden="true">
-    <div class="rings"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="rings"><span></span><span></span><span></span><span></span></div>
     <div class="section-sparkles">
       <span style="left:16%;top:90px;animation-delay:1.4s"></span>
       <span style="left:24%;top:170px;animation-delay:.6s"></span>
       <span style="left:34%;top:60px;animation-delay:2.3s"></span>
       <span style="left:42%;top:140px;animation-delay:.2s"></span>
       <span style="left:50%;top:210px;animation-delay:3.0s"></span>
-      <span style="left:58%;top:70px;animation-delay:1.7s"></span>
-      <span style="left:66%;top:160px;animation-delay:2.5s"></span>
-      <span style="left:74%;top:100px;animation-delay:.9s"></span>
-      <span style="left:82%;top:200px;animation-delay:1.2s"></span>
-      <span style="left:88%;top:230px;animation-delay:3.4s"></span>
     </div>
   </div>
   <div class="container">
@@ -813,6 +840,41 @@
       <details><summary>Quantas alterações posso pedir?<span class="plus">+</span></summary><div class="ans">Dentro do âmbito acordado, alterações são ilimitadas. Trabalhamos por aprovações em cada fase para evitar surpresas.</div></details>
       <details><summary>O SEO está incluído nos pacotes?<span class="plus">+</span></summary><div class="ans">SEO técnico, schema markup e otimização on-page estão sempre incluídos. SEO mensal é opcional no pacote de Marketing Digital.</div></details>
     </div>
+  </div>
+</section>
+
+<!-- ========= RECURSOS GRÁTIS / LEAD MAGNETS ========= -->
+<section id="recursos" class="lm-cta-strip reveal">
+  <div class="lm-cta-strip-inner">
+    <span class="lm-cta-strip-badge">100% Grátis</span>
+    <h2 class="lm-cta-strip-title">Recursos práticos para o teu negócio online</h2>
+    <p class="lm-cta-strip-sub">Guias e templates criados pela nossa equipa para PMEs portuguesas. Sem jargão, sem spam.</p>
+    <div class="lm-cta-strip-pills">
+      <a href="/recursos/checklist-seo-pmes" class="lm-cta-strip-pill">
+        <span class="lm-cta-strip-pill-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="M21 21l-2-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <div class="lm-cta-strip-pill-content">
+          <p class="lm-cta-strip-pill-title">Checklist SEO para PMEs</p>
+          <p class="lm-cta-strip-pill-sub">20 pontos para subir no Google em 2026</p>
+        </div>
+        <svg class="lm-cta-strip-pill-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/recursos/brief-website" class="lm-cta-strip-pill">
+        <span class="lm-cta-strip-pill-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <div class="lm-cta-strip-pill-content">
+          <p class="lm-cta-strip-pill-title">Template de Brief de Website</p>
+          <p class="lm-cta-strip-pill-sub">Tudo o que a agência precisa de saber antes de começar</p>
+        </div>
+        <svg class="lm-cta-strip-pill-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <a href="/recursos" class="lm-cta-strip-btn">
+      Ver todos os recursos
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
 </section>
 
@@ -840,9 +902,9 @@
 
       <!-- Marca -->
       <div class="site-footer-brand">
-        <a class="site-footer-logo" href="/">
-          <span class="site-footer-logo-mark">E</span>
-          <span>Element Group</span>
+        <a class="site-footer-logo" href="/" aria-label="Element Group — Início">
+          <span class="site-footer-logo-mark" aria-hidden="true">E</span>
+          <span aria-hidden="true">Element Group</span>
         </a>
         <p>Soluções digitais à medida para PMEs em Portugal: websites, e-commerce, apps e marketing.</p>
         <div class="site-footer-social">
@@ -872,6 +934,20 @@
           <a href="/servicos">Serviços</a>
           <a href="/portfolio">Portfolio</a>
           <a href="/sobre">Sobre</a>
+        </div>
+      </div>
+
+      <!-- Serviços -->
+      <div>
+        <h3>Serviços</h3>
+        <div class="site-footer-links">
+          <a href="/servicos/criacao-de-websites">Criação de Websites</a>
+          <a href="/servicos/loja-online">Loja Online</a>
+          <a href="/servicos/apps-mobile">Apps Mobile</a>
+          <a href="/servicos/design-grafico">Design Gráfico</a>
+          <a href="/servicos/marketing-digital">Marketing Digital</a>
+          <a href="/servicos/negocios-locais">Negócios Locais</a>
+          <a href="/servicos/redesign-migracao">Redesign &amp; Migração</a>
         </div>
       </div>
 
