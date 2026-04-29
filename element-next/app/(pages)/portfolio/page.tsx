@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 /* ─── Static fallback data ─── */
 const STATIC_PROJECTS: PortfolioProject[] = [
   {
-    id: 'matias-nature',
-    slug: 'matias-nature',
+    id: 'matias-nature-portugal',
+    slug: 'matias-nature-portugal',
     title: 'Matias Nature — E-commerce + App PWA',
     client: 'Matias Nature',
     category: 'E-commerce',
@@ -49,8 +49,8 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     source: 'static',
   },
   {
-    id: 'football-nation-website',
-    slug: 'football-nation-website',
+    id: 'football-nation-store-loja',
+    slug: 'football-nation-store-loja',
     title: 'Football Nation Store — Loja Online',
     client: 'Football Nation Store',
     category: 'E-commerce',
@@ -71,8 +71,8 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     source: 'static',
   },
   {
-    id: 'apiarios',
-    slug: 'apiarios',
+    id: 'apiarios-terras-pulga',
+    slug: 'apiarios-terras-pulga',
     title: 'Apiários Terras da Pulga — E-commerce',
     client: 'Apiários Terras da Pulga',
     category: 'E-commerce',
@@ -93,8 +93,8 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     source: 'static',
   },
   {
-    id: 'massagens',
-    slug: 'massagens',
+    id: 'maria-mendes-massagens',
+    slug: 'maria-mendes-massagens',
     title: 'Maria Mendes Massagens — Website',
     client: 'Maria Mendes Massagens',
     category: 'Websites',
@@ -115,8 +115,8 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     source: 'static',
   },
   {
-    id: 'adsaoromao',
-    slug: 'adsaoromao',
+    id: 'ad-sao-romao',
+    slug: 'ad-sao-romao',
     title: 'AD São Romão — Website Institucional',
     client: 'Assoc. Desportiva São Romão',
     category: 'Websites',
@@ -158,8 +158,8 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     source: 'static',
   },
   {
-    id: 'football-nation-store',
-    slug: 'football-nation-store',
+    id: 'football-nation-store-branding',
+    slug: 'football-nation-store-branding',
     title: 'Football Nation Store — Branding',
     client: 'Football Nation Store',
     category: 'Design',

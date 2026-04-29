@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import Link from 'next/link';
-import { getCaseStudy, getAllSlugs, SITE_URL_CS, type CaseStudy, type CaseStudyResult } from '@/lib/case-studies';
+import { getCaseStudyDB, getAllCaseStudySlugsDB, getAllCaseStudiesDB } from '@/lib/case-studies-db';
+import { SITE_URL_CS, type CaseStudy, type CaseStudyResult } from '@/lib/case-studies';
 
 /* ─── Static params ─── */
-export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getAllCaseStudySlugsDB();
+  return slugs.map((slug) => ({ slug }));
 }
 
 /* ─── SEO metadata ─── */
@@ -14,7 +16,7 @@ export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const { slug } = await params;
-  const cs = getCaseStudy(slug);
+  const cs = await getCaseStudyDB(slug);
   if (!cs) return {};
   return {
     title: cs.metaTitle,
@@ -123,12 +125,14 @@ export default async function CaseStudyPage(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-  const cs = getCaseStudy(slug);
+  const cs = await getCaseStudyDB(slug);
   if (!cs) notFound();
 
   const { breadcrumb, article } = buildLD(cs);
-  const prevCs = cs.prevSlug ? getCaseStudy(cs.prevSlug) : null;
-  const nextCs = cs.nextSlug ? getCaseStudy(cs.nextSlug) : null;
+  const [prevCs, nextCs] = await Promise.all([
+    cs.prevSlug ? getCaseStudyDB(cs.prevSlug) : Promise.resolve(null),
+    cs.nextSlug ? getCaseStudyDB(cs.nextSlug) : Promise.resolve(null),
+  ]);
 
   return (
     <div className="cs-page">
