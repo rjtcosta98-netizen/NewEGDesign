@@ -1,33 +1,25 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 type Props = { code: string };
 
+/**
+ * Injects the provided code as an inline <script> element appended to <body>.
+ * Using script.textContent + appendChild respects the CSP 'unsafe-inline'
+ * directive already present in next.config.mjs, whereas new Function() / eval()
+ * would require the additional 'unsafe-eval' directive (which we intentionally omit).
+ */
 export default function InlineScripts({ code }: Props) {
+  const injected = useRef(false);
+
   useEffect(() => {
-    const run = () => {
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-implied-eval
-        new Function(code)();
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error("[InlineScripts] error:", err);
-      }
-    };
+    if (injected.current) return;
+    injected.current = true;
 
-    const w = window as Window & {
-      requestIdleCallback?: (cb: () => void) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-
-    if (typeof w.requestIdleCallback === "function") {
-      const id = w.requestIdleCallback(run);
-      return () => w.cancelIdleCallback?.(id);
-    }
-
-    const id = window.setTimeout(run, 0);
-    return () => window.clearTimeout(id);
+    const script = document.createElement("script");
+    script.textContent = code;
+    document.body.appendChild(script);
   }, [code]);
 
   return null;
