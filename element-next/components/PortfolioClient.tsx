@@ -189,18 +189,8 @@ function GridView({ projects }: { projects: PortfolioProject[] }) {
 }
 
 function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: number }) {
-  const href = p.source === 'static'
-    ? `/portfolio/${p.slug}`
-    : (p.url ?? `/portfolio/${p.slug}`);
-  const isExternal = p.source === 'supabase' && !!p.url;
-
   return (
-    <a
-      href={href}
-      target={isExternal ? '_blank' : undefined}
-      rel={isExternal ? 'noopener noreferrer' : undefined}
-      className="pf-card"
-    >
+    <a href={`/portfolio/${p.slug}`} className="pf-card">
       {/* Cover */}
       <div className="pf-card__cover">
         {p.image ? (
@@ -228,10 +218,17 @@ function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: numb
         <div className="pf-card__badges">
           <span className="pf-card__badge">{p.category}</span>
           {p.url ? (
-            <span className="pf-card__live">
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pf-card__live"
+              onClick={(e) => e.stopPropagation()}
+              title="Ver site ao vivo"
+            >
               <span className="pf-card__live-dot" />
               Live
-            </span>
+            </a>
           ) : null}
         </div>
 
@@ -241,7 +238,7 @@ function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: numb
         {/* Arrow */}
         <div className="pf-card__arrow">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-            <path d="M7 17L17 7M7 7h10v10"/>
+            <path d="M5 12h14M13 5l7 7-7 7"/>
           </svg>
         </div>
 
@@ -274,18 +271,8 @@ function ListView({ projects }: { projects: PortfolioProject[] }) {
 }
 
 function ListItem({ project: p, idx }: { project: PortfolioProject; idx: number }) {
-  const href = p.source === 'static'
-    ? `/portfolio/${p.slug}`
-    : (p.url ?? `/portfolio/${p.slug}`);
-  const isExternal = p.source === 'supabase' && !!p.url;
-
   return (
-    <a
-      href={href}
-      target={isExternal ? '_blank' : undefined}
-      rel={isExternal ? 'noopener noreferrer' : undefined}
-      className="pf-list-item"
-    >
+    <a href={`/portfolio/${p.slug}`} className="pf-list-item">
       <div className="pf-list-inner">
         {/* Thumbnail */}
         <div className="pf-list-cover">

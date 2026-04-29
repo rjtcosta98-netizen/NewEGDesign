@@ -122,13 +122,16 @@ function fallbackHeroProjects(): HeroProject[] {
   ];
 }
 
-const LIVE_ICON =
-  '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+const CASE_STUDY_ICON =
+  '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+
+const EXTERNAL_ICON =
+  '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M9 7h8v8"/></svg>';
 
 /**
  * Returns the HTML string for the hero portfolio rotator cards.
  * Replaces <!-- HERO_PROJECTS_MARKER --> inside .hp-track in _body.html.
- * Markup matches the original .proj cards exactly so no CSS changes needed.
+ * Clicking the card navigates to /portfolio/[slug]; live URL opens separately.
  */
 export async function renderHeroProjectsHTML(): Promise<string> {
   const rows = await fetchHeroProjects();
@@ -144,10 +147,6 @@ export async function renderHeroProjectsHTML(): Promise<string> {
         : "";
       const badgeStyle = p.badge_color ? ` style="color:${p.badge_color}"` : "";
 
-      const liveAttrs = p.live_url
-        ? ` style="cursor:pointer" onclick="window.open('${esc(p.live_url)}','_blank','noopener,noreferrer')"`
-        : "";
-
       const cover = publicAsset(HERO_BUCKET, p.image_path);
       const previewBody = cover
         ? `<img src="${esc(cover)}" alt="${esc(p.title)}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>`
@@ -157,9 +156,14 @@ export async function renderHeroProjectsHTML(): Promise<string> {
         .map((t) => `<span class="tag">${esc(t)}</span>`)
         .join("");
 
-      return `<div class="proj"${liveAttrs}>
+      // Live external link — stop propagation so card click still goes to case study
+      const liveBtn = p.live_url
+        ? `<a class="live" href="${esc(p.live_url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="Ver site ao vivo">Ver Site ${EXTERNAL_ICON}</a>`
+        : `<span class="live">Case Study ${CASE_STUDY_ICON}</span>`;
+
+      return `<a class="proj" href="/portfolio/${esc(p.slug)}">
         <div class="preview">
-          <span class="live">Ver Live ${LIVE_ICON}</span>
+          ${liveBtn}
           ${previewBody}
           <div class="badge"><b${badgeStyle}>${esc(p.badge_value)}</b><small>${esc(p.badge_label)}</small></div>
         </div>
@@ -169,7 +173,7 @@ export async function renderHeroProjectsHTML(): Promise<string> {
           <p>${esc(p.description)}</p>
           <div class="tags">${tagsHtml}</div>
         </div>
-      </div>`;
+      </a>`;
     })
     .join("\n");
 }
