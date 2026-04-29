@@ -88,7 +88,7 @@ export default function ParceriasForm() {
       {/* Honeypot — invisible to humans, bots fill this in */}
       <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
         <label htmlFor="par-website" aria-hidden="true">Website</label>
-        <input id="par-website" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+        <input id="par-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
       <div className="par-form-header">

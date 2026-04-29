@@ -81,12 +81,7 @@ function buildLD(slug: string, resource: ReturnType<typeof getLeadMagnet>) {
             url: `${SITE_URL}/og-image.jpg`,
           },
         },
-        image: {
-          '@type': 'ImageObject',
-          url: `${SITE_URL}/og-image.jpg`,
-          width: 1200,
-          height: 630,
-        },
+        image: `${SITE_URL}/og-image.jpg`,
         datePublished: '2025-06-01',
         dateModified: new Date().toISOString().split('T')[0],
         inLanguage: 'pt-PT',

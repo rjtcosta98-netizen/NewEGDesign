@@ -302,7 +302,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     title: 'Marketing Digital',
     metaTitle: 'Marketing Digital para PMEs | desde 350€/mês | Element Group',
     metaDescription:
-      'Gestão de redes sociais, Google Ads e SEO mensal para PMEs em Portugal. Instagram, Facebook e Google geridos por especialistas. Relatórios mensais. Desde 350€/mês.',
+      'Gestão de redes sociais, Google Ads e SEO mensal para PMEs em Portugal. Instagram, Facebook e Google por especialistas. Desde 350€/mês.',
     ogTitle: 'Marketing Digital para PMEs em Portugal | desde 350€/mês | Element Group',
     ogDescription:
       'Gestão de Instagram, Facebook e Google Ads para PMEs em Portugal. SEO mensal, conteúdo criativo e relatórios de performance incluídos. Desde 350€/mês.',
