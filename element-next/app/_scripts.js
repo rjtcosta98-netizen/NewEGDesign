@@ -1,7 +1,3 @@
-// Duplica os cards do portfólio para loop infinito sem corte
-const hpTrack = document.querySelector('.hp-track');
-if(hpTrack){ hpTrack.insertAdjacentHTML('beforeend', hpTrack.innerHTML); }
-
 // Menu mobile da homepage
 (function(){
   const menuBtn = document.getElementById('home-menu-btn');

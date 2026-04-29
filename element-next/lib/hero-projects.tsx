@@ -1,5 +1,5 @@
 import { cache } from "react";
-import { getSupabase, publicAsset } from "./supabase";
+import { getSupabase, publicAssetOptimized } from "./supabase";
 import { esc } from "./utils";
 
 const HERO_BUCKET = "hero-images";
@@ -131,40 +131,48 @@ const EXTERNAL_ICON =
 /**
  * Returns the HTML string for the hero portfolio rotator cards.
  * Replaces <!-- HERO_PROJECTS_MARKER --> inside .hp-track in _body.html.
- * Clicking the card navigates to /portfolio/[slug]; live URL opens separately.
+ * Cards are duplicated server-side for the CSS infinite scroll loop,
+ * eliminating the client-side insertAdjacentHTML clone (main TBT source).
  */
 export async function renderHeroProjectsHTML(): Promise<string> {
   const rows = await fetchHeroProjects();
   const source = rows.length > 0 ? rows : fallbackHeroProjects();
 
-  return source
-    .map((p, idx) => {
-      const glyphStyleParts: string[] = [];
-      if (p.glyph_italic) glyphStyleParts.push("font-style:italic");
-      if (p.glyph_color) glyphStyleParts.push(`color:${p.glyph_color}`);
-      const glyphStyle = glyphStyleParts.length
-        ? ` style="${glyphStyleParts.join(";")}"`
-        : "";
-      const badgeStyle = p.badge_color ? ` style="color:${p.badge_color}"` : "";
+  const renderCard = (p: HeroProject, idx: number, isClone: boolean): string => {
+    const glyphStyleParts: string[] = [];
+    if (p.glyph_italic) glyphStyleParts.push("font-style:italic");
+    if (p.glyph_color) glyphStyleParts.push(`color:${p.glyph_color}`);
+    const glyphStyle = glyphStyleParts.length
+      ? ` style="${glyphStyleParts.join(";")}"`
+      : "";
+    const badgeStyle = p.badge_color ? ` style="color:${p.badge_color}"` : "";
 
-      const cover = publicAsset(HERO_BUCKET, p.image_path);
-      // First card is LCP candidate — eager + high priority; rest lazy
-      const isFirst = idx === 0;
-      const imgLoading = isFirst ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
-      const previewBody = cover
-        ? `<img src="${esc(cover)}" alt="${esc(p.title)}" width="800" height="600" ${imgLoading} decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>`
-        : `<span class="glyph"${glyphStyle}>${esc(p.glyph)}</span>`;
+    // LCP candidate: first original card gets a larger optimised image + eager loading.
+    // All other cards (including clones) use a smaller size and lazy loading.
+    const isLcp = idx === 0 && !isClone;
+    const cover = publicAssetOptimized(HERO_BUCKET, p.image_path, {
+      width: isLcp ? 1200 : 800,
+      height: isLcp ? 900 : 600,
+    });
+    const imgLoading = isLcp ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
+    const imgAlt = isClone ? "" : esc(p.title);
+    const previewBody = cover
+      ? `<img src="${esc(cover)}" alt="${imgAlt}" width="800" height="600" ${imgLoading} decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>`
+      : `<span class="glyph"${glyphStyle}>${esc(p.glyph)}</span>`;
 
-      const tagsHtml = (p.tags ?? [])
-        .map((t) => `<span class="tag">${esc(t)}</span>`)
-        .join("");
+    const tagsHtml = (p.tags ?? [])
+      .map((t) => `<span class="tag">${esc(t)}</span>`)
+      .join("");
 
-      // Use span (not <a>) to avoid nested anchors inside <a class="proj">
-      const liveBtn = p.live_url
-        ? `<span class="live" role="link" tabindex="0" onclick="event.stopPropagation();window.open('${esc(p.live_url)}','_blank','noopener,noreferrer')" title="Ver site ao vivo">Ver Site ${EXTERNAL_ICON}</span>`
-        : `<span class="live">Case Study ${CASE_STUDY_ICON}</span>`;
+    // Use span (not <a>) to avoid nested anchors inside <a class="proj">
+    const liveBtn = p.live_url
+      ? `<span class="live" role="link" tabindex="0" onclick="event.stopPropagation();window.open('${esc(p.live_url)}','_blank','noopener,noreferrer')" title="Ver site ao vivo">Ver Site ${EXTERNAL_ICON}</span>`
+      : `<span class="live">Case Study ${CASE_STUDY_ICON}</span>`;
 
-      return `<a class="proj" href="/portfolio/${esc(p.slug)}">
+    // Clone cards are purely decorative — remove from accessibility tree and keyboard flow.
+    const cloneAttrs = isClone ? ' aria-hidden="true" tabindex="-1" inert' : "";
+
+    return `<a class="proj" href="/portfolio/${esc(p.slug)}"${cloneAttrs}>
         <div class="preview">
           ${liveBtn}
           ${previewBody}
@@ -177,6 +185,10 @@ export async function renderHeroProjectsHTML(): Promise<string> {
           <div class="tags">${tagsHtml}</div>
         </div>
       </a>`;
-    })
-    .join("\n");
+  };
+
+  const originals = source.map((p, idx) => renderCard(p, idx, false)).join("\n");
+  const clones = source.map((p, idx) => renderCard(p, idx, true)).join("\n");
+
+  return `${originals}\n${clones}`;
 }

@@ -24,6 +24,24 @@ export function publicAsset(bucket: string, path: string | null | undefined): st
   return `${url}/storage/v1/object/public/${bucket}/${path}`;
 }
 
+/**
+ * Build an optimised image URL via the Supabase Image Transform API.
+ * Converts to WebP and resizes server-side, reducing payload significantly.
+ * Falls back to null when path or project URL is missing.
+ */
+export function publicAssetOptimized(
+  bucket: string,
+  path: string | null | undefined,
+  options: { width?: number; height?: number; quality?: number } = {}
+): string | null {
+  if (!path || !url) return null;
+  const { width = 800, quality = 80 } = options;
+  const params = new URLSearchParams({ format: "webp", quality: String(quality) });
+  if (width) params.set("width", String(width));
+  if (options.height) params.set("height", String(options.height));
+  return `${url}/storage/v1/render/image/public/${bucket}/${path}?${params}`;
+}
+
 export const PROJECT_IMAGES = "project-images";
 export const CLIENT_LOGOS = "client-logos";
 

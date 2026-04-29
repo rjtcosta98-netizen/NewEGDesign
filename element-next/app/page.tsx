@@ -2,6 +2,7 @@
 import RAW_HTML from './_body.html';
 // @ts-ignore – bundled as raw string via webpack asset/source (edge-safe)
 import SCRIPTS from './_scripts.js';
+import { preload } from 'react-dom';
 import InlineScripts from "@/components/InlineScripts";
 import { renderProjectsGridHTML } from "@/lib/projects-grid";
 import { renderHeroProjectsHTML } from "@/lib/hero-projects";
@@ -28,15 +29,16 @@ export default async function Page() {
     .replace(MARQUEE_MARKER, marqueeHtml)
     .replace(REVIEWS_MARKER, reviewsHtml);
 
-  // Extract first hero image URL for LCP preload hint
-  const lcpMatch = heroHtml.match(/<img[^>]*src="([^"]+)"[^>]*fetchpriority="high"/);
+  // Extract first hero image URL and preload it imperatively so React places
+  // the <link rel="preload"> in <head> before any other render output.
+  const lcpMatch = heroHtml.match(/<img[^>]*src="([^"]+)"[^>]*fetchpriority="high"/i);
   const lcpImageUrl = lcpMatch?.[1] ?? null;
+  if (lcpImageUrl) {
+    preload(lcpImageUrl, { as: 'image', fetchPriority: 'high' });
+  }
 
   return (
     <>
-      {lcpImageUrl && (
-        <link rel="preload" as="image" href={lcpImageUrl} fetchPriority="high" />
-      )}
       <main id="main-content">
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </main>
