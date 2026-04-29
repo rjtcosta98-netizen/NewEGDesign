@@ -102,7 +102,7 @@ function fallbackHeroProjects(): HeroProject[] {
     },
     {
       id: "fallback-hero-4",
-      slug: "football-nation-store",
+      slug: "football-nation-store-branding",
       title: "Football Nation Store",
       description: "Logótipo e cartão de visita profissional para e-commerce de camisolas de clubes.",
       category: "Design gráfico",

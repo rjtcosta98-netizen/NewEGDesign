@@ -59,8 +59,8 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
   /* ─────────────────────────────────────────────────────────────────────
      1. Matias Nature
   ───────────────────────────────────────────────────────────────────── */
-  'matias-nature': {
-    slug: 'matias-nature',
+  'matias-nature-portugal': {
+    slug: 'matias-nature-portugal',
     client: 'Matias Nature',
     title: 'Matias Nature — E-commerce + App PWA',
     category: 'E-commerce',
@@ -119,15 +119,15 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       author: 'Cliente Matias Nature',
       role: 'Proprietário',
     },
-    prevSlug: 'football-nation-store',
-    nextSlug: 'football-nation-website',
+    prevSlug: 'football-nation-store-branding',
+    nextSlug: 'football-nation-store-loja',
   },
 
   /* ─────────────────────────────────────────────────────────────────────
      2. Football Nation Store — website
   ───────────────────────────────────────────────────────────────────── */
-  'football-nation-website': {
-    slug: 'football-nation-website',
+  'football-nation-store-loja': {
+    slug: 'football-nation-store-loja',
     client: 'Football Nation Store',
     title: 'Football Nation Store — Loja Online',
     category: 'E-commerce',
@@ -186,15 +186,15 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       author: 'Football Nation Store',
       role: 'Fundador',
     },
-    prevSlug: 'matias-nature',
-    nextSlug: 'apiarios',
+    prevSlug: 'matias-nature-portugal',
+    nextSlug: 'apiarios-terras-pulga',
   },
 
   /* ─────────────────────────────────────────────────────────────────────
      3. Apiários Terras da Pulga
   ───────────────────────────────────────────────────────────────────── */
-  'apiarios': {
-    slug: 'apiarios',
+  'apiarios-terras-pulga': {
+    slug: 'apiarios-terras-pulga',
     client: 'Apiários Terras da Pulga',
     title: 'Apiários Terras da Pulga — E-commerce',
     category: 'E-commerce',
@@ -253,15 +253,15 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       author: 'Ricardo Jesus',
       role: 'Proprietário, Apiários Terras da Pulga',
     },
-    prevSlug: 'football-nation-website',
-    nextSlug: 'massagens',
+    prevSlug: 'football-nation-store-loja',
+    nextSlug: 'maria-mendes-massagens',
   },
 
   /* ─────────────────────────────────────────────────────────────────────
      4. Maria Mendes Massagens
   ───────────────────────────────────────────────────────────────────── */
-  'massagens': {
-    slug: 'massagens',
+  'maria-mendes-massagens': {
+    slug: 'maria-mendes-massagens',
     client: 'Maria Mendes Massagens',
     title: 'Maria Mendes Massagens — Website',
     category: 'Websites',
@@ -320,15 +320,15 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       author: 'Maria Mendes',
       role: 'Proprietária, Maria Mendes Massagens',
     },
-    prevSlug: 'apiarios',
-    nextSlug: 'adsaoromao',
+    prevSlug: 'apiarios-terras-pulga',
+    nextSlug: 'ad-sao-romao',
   },
 
   /* ─────────────────────────────────────────────────────────────────────
      5. AD São Romão
   ───────────────────────────────────────────────────────────────────── */
-  'adsaoromao': {
-    slug: 'adsaoromao',
+  'ad-sao-romao': {
+    slug: 'ad-sao-romao',
     client: 'Assoc. Desportiva São Romão',
     title: 'AD São Romão — Website Institucional',
     category: 'Websites',
@@ -386,7 +386,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       author: 'Associação Desportiva São Romão',
       role: 'Direção',
     },
-    prevSlug: 'massagens',
+    prevSlug: 'maria-mendes-massagens',
     nextSlug: 'estrela-detail-wash',
   },
 
@@ -452,15 +452,15 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       author: 'Estrela Detail & Wash',
       role: 'Proprietário',
     },
-    prevSlug: 'adsaoromao',
-    nextSlug: 'football-nation-store',
+    prevSlug: 'ad-sao-romao',
+    nextSlug: 'football-nation-store-branding',
   },
 
   /* ─────────────────────────────────────────────────────────────────────
      7. Football Nation Store — Branding
   ───────────────────────────────────────────────────────────────────── */
-  'football-nation-store': {
-    slug: 'football-nation-store',
+  'football-nation-store-branding': {
+    slug: 'football-nation-store-branding',
     client: 'Football Nation Store',
     title: 'Football Nation Store — Branding',
     category: 'Design',
@@ -519,7 +519,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       role: 'Fundador',
     },
     prevSlug: 'estrela-detail-wash',
-    nextSlug: 'matias-nature',
+    nextSlug: 'matias-nature-portugal',
   },
 };
 

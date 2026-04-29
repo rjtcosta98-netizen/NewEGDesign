@@ -169,15 +169,13 @@ export async function renderProjectsGridHTML(): Promise<string> {
   return source
     .map((p, i) => {
       const color = COLOR_CYCLE[i % COLOR_CYCLE.length];
-      const href = p.url ?? '/contacto';
-      const external = !!p.url;
+      const href = `/portfolio/${esc(p.slug)}`;
       const clientName = p.client?.name ?? p.title;
       const cover = publicAsset(PROJECT_IMAGES, p.cover_path);
       const variant = variantFor(p.category, i);
-      const target = external ? ` target="_blank" rel="noopener noreferrer"` : "";
       const navExtraSpan = variant === 1 ? "<span></span>" : "";
 
-      return `<a class="wk-card reveal" href="${esc(href)}" data-color="${color}"${target}>
+      return `<a class="wk-card reveal" href="${href}" data-color="${color}">
         <div class="wk-thumb">
           <div class="wk-mock">
             <div class="wk-bar"><i></i><i></i><i></i></div>
