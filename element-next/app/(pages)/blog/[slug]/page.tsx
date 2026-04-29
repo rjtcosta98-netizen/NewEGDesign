@@ -108,9 +108,7 @@ function buildArticleLD(post: BlogPost) {
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
     inLanguage: "pt-PT",
-    ...(post.cover_image && {
-      image: post.cover_image,
-    }),
+    image: post.cover_image ?? `${SITE_URL}/og-image.jpg`,
   };
 }
 
