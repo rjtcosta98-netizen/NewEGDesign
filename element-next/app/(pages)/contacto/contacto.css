@@ -98,7 +98,7 @@
   font-family: var(--font-serif);
   font-weight: 400;
   font-style: italic;
-  font-size: clamp(86px, 24vw, 148px);
+  font-size: clamp(72px, 20vw, 148px);
   line-height: .88;
   letter-spacing: -.03em;
   color: #fff;
