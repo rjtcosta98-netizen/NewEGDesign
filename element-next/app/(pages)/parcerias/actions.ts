@@ -136,12 +136,22 @@ export async function submitParcerias(
   _prev: ParceriasState,
   fd: FormData,
 ): Promise<ParceriasState> {
+  // Anti-spam: honeypot — bots fill the hidden "website" field
+  const honeypot = fd.get('website')?.toString() ?? '';
+  if (honeypot) return { ok: true }; // Silent reject
+
   const name    = fd.get('name')?.toString().trim()    ?? '';
   const email   = fd.get('email')?.toString().trim()   ?? '';
   const phone   = fd.get('phone')?.toString().trim()   ?? '';
   const profile = fd.get('profile')?.toString()        ?? '';
   const volume  = fd.get('volume')?.toString()         ?? '';
   const message = fd.get('message')?.toString().trim() ?? '';
+
+  // Field length limits to prevent flooding
+  if (name.length > 200)    return { ok: false, error: 'Nome demasiado longo.' };
+  if (email.length > 320)   return { ok: false, error: 'Email inválido.' };
+  if (phone.length > 30)    return { ok: false, error: 'Telefone inválido.' };
+  if (message.length > 5000) return { ok: false, error: 'Mensagem demasiado longa (máx. 5000 caracteres).' };
 
   if (!name)  return { ok: false, error: 'Por favor indica o teu nome.' };
   if (!email) return { ok: false, error: 'Por favor indica o teu email.' };

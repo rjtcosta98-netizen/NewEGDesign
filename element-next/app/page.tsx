@@ -28,8 +28,15 @@ export default async function Page() {
     .replace(MARQUEE_MARKER, marqueeHtml)
     .replace(REVIEWS_MARKER, reviewsHtml);
 
+  // Extract first hero image URL for LCP preload hint
+  const lcpMatch = heroHtml.match(/<img[^>]*src="([^"]+)"[^>]*fetchpriority="high"/);
+  const lcpImageUrl = lcpMatch?.[1] ?? null;
+
   return (
     <>
+      {lcpImageUrl && (
+        <link rel="preload" as="image" href={lcpImageUrl} fetchPriority="high" />
+      )}
       <div dangerouslySetInnerHTML={{ __html: html }} />
       <InlineScripts code={SCRIPTS} />
     </>

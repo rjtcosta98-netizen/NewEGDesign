@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
+export const revalidate = false;
+
 export const metadata: Metadata = {
-  title: 'Termos e Condicoes | Element Group',
-  description: 'Termos e Condicoes de utilizacao e prestacao de servicos da Element Group.',
+  title: 'Termos e Condições | Element Group',
+  description: 'Termos e Condições de utilização e prestação de serviços da Element Group. Condições que regem o acesso e uso dos nossos serviços digitais em Portugal.',
 };
 
 export default function TermosCondicoesPage() {

@@ -1,6 +1,6 @@
+import './case-study.css';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Script from 'next/script';
 import Link from 'next/link';
 import { getCaseStudyDB, getAllCaseStudySlugsDB, getAllCaseStudiesDB } from '@/lib/case-studies-db';
 import { SITE_URL_CS, type CaseStudy, type CaseStudyResult } from '@/lib/case-studies';
@@ -136,10 +136,14 @@ export default async function CaseStudyPage(
 
   return (
     <div className="cs-page">
-      <Script id="ld-cs-bc" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <Script id="ld-cs-art" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+      />
 
       {/* ── BREADCRUMB ── */}
       <nav className="cs-breadcrumb" aria-label="Navegação de migalhas">
@@ -155,7 +159,7 @@ export default async function CaseStudyPage(
         {/* Background image */}
         {cs.image && (
           <div className="cs-hero-img" aria-hidden="true">
-            <img src={cs.image} alt="" />
+            <img src={cs.image} alt="" width={1600} height={900} />
           </div>
         )}
         <div className="cs-hero-overlay" aria-hidden="true" />

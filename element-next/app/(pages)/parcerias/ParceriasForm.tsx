@@ -1,7 +1,8 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect, useRef, useCallback } from 'react';
 import { submitParcerias, type ParceriasState } from './actions';
+import { trackParceriaSubmitted } from '@/lib/analytics';
 
 const PROFILES = [
   'Contabilista / TOC',
@@ -54,15 +55,41 @@ function SuccessState() {
 }
 
 export default function ParceriasForm() {
+  const pendingDataRef = useRef<{ profile: string; volume: string } | null>(null);
+  const trackedRef = useRef(false);
+
+  const wrappedAction = useCallback(
+    async (prev: ParceriasState, fd: FormData): Promise<ParceriasState> => {
+      pendingDataRef.current = {
+        profile: fd.get('profile')?.toString() || '',
+        volume: fd.get('volume')?.toString() || '',
+      };
+      return submitParcerias(prev, fd);
+    },
+    [],
+  );
+
   const [state, action, isPending] = useActionState<ParceriasState, FormData>(
-    submitParcerias,
+    wrappedAction,
     null,
   );
+
+  useEffect(() => {
+    if (state?.ok && !trackedRef.current && pendingDataRef.current) {
+      trackedRef.current = true;
+      trackParceriaSubmitted(pendingDataRef.current);
+    }
+  }, [state]);
 
   if (state?.ok) return <SuccessState />;
 
   return (
     <form id="candidatura" className="par-form" action={action} noValidate>
+      {/* Honeypot — invisible to humans, bots fill this in */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+        <label htmlFor="par-website">Website</label>
+        <input id="par-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
 
       <div className="par-form-header">
         <span className="par-form-eyebrow">Candidatura</span>

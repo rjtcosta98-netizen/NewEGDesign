@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
+export const revalidate = false;
+
 export const metadata: Metadata = {
-  title: 'Resolucao de Litigios | Element Group',
-  description: 'Informacao sobre resolucao alternativa de litigios e livro de reclamacoes.',
+  title: 'Resolução de Litígios | Element Group',
+  description: 'Informação sobre resolução alternativa de litígios (RAL) e acesso ao livro de reclamações eletrónico da Element Group, conforme a legislação portuguesa.',
 };
 
 export default function ResolucaoLitigiosPage() {

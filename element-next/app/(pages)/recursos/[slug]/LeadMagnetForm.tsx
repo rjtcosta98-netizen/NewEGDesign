@@ -1,8 +1,9 @@
 'use client';
 
-import { useActionState, useEffect, useRef } from 'react';
+import { useActionState, useEffect, useRef, useCallback } from 'react';
 import type { LeadMagnet } from '@/lib/lead-magnets';
 import { submitLeadCapture, type LeadState } from './actions';
+import { trackLeadMagnetDownloaded } from '@/lib/analytics';
 
 // ── Icons ─────────────────────────────────────────────────────────────────
 function IconCheck() {
@@ -230,10 +231,27 @@ function GateForm({
 
 // ── Main export ────────────────────────────────────────────────────────────
 export default function LeadMagnetForm({ resource }: { resource: LeadMagnet }) {
+  const trackedRef = useRef(false);
+
+  const wrappedAction = useCallback(
+    (prev: LeadState, fd: FormData) => submitLeadCapture(prev, fd),
+    [],
+  );
+
   const [state, action, pending] = useActionState<LeadState, FormData>(
-    submitLeadCapture,
+    wrappedAction,
     null,
   );
+
+  useEffect(() => {
+    if (state?.ok && !trackedRef.current) {
+      trackedRef.current = true;
+      trackLeadMagnetDownloaded({
+        resource_slug: resource.slug,
+        resource_title: resource.title,
+      });
+    }
+  }, [state, resource.slug, resource.title]);
 
   if (state?.ok) {
     return <ContentReveal resource={resource} />;

@@ -1,13 +1,16 @@
+import './parcerias.css';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ParceriasForm from './ParceriasForm';
 
+export const revalidate = false; // statically generated at build time
+
 const SITE_URL = 'https://elementgroup.pt';
 
 export const metadata: Metadata = {
-  title: 'Programa de Parceiros — Ganhe até 10% por Referência | Element Group',
+  title: 'Programa de Parceiros | Comissão 10% | Element Group',
   description:
-    'Torna-te parceiro da Element Group e ganha até 10% do valor de cada projeto que nos encaminhes. Contabilistas, consultores, designers e comerciais — sem custos, sem burocracia.',
+    'Torna-te parceiro da Element Group e ganha até 10% por cada projeto referenciado. Para contabilistas, consultores e designers — sem custos nem burocracia.',
   alternates: { canonical: `${SITE_URL}/parcerias` },
   openGraph: {
     title: 'Programa de Parceiros — Ganhe até 10% | Element Group',

@@ -102,11 +102,21 @@ export async function submitContact(
   _prev: ContactState,
   fd: FormData,
 ): Promise<ContactState> {
+  // Anti-spam: honeypot — bots fill the hidden "website" field
+  const honeypot = fd.get('website')?.toString() ?? '';
+  if (honeypot) return { ok: true }; // Silent reject
+
   const name    = fd.get('name')?.toString().trim()    ?? '';
   const email   = fd.get('email')?.toString().trim()   ?? '';
   const phone   = fd.get('phone')?.toString().trim()   ?? '';
   const service = fd.get('service')?.toString()        ?? '';
   const message = fd.get('message')?.toString().trim() ?? '';
+
+  // Field length limits to prevent flooding
+  if (name.length > 200)    return { ok: false, error: 'Nome demasiado longo.' };
+  if (email.length > 320)   return { ok: false, error: 'Email inválido.' };
+  if (phone.length > 30)    return { ok: false, error: 'Telefone inválido.' };
+  if (message.length > 5000) return { ok: false, error: 'Mensagem demasiado longa (máx. 5000 caracteres).' };
 
   // Validação
   if (!name)  return { ok: false, error: 'Por favor indica o teu nome.' };

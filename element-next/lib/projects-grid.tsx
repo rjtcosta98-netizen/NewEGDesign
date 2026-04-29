@@ -143,7 +143,7 @@ function variantFor(category: string | null, index: number): Variant {
 
 function screenBody(variant: Variant, cover: string | null, alt: string): string {
   if (cover) {
-    return `<div style="position:relative;flex:1;min-height:160px;border-radius:8px;overflow:hidden;border:1px solid var(--line)"><img src="${esc(cover)}" alt="${esc(alt)}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/></div>`;
+    return `<div style="position:relative;flex:1;min-height:160px;border-radius:8px;overflow:hidden;border:1px solid var(--line)"><img src="${esc(cover)}" alt="${esc(alt)}" width="800" height="500" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/></div>`;
   }
   switch (variant) {
     case 1:

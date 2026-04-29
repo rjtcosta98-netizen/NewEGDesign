@@ -1,7 +1,8 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect, useRef, useCallback } from 'react';
 import { submitContact, type ContactState } from './actions';
+import { trackContactSubmitted } from '@/lib/analytics';
 
 const SERVICES = [
   'Website',
@@ -45,15 +46,42 @@ function SuccessState() {
 }
 
 export function ContactForm() {
+  const pendingDataRef = useRef<{ service: string; has_phone: boolean; has_message: boolean } | null>(null);
+  const trackedRef = useRef(false);
+
+  const wrappedAction = useCallback(
+    async (prev: ContactState, fd: FormData): Promise<ContactState> => {
+      pendingDataRef.current = {
+        service: fd.get('service')?.toString() || '',
+        has_phone: Boolean(fd.get('phone')?.toString()?.trim()),
+        has_message: Boolean(fd.get('message')?.toString()?.trim()),
+      };
+      return submitContact(prev, fd);
+    },
+    [],
+  );
+
   const [state, action, isPending] = useActionState<ContactState, FormData>(
-    submitContact,
+    wrappedAction,
     null,
   );
+
+  useEffect(() => {
+    if (state?.ok && !trackedRef.current && pendingDataRef.current) {
+      trackedRef.current = true;
+      trackContactSubmitted(pendingDataRef.current);
+    }
+  }, [state]);
 
   if (state?.ok) return <SuccessState />;
 
   return (
     <form className="ct-form" action={action} noValidate>
+      {/* Honeypot — invisible to humans, bots fill this in */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+        <label htmlFor="ct-website">Website</label>
+        <input id="ct-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
 
       {/* Form header */}
       <div className="ct-form-header">

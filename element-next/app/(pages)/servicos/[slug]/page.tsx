@@ -1,7 +1,9 @@
+import './servico-detail.css';
 import type { Metadata } from 'next';
+
+export const revalidate = false; // data from static services-data.ts, rebuilt on deploy
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Script from 'next/script';
 import {
   SERVICE_PAGES,
   getServiceBySlug,
@@ -149,12 +151,18 @@ export default async function ServiceDetailPage({
       <ServiceTheme color={service.color} />
 
       {/* ── JSON-LD ── */}
-      <Script id={`ld-svc-${slug}`} type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceJsonLd(service)) }} />
-      <Script id={`ld-bc-${slug}`} type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceBreadcrumbLd(service)) }} />
-      <Script id={`ld-faq-${slug}`} type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceFaqLd(service)) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceJsonLd(service)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceBreadcrumbLd(service)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceFaqLd(service)) }}
+      />
 
       {/* ── Accent top line ── */}
       <div className="svc-top-line" aria-hidden="true" />

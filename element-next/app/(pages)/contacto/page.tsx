@@ -1,6 +1,8 @@
+import './contacto.css';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { ContactForm } from './ContactForm';
+
+export const revalidate = false; // static page; form submission handled by Server Action
 
 const SITE_URL = 'https://elementgroup.pt';
 
@@ -75,16 +77,12 @@ export default function ContactoPage() {
 
   return (
     <div className="ct-page">
-      <Script
-        id="ld-contact"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(CONTACT_LD) }}
       />
-      <Script
-        id="ld-ct-bc"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }}
       />
 

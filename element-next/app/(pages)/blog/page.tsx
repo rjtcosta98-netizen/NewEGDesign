@@ -1,6 +1,6 @@
+import './blog.css';
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import { getBlogPosts, formatDate } from "@/lib/blog";
 
 export const revalidate = 3600; // ISR: refresh every hour
@@ -8,7 +8,7 @@ export const revalidate = 3600; // ISR: refresh every hour
 const SITE_URL = "https://elementgroup.pt";
 
 export const metadata: Metadata = {
-  title: "Blog | Dicas de Marketing Digital, Websites e Apps | Element Group",
+  title: "Blog de Marketing Digital e Websites | Element Group",
   description:
     "Artigos práticos sobre websites, apps no-code e marketing digital para PMEs portuguesas. Aprende a crescer o teu negócio online com a Element Group.",
   alternates: { canonical: "/blog" },
@@ -50,8 +50,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <Script
-        id="blog-ld"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BLOG_LD) }}
       />
@@ -135,7 +134,7 @@ export default async function BlogPage() {
                       <Link
                         href={`/blog/${post.slug}`}
                         className="blog-card-read"
-                        aria-label={`Ler artigo: ${post.title}`}
+                        aria-label={`Ler artigo → ${post.title}`}
                       >
                         Ler artigo →
                       </Link>

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
+export const revalidate = false; // legal content, only changes on deploy
+
 export const metadata: Metadata = {
-  title: 'Politica de Privacidade | Element Group',
-  description: 'Politica de Privacidade da Element Group em conformidade com RGPD.',
+  title: 'Política de Privacidade | Element Group',
+  description: 'Política de Privacidade da Element Group em conformidade com o RGPD. Como recolhemos, usamos e protegemos os seus dados pessoais em Portugal.',
 };
 
 export default function PoliticaPrivacidadePage() {

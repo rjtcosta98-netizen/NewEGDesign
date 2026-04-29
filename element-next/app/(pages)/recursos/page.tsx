@@ -1,11 +1,14 @@
+import './recursos.css';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllLeadMagnets } from '@/lib/lead-magnets';
 
+export const revalidate = 3600; // ISR: refresh every hour
+
 const SITE_URL = 'https://elementgroup.pt';
 
 export const metadata: Metadata = {
-  title: 'Recursos Grátis para PMEs — Guias, Checklists e Templates | Element Group',
+  title: 'Guias e Templates Gratuitos para PMEs | Element Group',
   description:
     'Descarrega grátis os nossos guias e templates para PMEs portuguesas: Checklist SEO, Template de Brief de Website e mais. Conhecimento prático, sem jargão.',
   alternates: { canonical: `${SITE_URL}/recursos` },

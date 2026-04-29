@@ -1,3 +1,4 @@
+import './portfolio.css';
 import { cache } from 'react';
 import type { Metadata } from 'next';
 import {
@@ -9,10 +10,12 @@ import {
 } from '@/lib/supabase';
 import PortfolioClient, { type PortfolioProject } from '@/components/PortfolioClient';
 
+const SITE_URL = 'https://elementgroup.pt';
+
 export const revalidate = 300; // ISR: refresh every 5 min
 
 export const metadata: Metadata = {
-  title: 'Portfólio | Projetos Reais & Resultados Verificáveis | Element Group',
+  title: 'Portfólio de Projetos Digitais | Element Group',
   description:
     'Conheça os nossos projetos: websites, lojas online, apps mobile e branding. PageSpeed verificável, resultados reais. Agência web Element Group, Portugal.',
   alternates: { canonical: '/portfolio' },
@@ -55,7 +58,7 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     client: 'Football Nation Store',
     category: 'E-commerce',
     image: '/images/FOOTBALLNATIONWEB.webp',
-    url: 'https://www.footballnation.pt',
+    url: null,
     year: '2026',
     headline: 'Do logótipo à loja online. Camisolas de futebol ao mundo inteiro.',
     deliverables: ['Loja Online E-commerce', 'SEO', 'Mobile-First'],
@@ -99,7 +102,7 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     client: 'Maria Mendes Massagens',
     category: 'Websites',
     image: '/images/MARIAWEB.webp',
-    url: 'https://mariamendessmassagens.pt',
+    url: null,
     year: '2026',
     headline: 'De plataforma gratuita a website profissional. Marcações 24/7.',
     deliverables: ['Website Profissional', 'Performance', 'SEO Técnico'],
@@ -224,6 +227,41 @@ export default async function PortfolioPage() {
 
   const statsProjects = projects.length;
 
+  const portfolioLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${SITE_URL}/portfolio`,
+        name: 'Portfólio de Projetos Digitais | Element Group',
+        description: 'Conheça os nossos projetos: websites, lojas online, apps mobile e branding. PageSpeed verificável, resultados reais.',
+        url: `${SITE_URL}/portfolio`,
+        inLanguage: 'pt-PT',
+        publisher: { '@id': `${SITE_URL}/#organization` },
+        breadcrumb: { '@id': `${SITE_URL}/portfolio#breadcrumb` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${SITE_URL}/portfolio#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Portfólio', item: `${SITE_URL}/portfolio` },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        name: 'Projetos Element Group',
+        description: `${statsProjects}+ projetos digitais entregues em Portugal`,
+        itemListElement: projects.slice(0, 10).map((p, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: `${SITE_URL}/portfolio/${p.slug}`,
+          name: p.title,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="pf-page">
       {/* ── Hero ── */}
@@ -291,6 +329,11 @@ export default async function PortfolioPage() {
 
       {/* ── Interactive client section (filters + grid) ── */}
       <PortfolioClient projects={projects} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioLd) }}
+      />
     </div>
   );
 }

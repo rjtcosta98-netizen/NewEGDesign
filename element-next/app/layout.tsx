@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
@@ -121,17 +123,6 @@ const WEBSITE_LD = {
   publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
-const BREADCRUMB_LD = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
-    { "@type": "ListItem", position: 2, name: "Serviços", item: `${SITE_URL}/servicos` },
-    { "@type": "ListItem", position: 3, name: "Portfólio", item: `${SITE_URL}/portfolio` },
-    { "@type": "ListItem", position: 4, name: "Blog", item: `${SITE_URL}/blog` },
-    { "@type": "ListItem", position: 5, name: "Contacto", item: `${SITE_URL}/#contacto` },
-  ],
-};
 
 const FAQ_LD = {
   "@context": "https://schema.org",
@@ -165,30 +156,37 @@ export default function RootLayout({
     <html lang="pt-PT" className={`${jakarta.variable} ${instrument.variable}`}>
       <body>
         {children}
-        <Script
-          id="ld-org"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }}
         />
-        <Script
-          id="ld-website"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_LD) }}
         />
-        <Script
-          id="ld-breadcrumb"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }}
-        />
-        <Script
-          id="ld-faq"
-          type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
         />
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', {
+                  page_location: window.location.href,
+                  send_page_view: true
+                });
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

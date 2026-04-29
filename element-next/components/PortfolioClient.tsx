@@ -197,6 +197,8 @@ function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: numb
           <img
             src={p.image}
             alt={`${p.client} — ${p.title}`}
+            width={800}
+            height={500}
             loading={idx < 3 ? 'eager' : 'lazy'}
             decoding="async"
           />
@@ -277,7 +279,7 @@ function ListItem({ project: p, idx }: { project: PortfolioProject; idx: number 
         {/* Thumbnail */}
         <div className="pf-list-cover">
           {p.image ? (
-            <img src={p.image} alt={p.client} loading="lazy" decoding="async" />
+            <img src={p.image} alt={p.client} width={400} height={280} loading="lazy" decoding="async" />
           ) : (
             <div style={{
               width: '100%', height: '100%', minHeight: 160,

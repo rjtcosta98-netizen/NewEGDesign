@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+
+export const revalidate = false; // statically generated at build time
 
 export const metadata: Metadata = {
-  title: "Sobre | Ricardo Jorge & a Element Group — Agência Digital Portugal",
+  title: "Sobre a Element Group — Agência Digital Portugal",
   description:
     "Conhece a Element Group, agência digital portuguesa fundada por Ricardo Jorge. Especialistas em websites, lojas online, apps mobile e marketing digital para PMEs.",
   alternates: { canonical: "/sobre" },
@@ -171,8 +172,8 @@ export default function SobrePage() {
           </li>
           <li>
             <b>Preços transparentes</b> — publicados em{" "}
-            <a href="/pricing" style={{ color: "#a78bfa" }}>
-              /pricing
+            <a href="/servicos" style={{ color: "#a78bfa" }}>
+              /servicos
             </a>{" "}
             e em formato machine-readable para AI agents em{" "}
             <a href="/pricing.md" style={{ color: "#a78bfa" }}>
@@ -316,22 +317,16 @@ export default function SobrePage() {
         </a>
       </section>
 
-      <Script
-        id="ld-person"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_LD) }}
       />
-      <Script
-        id="ld-aboutpage"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_LD) }}
       />
-      <Script
-        id="ld-sobre-breadcrumb"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_LD) }}
       />
     </div>

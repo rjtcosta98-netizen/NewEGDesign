@@ -115,7 +115,7 @@ export async function renderReviewsHTML(): Promise<string> {
 
       const avatar = publicAsset(AVATAR_BUCKET, r.avatar_path);
       const avatarInner = avatar
-        ? `<img src="${esc(avatar)}" alt="${esc(r.author_name)}" loading="lazy" decoding="async"/>`
+        ? `<img src="${esc(avatar)}" alt="${esc(r.author_name)}" width="48" height="48" loading="lazy" decoding="async"/>`
         : esc(initials);
 
       return `<article class="tx-card" data-i="${idx}">

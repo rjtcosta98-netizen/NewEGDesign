@@ -132,7 +132,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     title: 'Football Nation Store — Loja Online',
     category: 'E-commerce',
     year: '2026',
-    url: 'https://www.footballnation.pt',
+    url: null,
     metaTitle: 'Football Nation Store — Loja Online de Futebol com PageSpeed 95+ | Element Group',
     metaDescription:
       'Do logótipo à loja online: como a Element Group criou a Football Nation Store de raiz, com e-commerce mobile-first, PageSpeed 95+ e SEO otimizado para camisolas de futebol.',
@@ -266,7 +266,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     title: 'Maria Mendes Massagens — Website',
     category: 'Websites',
     year: '2026',
-    url: 'https://mariamendessmassagens.pt',
+    url: null,
     metaTitle: 'Maria Mendes Massagens — PageSpeed 100 & Marcações 24/7 em 10 dias | Element Group',
     metaDescription:
       'De link na bio a website profissional com PageSpeed 100 e marcações 24/7. A Element Group entregou em 10 dias. Caso de estudo: terapeuta de massagens em Portugal.',

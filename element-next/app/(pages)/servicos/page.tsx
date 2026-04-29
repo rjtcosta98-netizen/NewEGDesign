@@ -1,10 +1,15 @@
+import './servicos.css';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+export const revalidate = false; // statically generated at build time
+
+const SITE_URL = 'https://elementgroup.pt';
+
 export const metadata: Metadata = {
-  title: 'Serviços | Websites, E-commerce, Apps & Marketing | Element Group',
+  title: 'Serviços Web & Marketing Digital | Element Group',
   description:
-    'Criação de websites desde 197€, lojas online, apps mobile, design gráfico e marketing digital. Código 100% original, PageSpeed 95+, SEO incluído. Element Group Portugal.',
+    'Websites, lojas online, apps e marketing digital desde 197€. Código 100% original, PageSpeed 95+, SEO incluído. Proposta grátis em 24h.',
   alternates: { canonical: '/servicos' },
   openGraph: {
     title: 'Serviços | Element Group',
@@ -133,6 +138,69 @@ function ServiceIcon({ id }: { id: string }) {
   );
   return null;
 }
+
+const SERVICES_LD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${SITE_URL}/servicos`,
+      name: 'Serviços Web & Marketing Digital | Element Group',
+      description: 'Websites, lojas online, apps e marketing digital desde 197€. Código 100% original, PageSpeed 95+, SEO incluído. Proposta grátis em 24h.',
+      url: `${SITE_URL}/servicos`,
+      inLanguage: 'pt-PT',
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${SITE_URL}/servicos#breadcrumb` },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${SITE_URL}/servicos#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Início', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Serviços', item: `${SITE_URL}/servicos` },
+      ],
+    },
+    {
+      '@type': 'ItemList',
+      name: 'Serviços Element Group',
+      description: 'Catálogo completo de serviços digitais da Element Group',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, url: `${SITE_URL}/servicos/criacao-de-websites`, name: 'Criação de Websites' },
+        { '@type': 'ListItem', position: 2, url: `${SITE_URL}/servicos/negocios-locais`, name: 'Negócios Locais' },
+        { '@type': 'ListItem', position: 3, url: `${SITE_URL}/servicos/loja-online`, name: 'Loja Online' },
+        { '@type': 'ListItem', position: 4, url: `${SITE_URL}/servicos/apps-mobile`, name: 'Apps Mobile' },
+        { '@type': 'ListItem', position: 5, url: `${SITE_URL}/servicos/design-grafico`, name: 'Design Gráfico' },
+        { '@type': 'ListItem', position: 6, url: `${SITE_URL}/servicos/redesign-migracao`, name: 'Redesign & Migração' },
+        { '@type': 'ListItem', position: 7, url: `${SITE_URL}/servicos/marketing-digital`, name: 'Marketing Digital' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Quanto tempo demora um projeto?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Sites institucionais entre 2–3 semanas. Lojas online e apps entre 4–8 semanas.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'O SEO está incluído?',
+          acceptedAnswer: { '@type': 'Answer', text: 'SEO técnico, schema markup e otimização on-page estão sempre incluídos nos websites.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Como funcionam os pagamentos?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Pagamento único com 5% de desconto, ou 2× prestações sem juros. MBWay, Multibanco e transferência.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quantas alterações posso pedir?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Dentro do âmbito acordado, alterações são ilimitadas. Trabalhamos por aprovações em cada fase.' },
+        },
+      ],
+    },
+  ],
+};
 
 export default function ServicosPage() {
   return (
@@ -277,6 +345,11 @@ export default function ServicosPage() {
           ))}
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICES_LD) }}
+      />
 
       {/* ── CTA ── */}
       <section className="sv-cta-section">

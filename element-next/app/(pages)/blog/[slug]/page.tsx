@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Script from "next/script";
 import {
   getBlogPost,
   getBlogPostSlugs,
@@ -50,7 +49,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Map known author names to their Person entity. Falls back to Organization. */
+function buildAuthorLD(authorName: string) {
+  const name = authorName.trim();
+
+  if (name.toLowerCase() === "ricardo jorge") {
+    return {
+      "@type": "Person",
+      "@id": `${SITE_URL}/sobre#ricardo-jorge`,
+      name: "Ricardo Jorge",
+      url: `${SITE_URL}/sobre`,
+      jobTitle: "CEO & Co-Fundador",
+      worksFor: { "@id": `${SITE_URL}/#organization` },
+    };
+  }
+
+  if (!name || name.toLowerCase() === "element group") {
+    return {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Element Group",
+    };
+  }
+
+  // Generic person fallback for any other author name
+  return {
+    "@type": "Person",
+    name,
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+  };
+}
+
 function buildArticleLD(post: BlogPost) {
+  // published_at can be null — fall back to created_at so datePublished is always present
+  const datePublished = post.published_at ?? post.created_at;
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -58,13 +91,9 @@ function buildArticleLD(post: BlogPost) {
     url: `${SITE_URL}/blog/${post.slug}`,
     headline: post.title,
     description: post.excerpt,
-    datePublished: post.published_at,
-    dateModified: post.updated_at,
-    author: {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: post.author,
-    },
+    datePublished,
+    dateModified: post.updated_at ?? datePublished,
+    author: buildAuthorLD(post.author),
     publisher: {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
@@ -73,13 +102,32 @@ function buildArticleLD(post: BlogPost) {
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/og-image.jpg`,
+        width: 1200,
+        height: 630,
       },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
     inLanguage: "pt-PT",
     ...(post.cover_image && {
-      image: { "@type": "ImageObject", url: post.cover_image },
+      image: {
+        "@type": "ImageObject",
+        url: post.cover_image,
+        width: 1200,
+        height: 630,
+      },
     }),
+  };
+}
+
+function buildBreadcrumbLD(post: BlogPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+    ],
   };
 }
 
@@ -115,17 +163,20 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleLD = buildArticleLD(post);
   const faqLD = buildFaqLD(post.content);
+  const breadcrumbLD = buildBreadcrumbLD(post);
 
   return (
     <>
-      <Script
-        id="article-ld"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLD) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLD) }}
+      />
       {faqLD && (
-        <Script
-          id="faq-ld"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLD) }}
         />

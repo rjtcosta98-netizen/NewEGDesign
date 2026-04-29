@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
+export const revalidate = false;
+
 export const metadata: Metadata = {
-  title: 'Politica de Cookies | Element Group',
-  description: 'Politica de Cookies da Element Group para utilizadores em Portugal.',
+  title: 'Política de Cookies | Element Group',
+  description: 'Política de Cookies da Element Group. Saiba que cookies utilizamos no nosso site, como os gerimos e como pode gerir as suas preferências de privacidade.',
 };
 
 export default function PoliticaCookiesPage() {

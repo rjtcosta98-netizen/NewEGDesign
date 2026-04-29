@@ -98,10 +98,11 @@ function fallbackMarqueeLogos(): MarqueeLogo[] {
   ];
 }
 
-function renderLogoMark(p: MarqueeLogo): string {
+function renderLogoMark(p: MarqueeLogo, eager: boolean): string {
   const cover = publicAsset(LOGO_BUCKET, p.logo_path);
   if (cover) {
-    return `<span class="g-mark g-mark-img"><img src="${esc(cover)}" alt="${esc(p.name)}" loading="lazy" decoding="async"/></span>`;
+    const loading = eager ? 'eager' : 'lazy';
+    return `<span class="g-mark g-mark-img"><img src="${esc(cover)}" alt="${esc(p.name)}" width="120" height="48" loading="${loading}" decoding="async"/></span>`;
   }
   const colorClass = p.color_class && p.color_class !== "default" ? ` ${esc(p.color_class)}` : "";
   const italic = p.italic ? ' style="font-style:italic"' : "";
@@ -110,7 +111,7 @@ function renderLogoMark(p: MarqueeLogo): string {
 
 function renderLogoItem(p: MarqueeLogo, ariaHidden: boolean): string {
   const aria = ariaHidden ? ' aria-hidden="true"' : "";
-  const mark = renderLogoMark(p);
+  const mark = renderLogoMark(p, !ariaHidden); // cycle 1 = eager, cycle 2 = lazy
   return `<div class="m-logo"${aria}>${mark}<span>${esc(p.name)}</span></div>`;
 }
 

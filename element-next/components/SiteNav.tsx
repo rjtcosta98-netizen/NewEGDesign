@@ -125,7 +125,7 @@ export default function SiteNav() {
           style={scrolled ? { boxShadow: '0 30px 60px -30px rgba(0,0,0,.7)' } : undefined}
         >
           {/* Brand — matches homepage logo */}
-          <a className="brand" href="/" aria-label="Element Group — Início">
+          <a className="brand" href="/" aria-label="Element Group Digital Solutions — Início">
             <div className="mark">E</div>
             <div className="name">
               <b>Element Group</b>
@@ -194,7 +194,7 @@ export default function SiteNav() {
             href="/"
             style={{ marginBottom: 16, alignSelf: 'flex-start' }}
             onClick={() => setOpen(false)}
-            aria-label="Element Group — Início"
+            aria-label="Element Group Digital Solutions — Início"
           >
             <div className="mark">E</div>
             <div className="name">

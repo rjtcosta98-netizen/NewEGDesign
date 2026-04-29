@@ -36,9 +36,9 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#a78bfa',
     iconId: 'globe',
     title: 'Criação de Websites',
-    metaTitle: 'Criação de Websites Profissionais em Portugal | desde 197€ | Element Group',
+    metaTitle: 'Criação de Websites em Portugal | Element Group',
     metaDescription:
-      'Criação de websites profissionais à medida em Portugal desde 197€. Código 100% original, PageSpeed 95+, SEO técnico incluído. Proposta gratuita em 24h. Entrega em 2–3 semanas.',
+      'Websites profissionais à medida desde 197€. Código 100% original, PageSpeed 95+, SEO técnico incluído. Proposta gratuita em 24h. Entrega em 2–3 semanas.',
     ogTitle: 'Criação de Websites Profissionais | desde 197€ | Element Group',
     ogDescription:
       'Websites à medida com PageSpeed 95+, SEO incluído e código 100% original. Agência digital portuguesa com propostas em 24h.',
@@ -80,9 +80,9 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#facc15',
     iconId: 'pin',
     title: 'Negócios Locais',
-    metaTitle: 'Website para Negócio Local + SEO Local em Portugal | desde 297€ | Element Group',
+    metaTitle: 'Website Negócio Local + SEO Local | Element Group',
     metaDescription:
-      'Website para negócio local em Portugal com SEO geo-segmentado e Google Maps Top 3. Ideal para restaurantes, clínicas, lojas e serviços. Desde 297€, proposta grátis em 24h.',
+      'Website para negócio local com SEO geo-segmentado e Google Maps Top 3. Para restaurantes, clínicas e lojas. Desde 297€, proposta grátis em 24h.',
     ogTitle: 'Website para Negócio Local + Google Maps Top 3 | desde 297€',
     ogDescription:
       'Solução completa para negócios físicos em Portugal: site profissional + SEO local + ficha Google otimizada. Apareça no topo das pesquisas locais.',
@@ -124,7 +124,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#22c55e',
     iconId: 'shop',
     title: 'Loja Online',
-    metaTitle: 'Criar Loja Online em Portugal | E-commerce desde 997€ | Element Group',
+    metaTitle: 'Criar Loja Online em Portugal | Element Group',
     metaDescription:
       'Cria a tua loja online em Portugal com MBWay, Multibanco, gestão de stock e faturação automática. E-commerce profissional desde 997€. Entrega em 4–6 semanas.',
     ogTitle: 'Criar Loja Online em Portugal | desde 997€ | Element Group',
@@ -168,9 +168,9 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#22d3ee',
     iconId: 'mobile',
     title: 'Apps Mobile',
-    metaTitle: 'Desenvolvimento de Apps Mobile em Portugal | iOS, Android & PWA | Element Group',
+    metaTitle: 'Apps Mobile iOS, Android & PWA | Element Group',
     metaDescription:
-      'Desenvolvimento de apps mobile para iOS e Android em Portugal desde 1.497€. Apps nativas e PWA com painel de gestão incluído. Notificações push e integração com APIs.',
+      'Apps mobile para iOS e Android desde 1.497€. Apps nativas e PWA com painel de gestão, notificações push e integração com APIs incluídos.',
     ogTitle: 'Apps Mobile iOS, Android & PWA em Portugal | desde 1.497€',
     ogDescription:
       'Desenvolvimento de apps nativas e Progressive Web Apps para iOS e Android. Painel de gestão incluído, notificações push e integração com APIs externas.',
@@ -212,9 +212,9 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#f87171',
     iconId: 'palette',
     title: 'Design Gráfico',
-    metaTitle: 'Design Gráfico & Logótipo para Empresas em Portugal | desde 297€ | Element Group',
+    metaTitle: 'Design Gráfico & Logótipo | desde 297€ | Element Group',
     metaDescription:
-      'Design gráfico profissional em Portugal: logótipo, manual de marca e identidade visual para empresas. Desde 297€, com ficheiros editáveis e variações incluídas.',
+      'Design gráfico em Portugal: logótipo, manual de marca e identidade visual para empresas. Desde 297€, com ficheiros editáveis e variações de logótipo incluídas.',
     ogTitle: 'Logótipo & Identidade Visual para Empresas | desde 297€ | Element Group',
     ogDescription:
       'Logótipo profissional, manual de marca e design gráfico para empresas em Portugal. Desde 297€, entrega em 1–2 semanas com ficheiros editáveis incluídos.',
@@ -256,9 +256,9 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#2dd4bf',
     iconId: 'pencil',
     title: 'Redesign & Migração',
-    metaTitle: 'Redesign de Website & Migração sem Perder SEO | desde 297€ | Element Group',
+    metaTitle: 'Redesign & Migração Web sem Perder SEO | Element Group',
     metaDescription:
-      'Redesign e migração de website em Portugal sem perder posições no Google. Redirects 301 cuidados, SEO preservado, PageSpeed 95+ e zero downtime garantido. Desde 297€.',
+      'Redesign de website sem perder SEO. Redirects 301, autoridade preservada e PageSpeed 95+. Zero downtime garantido. Desde 297€, proposta grátis.',
     ogTitle: 'Redesign de Website & Migração sem Perder SEO | desde 297€',
     ogDescription:
       'Renova o teu site sem perder posições no Google. Redirects 301, SEO preservado, PageSpeed 95+ e zero downtime. Desde 297€.',
@@ -300,7 +300,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#fbbf24',
     iconId: 'megaphone',
     title: 'Marketing Digital',
-    metaTitle: 'Gestão de Redes Sociais & Marketing Digital em Portugal | desde 350€/mês | Element Group',
+    metaTitle: 'Marketing Digital para PMEs | desde 350€/mês | Element Group',
     metaDescription:
       'Gestão de redes sociais, Google Ads e SEO mensal para PMEs em Portugal. Instagram, Facebook e Google geridos por especialistas. Relatórios mensais. Desde 350€/mês.',
     ogTitle: 'Marketing Digital para PMEs em Portugal | desde 350€/mês | Element Group',

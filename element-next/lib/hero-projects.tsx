@@ -138,7 +138,7 @@ export async function renderHeroProjectsHTML(): Promise<string> {
   const source = rows.length > 0 ? rows : fallbackHeroProjects();
 
   return source
-    .map((p) => {
+    .map((p, idx) => {
       const glyphStyleParts: string[] = [];
       if (p.glyph_italic) glyphStyleParts.push("font-style:italic");
       if (p.glyph_color) glyphStyleParts.push(`color:${p.glyph_color}`);
@@ -148,8 +148,11 @@ export async function renderHeroProjectsHTML(): Promise<string> {
       const badgeStyle = p.badge_color ? ` style="color:${p.badge_color}"` : "";
 
       const cover = publicAsset(HERO_BUCKET, p.image_path);
+      // First card is LCP candidate — eager + high priority; rest lazy
+      const isFirst = idx === 0;
+      const imgLoading = isFirst ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
       const previewBody = cover
-        ? `<img src="${esc(cover)}" alt="${esc(p.title)}" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>`
+        ? `<img src="${esc(cover)}" alt="${esc(p.title)}" width="800" height="600" ${imgLoading} decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>`
         : `<span class="glyph"${glyphStyle}>${esc(p.glyph)}</span>`;
 
       const tagsHtml = (p.tags ?? [])
