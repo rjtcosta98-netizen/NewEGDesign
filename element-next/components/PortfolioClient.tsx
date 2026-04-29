@@ -218,17 +218,17 @@ function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: numb
         <div className="pf-card__badges">
           <span className="pf-card__badge">{p.category}</span>
           {p.url ? (
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <span
+              role="link"
+              tabIndex={0}
               className="pf-card__live"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(p.url!, '_blank', 'noopener,noreferrer'); }}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.open(p.url!, '_blank', 'noopener,noreferrer'); } }}
               title="Ver site ao vivo"
             >
               <span className="pf-card__live-dot" />
               Live
-            </a>
+            </span>
           ) : null}
         </div>
 

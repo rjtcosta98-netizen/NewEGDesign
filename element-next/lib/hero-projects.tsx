@@ -156,9 +156,9 @@ export async function renderHeroProjectsHTML(): Promise<string> {
         .map((t) => `<span class="tag">${esc(t)}</span>`)
         .join("");
 
-      // Live external link — stop propagation so card click still goes to case study
+      // Use span (not <a>) to avoid nested anchors inside <a class="proj">
       const liveBtn = p.live_url
-        ? `<a class="live" href="${esc(p.live_url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="Ver site ao vivo">Ver Site ${EXTERNAL_ICON}</a>`
+        ? `<span class="live" role="link" tabindex="0" onclick="event.stopPropagation();window.open('${esc(p.live_url)}','_blank','noopener,noreferrer')" title="Ver site ao vivo">Ver Site ${EXTERNAL_ICON}</span>`
         : `<span class="live">Case Study ${CASE_STUDY_ICON}</span>`;
 
       return `<a class="proj" href="/portfolio/${esc(p.slug)}">
