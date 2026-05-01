@@ -98,12 +98,10 @@ const cacheRules = [
 const nextConfig = {
   reactStrictMode: true,
   async headers() {
+    const isProd = process.env.NODE_ENV === 'production';
     return [
-      // Security headers on every route
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
+      // Security headers on every route — production only (dev uses unsafe-eval for HMR)
+      ...(isProd ? [{ source: '/(.*)', headers: securityHeaders }] : []),
       // Cache-Control per route group
       ...cacheRules,
     ];

@@ -200,56 +200,54 @@
 <!-- ========= SOBRE NÓS ========= -->
 <section id="sobre">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-photo reveal">
-        <div class="ap-stack">
-          <div class="ap-glow" aria-hidden="true"></div>
-          <figure class="ap-card ap-card-back">
-            <img src="/team/mafalda.jpg" alt="Mafalda Garcia — Marketing &amp; Social Media da Element" width="320" height="400" loading="eager" decoding="async" />
-            <figcaption>
-              <b>Mafalda Garcia</b>
-              <small>Marketing &amp; Social</small>
-            </figcaption>
-          </figure>
-          <figure class="ap-card ap-card-front">
-            <img src="/team/ricardo.jpg" alt="Ricardo Jorge — CEO &amp; Co-Fundador da Element" width="320" height="400" loading="eager" fetchpriority="high" decoding="async" />
-            <figcaption>
-              <b>Ricardo Jorge</b>
-              <small>CEO · Design &amp; Dev</small>
-            </figcaption>
-          </figure>
-          <div class="ap-badge" aria-hidden="true">
-            <span class="ap-badge-dot"></span>
-            <span class="ap-badge-text">
-              <strong>Fundada em Portugal</strong>
-              <em>desde 2024</em>
-            </span>
-            <span class="ap-flag">🇵🇹</span>
+    <div class="about-grid-v2">
+      <!-- Coluna Esquerda: Fotos em Grid -->
+      <div class="about-photos-grid reveal">
+        <div class="photo-card photo-card--main">
+          <img src="/team/ricardo.jpg" alt="Ricardo Jorge — CEO &amp; Fundador da Element Group" width="400" height="500" loading="eager" fetchpriority="high" decoding="async" />
+          <div class="photo-card__overlay">
+            <b>Ricardo Jorge</b>
+            <small>CEO · Design &amp; Dev</small>
+          </div>
+        </div>
+        <div class="photo-card photo-card--secondary">
+          <img src="/team/mafalda.jpg" alt="Mafalda Garcia — Marketing &amp; Social Media" width="280" height="350" loading="eager" decoding="async" />
+          <div class="photo-card__overlay">
+            <b>Mafalda Garcia</b>
+            <small>Marketing &amp; Social</small>
           </div>
         </div>
       </div>
-      <div class="about-text reveal">
-        <span class="eyebrow" style="align-self:flex-start">Sobre Nós</span>
+
+      <!-- Coluna Direita: Conteúdo -->
+      <div class="about-content reveal">
+        <span class="eyebrow">Sobre Nós</span>
         <h2 class="section-title" style="text-align:left">Conhece quem somos e a nossa <em>missão</em></h2>
         <p class="about-lead">Somos uma equipa apaixonada de profissionais criativos dedicada a criar soluções de web design excepcionais. A nossa missão é capacitar negócios em Portugal com websites inovadores que cativam <em>e</em> geram resultados reais.</p>
         <div class="about-cta">
           <a class="btn-primary" href="/contacto">Contactar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           <a class="btn-ghost" href="#trabalhos">Ver Projetos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         </div>
-        <ul class="about-pills" aria-label="Pontos fortes da equipa">
-          <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-            Resposta em 24h
-          </li>
-          <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Design · Dev · Marketing
-          </li>
-          <li>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
-            100% Português
-          </li>
-        </ul>
+      </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="about-stats-strip reveal">
+      <div class="about-stat-item">
+        <strong>Resposta em 24h</strong>
+        <span>Orçamento sem compromisso</span>
+      </div>
+      <div class="about-stat-item">
+        <strong>Design · Dev · Marketing</strong>
+        <span>Equipa multidisciplinar</span>
+      </div>
+      <div class="about-stat-item">
+        <strong>100% Português</strong>
+        <span>Negócio local, apoio local</span>
+      </div>
+      <div class="about-stat-item">
+        <strong>Fundada em Portugal</strong>
+        <span>desde 2024</span>
       </div>
     </div>
   </div>
