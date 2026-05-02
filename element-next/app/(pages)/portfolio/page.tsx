@@ -1,6 +1,5 @@
 import './portfolio.css';
 import { cache, Suspense } from 'react';
-import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import {
   getSupabase,
@@ -9,11 +8,8 @@ import {
   type Project,
   type Client,
 } from '@/lib/supabase';
+import PortfolioClient from '@/components/PortfolioClient';
 import type { PortfolioProject } from '@/components/PortfolioClient';
-
-const PortfolioClient = dynamic(() => import('@/components/PortfolioClient'), {
-  ssr: false,
-});
 
 const SITE_URL = 'https://elementgroup.pt';
 
