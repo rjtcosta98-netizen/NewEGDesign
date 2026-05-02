@@ -952,33 +952,10 @@ section.has-atmos:not(#funcionalidades):not(#resultados):not(#trabalhos):not(#te
   box-shadow:0 4px 14px rgba(124,58,237,.45);flex-shrink:0;
 }
 @media(max-width:780px){
-  /* Mobile: replace 3D coverflow with horizontal touch-swipe */
-  .svc3d{
-    height:auto;perspective:none;
-    overflow-x:auto;scroll-snap-type:x mandatory;
-    display:flex;align-items:stretch;justify-content:flex-start;
-    padding:4px 20px 60px;gap:16px;
-    -ms-overflow-style:none;scrollbar-width:none;
-  }
-  .svc3d::-webkit-scrollbar{display:none}
-  .svc3d-stage{
-    display:flex;gap:16px;width:max-content;
-    transform-style:flat;min-height:unset;height:auto;position:static;
-  }
-  .card3d,
-  .card3d.is-active,
-  .card3d.is-prev,
-  .card3d.is-next,
-  .card3d.is-prev2,
-  .card3d.is-next2{
-    position:static;margin:0;
-    flex:0 0 min(82vw,300px);width:min(82vw,300px);
-    height:auto;min-height:420px;
-    opacity:1;transform:none;
-    pointer-events:auto;filter:none;
-    scroll-snap-align:center;
-  }
-  .svc3d-nav{display:none}
+  .svc3d{height:600px}
+  .card3d{width:300px;margin-left:-150px}
+  .card3d.is-prev,.card3d.is-next{transform:translate3d(0,0,-200px) scale(.6);opacity:0;pointer-events:none}
+  .card3d.is-prev2,.card3d.is-next2{display:none}
 }
 @media(max-width:600px){
   .card3d .c-pop{top:14px;right:14px}
