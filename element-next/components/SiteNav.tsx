@@ -121,8 +121,7 @@ export default function SiteNav() {
     <>
       <div className="nav-wrap">
         <nav
-          className="nav"
-          style={scrolled ? { boxShadow: '0 30px 60px -30px rgba(0,0,0,.7)' } : undefined}
+          className={scrolled ? 'nav nav--scrolled' : 'nav'}
         >
           {/* Brand — matches homepage logo */}
           <a className="brand" href="/" aria-label="Element Group Digital Solutions — Início">

@@ -67,6 +67,21 @@
 .svc-breadcrumb [aria-current="page"] { color: var(--text); font-weight: 500; }
 .svc-breadcrumb span[aria-hidden] { opacity: .35; }
 
+/* ── Service definition (GEO/AI extractable) ── */
+.svc-definition {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 16px auto 0;
+  padding: 14px 20px 14px 32px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted);
+  border-left: 2px solid var(--svc-accent, var(--violet-2));
+  background: rgba(255,255,255,.025);
+  border-radius: 0 10px 10px 0;
+}
+
 /* ══ HERO ═══════════════════════════════════════════════════════════ */
 .svc-hero {
   position: relative;

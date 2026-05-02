@@ -4,6 +4,12 @@ import "./sobre.css";
 
 export const revalidate = false;
 
+const SOBRE_SPARKLES = [
+  { left: '12%', top: '110px', animationDelay: '.5s'  },
+  { left: '78%', top: '80px',  animationDelay: '2.1s' },
+  { left: '91%', top: '200px', animationDelay: '1.1s' },
+] as const;
+
 export const metadata: Metadata = {
   title: "Sobre a Element Group — Agência Digital em Portugal",
   description:
@@ -40,9 +46,29 @@ const PERSON_LD = {
   ],
 };
 
+const MAFALDA_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://elementgroup.pt/sobre#mafalda-garcia",
+  name: "Mafalda Garcia",
+  jobTitle: "Marketing & Social Media",
+  worksFor: { "@id": "https://elementgroup.pt/#organization" },
+  url: "https://elementgroup.pt/sobre",
+  nationality: { "@type": "Country", name: "Portugal" },
+  knowsAbout: [
+    "Marketing Digital", "Redes Sociais", "Google Ads",
+    "Copywriting", "Estratégia de conteúdo", "Instagram", "Facebook",
+  ],
+  knowsLanguage: ["pt-PT"],
+};
+
 const ABOUT_LD = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: [".sb-entity-card"],
+  },
   url: "https://elementgroup.pt/sobre",
   name: "Sobre a Element Group",
   inLanguage: "pt-PT",
@@ -149,11 +175,23 @@ export default function SobrePage() {
         <div className="section-atmos" aria-hidden="true">
           <div className="rings"><span/><span/><span/><span/></div>
           <div className="section-sparkles">
-            <span style={{left:'12%',top:'110px',animationDelay:'.5s'}}/>
-            <span style={{left:'78%',top:'80px',animationDelay:'2.1s'}}/>
-            <span style={{left:'91%',top:'200px',animationDelay:'1.1s'}}/>
+            {SOBRE_SPARKLES.map((s, i) => (
+              <span key={i} style={s} />
+            ))}
           </div>
         </div>
+        {/* ── Entity summary (GEO/AI extractable) ────────────── */}
+        <aside className="sb-entity-card" aria-label="Resumo da Element Group">
+          <dl className="sb-entity-dl">
+            <div><dt>Fundada</dt><dd>2024, Portugal</dd></div>
+            <div><dt>Fundadores</dt><dd>Ricardo Jorge (Dev) · Mafalda Garcia (Marketing)</dd></div>
+            <div><dt>Especialização</dt><dd>Websites, Lojas Online, Apps Mobile, Marketing Digital</dd></div>
+            <div><dt>Preços</dt><dd>Desde 197€ (pagamento único)</dd></div>
+            <div><dt>Cobertura</dt><dd>Portugal — Continente, Madeira e Açores (100% remoto)</dd></div>
+            <div><dt>Contacto</dt><dd>info@elementgroup.pt · +351 930 477 894</dd></div>
+          </dl>
+        </aside>
+
         <div className="sb-hero__label">Sobre nós</div>
         <h1 className="sb-hero__h1">
           Websites à medida,<br />sem intermediários,<br />para <em>PMEs portuguesas.</em>
@@ -222,14 +260,14 @@ export default function SobrePage() {
               </p>
             </div>
             <div className="sb-quote-block">
-              <p className="sb-quote-text">
-                "O objetivo não é ser a agência mais barata. É ser a que entrega mais
+              <blockquote cite="https://elementgroup.pt/sobre" className="sb-quote-text">
+                “O objetivo não é ser a agência mais barata. É ser a que entrega mais
                 valor por cada euro investido — com transparência total, do primeiro
-                contacto à entrega final."
-              </p>
-              <p className="sb-quote-author">
-                — <span>Ricardo Jorge</span>, Fundador da Element Group
-              </p>
+                contacto à entrega final.”
+              </blockquote>
+              <cite className="sb-quote-author">
+                <span>Ricardo Jorge</span>, Fundador da Element Group
+              </cite>
             </div>
           </div>
         </section>
@@ -240,12 +278,12 @@ export default function SobrePage() {
             <div>
               <p className="sb-section-eyebrow">Quem está por trás</p>
               <h2 className="sb-section-h2">
-                Uma pessoa.<br /><em>Responsabilidade total.</em>
+                Uma equipa pequena.<br /><em>Responsabilidade total.</em>
               </h2>
               <p className="sb-section-body">
                 A Element Group não tem account managers, departamentos nem reuniões de
-                apresentação inúteis. Quando falas connosco, falas diretamente com
-                <b> Ricardo Jorge</b> — o developer que vai construir o teu projeto.
+                apresentação inúteis. Quando falas connosco, falas diretamente com a
+                equipa que vai construir e promover o teu projeto.
               </p>
               <p className="sb-section-body">
                 Isso significa <b>resposta em horas</b>, decisões técnicas explicadas em
@@ -268,8 +306,20 @@ export default function SobrePage() {
                     <span key={s} className="sb-skill-tag">{s}</span>
                   ))}
                 </div>
-              </div>
-            </div>
+              </div>              <div className="sb-founder-card" style={{ marginTop: 16 }}>
+                <div className="sb-founder-avatar" style={{ background: "#e879f9" }}>M</div>
+                <div className="sb-founder-name">Mafalda Garcia</div>
+                <div className="sb-founder-role">Marketing &amp; Social Media</div>
+                <p className="sb-founder-bio">
+                  Responsável pela estratégia de conteúdo, redes sociais e marketing digital.
+                  Garante que cada projeto tem visibilidade e uma voz consistente após o lançamento.
+                </p>
+                <div className="sb-founder-skills">
+                  {["Instagram", "Facebook", "Copywriting", "Google Ads", "Estratégia de conteúdo"].map((s) => (
+                    <span key={s} className="sb-skill-tag">{s}</span>
+                  ))}
+                </div>
+              </div>            </div>
           </div>
         </section>
 
@@ -416,6 +466,10 @@ export default function SobrePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_LD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(MAFALDA_LD) }}
       />
       <script
         type="application/ld+json"

@@ -108,6 +108,8 @@ function buildArticleLD(post: BlogPost) {
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
     inLanguage: "pt-PT",
+    articleSection: post.category,
+    keywords: post.tags?.length ? post.tags.join(", ") : undefined,
     image: post.cover_image ?? `${SITE_URL}/og-image.jpg`,
   };
 }

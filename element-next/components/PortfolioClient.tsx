@@ -121,7 +121,10 @@ export default function PortfolioClient({ projects }: { projects: PortfolioProje
               <p className="pf-ts-eyebrow">O que dizem os nossos clientes</p>
             </div>
             <div className="pf-ts-grid">
-              {filtered.filter(p => p.testimonial).slice(0, 4).map(p => (
+              {filtered.reduce<PortfolioProject[]>((acc, p) => {
+                if (p.testimonial && acc.length < 4) acc.push(p);
+                return acc;
+              }, []).map(p => (
                 <div key={p.id} style={{
                   padding: '16px',
                   borderRadius: '14px',

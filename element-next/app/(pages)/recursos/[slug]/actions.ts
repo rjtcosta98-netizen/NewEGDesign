@@ -1,8 +1,10 @@
 'use server';
 
+import { headers } from 'next/headers';
 import nodemailer from 'nodemailer';
 import { getSupabase } from '@/lib/supabase';
 import { getLeadMagnet } from '@/lib/lead-magnets';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 export type LeadState = { ok: true } | { ok: false; error: string } | null;
 
@@ -143,6 +145,13 @@ export async function submitLeadCapture(
   _prev: LeadState,
   fd: FormData,
 ): Promise<LeadState> {
+  // Rate limit: 5 submissions per IP per minute
+  const hdrs = await headers();
+  const ip = hdrs.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+  if (!checkRateLimit(`leads:${ip}`, 5, 60_000)) {
+    return { ok: false, error: 'Demasiadas tentativas. Aguarda um momento e tenta novamente.' };
+  }
+
   const name  = fd.get('name')?.toString().trim()  ?? '';
   const email = fd.get('email')?.toString().trim()  ?? '';
   const slug  = fd.get('slug')?.toString()           ?? '';

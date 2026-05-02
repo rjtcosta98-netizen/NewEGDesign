@@ -11,6 +11,7 @@ export type ServicePage = {
   accentHex: string;
   iconId: string;
   title: string;
+  definition?: string;
   metaTitle: string;
   metaDescription: string;
   ogTitle: string;
@@ -36,6 +37,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#a78bfa',
     iconId: 'globe',
     title: 'Criação de Websites',
+    definition: 'Criação de websites profissionais é o desenvolvimento de um site à medida com código 100% original (sem templates), PageSpeed 95+, SEO técnico e mobile-first incluídos, entregue em 2–3 semanas a partir de 197€. Disponível para PMEs em todo o território português.',
     metaTitle: 'Criação de Websites em Portugal | Element Group',
     metaDescription:
       'Websites profissionais à medida desde 197€. Código 100% original, PageSpeed 95+, SEO técnico incluído. Proposta gratuita em 24h. Entrega em 2–3 semanas.',
@@ -68,7 +70,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       { q: 'Quanto tempo demora a criar um website?', a: 'Sites institucionais são entregues em 2 a 3 semanas. O processo tem etapas definidas: diagnóstico, estratégia, design, desenvolvimento e lançamento — com o teu feedback em cada fase.' },
       { q: 'O SEO está incluído na criação do website?', a: 'Sim. SEO técnico (schema markup, sitemap, canonical, velocidade), otimização on-page e Core Web Vitals estão sempre incluídos. SEO mensal contínuo é opcional no pacote de Marketing Digital.' },
       { q: 'Vou ter acesso ao código do meu website?', a: 'Sim. Recebes o código-fonte completo. O site é 100% teu — sem dependências de plataformas externas ou subscrições obrigatórias.' },
-      { q: 'Fazem alojamento e domínio?', a: 'Sim. Tratamos do registo de domínio e alojamento com SSL incluído. Disponível como add-on mensal acessível.' },
+    { q: 'Fazem alojamento e domínio?', a: 'Sim. Tratamos do registo de domínio e alojamento com SSL incluído e performance otimizada para o mercado português. Disponível como add-on mensal acessível, sem contratos anuais obrigatórios.' },
     ],
     relatedSlugs: ['negocios-locais', 'loja-online', 'redesign-migracao'],
   },
@@ -80,6 +82,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#facc15',
     iconId: 'pin',
     title: 'Negócios Locais',
+    definition: 'Solução de SEO local para negócios físicos em Portugal: website profissional + ficha Google Business Profile otimizada + SEO geo-segmentado para aparecer no Top 3 do Google Maps. Desde 297€, resultados visíveis em 30–60 dias.',
     metaTitle: 'Website Negócio Local + SEO Local | Element Group',
     metaDescription:
       'Website para negócio local com SEO geo-segmentado e Google Maps Top 3. Para restaurantes, clínicas e lojas. Desde 297€, proposta grátis em 24h.',
@@ -123,8 +126,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     color: 'green',
     accentHex: '#22c55e',
     iconId: 'shop',
-    title: 'Loja Online',
-    metaTitle: 'Criar Loja Online em Portugal | Element Group',
+    title: 'Loja Online',    definition: 'Loja online completa (e-commerce) para o mercado português, com pagamentos MBWay, Multibanco e cartão, gestão de stock, faturação automática AT e SEO e-commerce incluîdo. Desde 997€, entrega em 4–6 semanas, sem mensalidades de plataforma.',    metaTitle: 'Criar Loja Online em Portugal | Element Group',
     metaDescription:
       'Cria a tua loja online em Portugal com MBWay, Multibanco, gestão de stock e faturação automática. E-commerce profissional desde 997€. Entrega em 4–6 semanas.',
     ogTitle: 'Criar Loja Online em Portugal | desde 997€ | Element Group',
@@ -168,6 +170,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#22d3ee',
     iconId: 'mobile',
     title: 'Apps Mobile',
+    definition: 'Desenvolvimento de apps nativas iOS e Android e Progressive Web Apps (PWA) em Portugal, com painél de gestão incluído, notificações push e integração com APIs. Desde 1.497€, código 100% do cliente, entrega em 6–8 semanas.',
     metaTitle: 'Apps Mobile iOS, Android & PWA | Element Group',
     metaDescription:
       'Apps mobile para iOS e Android desde 1.497€. Apps nativas e PWA com painel de gestão, notificações push e integração com APIs incluídos.',
@@ -212,6 +215,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#f87171',
     iconId: 'palette',
     title: 'Design Gráfico',
+    definition: 'Design gráfico e identidade visual para empresas portuguesas: logótipo profissional, manual de marca e ficheiros editáveis (AI, EPS, SVG, PNG). Desde 297€, 2 conceitos iniciais + 2 rondas de revisão, entrega em 1–2 semanas.',
     metaTitle: 'Design Gráfico & Logótipo | desde 297€ | Element Group',
     metaDescription:
       'Design gráfico em Portugal: logótipo, manual de marca e identidade visual para empresas. Desde 297€, com ficheiros editáveis e variações de logótipo incluídas.',
@@ -256,6 +260,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#2dd4bf',
     iconId: 'pencil',
     title: 'Redesign & Migração',
+    definition: 'Redesign de website e migração de plataforma sem perder posições no Google: processo SEO-safe com checklist de 80+ pontos, redirects 301, PageSpeed 95+ e zero downtime garantido. Desde 297€, staging antes do lançamento.',
     metaTitle: 'Redesign & Migração Web sem Perder SEO | Element Group',
     metaDescription:
       'Redesign de website sem perder SEO. Redirects 301, autoridade preservada e PageSpeed 95+. Zero downtime garantido. Desde 297€, proposta grátis.',
@@ -300,6 +305,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#fbbf24',
     iconId: 'megaphone',
     title: 'Marketing Digital',
+    definition: 'Gestão completa de marketing digital para PMEs em Portugal: redes sociais (Instagram, Facebook), Google Ads com foco em ROI e SEO mensal. Conteúdo criativo, relatórios mensais de performance e estratégia de crescimento incluídos. Desde 350€/mês.',
     metaTitle: 'Marketing Digital para PMEs | desde 350€/mês | Element Group',
     metaDescription:
       'Gestão de redes sociais, Google Ads e SEO mensal para PMEs em Portugal. Instagram, Facebook e Google por especialistas. Desde 350€/mês.',
@@ -370,6 +376,10 @@ export function buildServiceJsonLd(service: ServicePage) {
       url: serviceUrl,
     },
     image: `${SITE_URL}/og-image.jpg`,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.svc-definition'],
+    },
   };
 }
 
@@ -394,6 +404,55 @@ export function buildServiceFaqLd(service: ServicePage) {
       name: faq.q,
       acceptedAnswer: { '@type': 'Answer', text: faq.a },
     })),
+  };
+}
+
+export function buildServiceHowToLd(service: ServicePage) {
+  const serviceUrl = `${SITE_URL}/servicos/${service.slug}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `Como contratar ${service.title} na Element Group`,
+    description: service.definition ?? service.metaDescription,
+    totalCost: {
+      '@type': 'MonetaryAmount',
+      currency: 'EUR',
+      minValue: service.priceNum,
+    },
+    supply: [
+      { '@type': 'HowToSupply', name: 'Brief do projeto' },
+      { '@type': 'HowToSupply', name: 'Conteúdos e materiais existentes' },
+    ],
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Diagnóstico',
+        text: 'Analisamos o negócio, a concorrência e o que o teu cliente procura online.',
+        url: `${serviceUrl}#processo`,
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Estratégia',
+        text: 'Definimos objetivos mensuráveis antes de desenhar uma linha ou escrever código.',
+        url: `${serviceUrl}#processo`,
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Execução',
+        text: 'Design + desenvolvimento com o teu feedback em cada etapa do processo.',
+        url: `${serviceUrl}#processo`,
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Lançamento',
+        text: 'Entrega final, monitorização e ajustes contínuos baseados em dados reais.',
+        url: `${serviceUrl}#processo`,
+      },
+    ],
   };
 }
 

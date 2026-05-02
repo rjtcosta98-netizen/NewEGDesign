@@ -1,5 +1,6 @@
 import './portfolio.css';
-import { cache } from 'react';
+import { cache, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import {
   getSupabase,
@@ -8,9 +9,26 @@ import {
   type Project,
   type Client,
 } from '@/lib/supabase';
-import PortfolioClient, { type PortfolioProject } from '@/components/PortfolioClient';
+import type { PortfolioProject } from '@/components/PortfolioClient';
+
+const PortfolioClient = dynamic(() => import('@/components/PortfolioClient'), {
+  ssr: false,
+});
 
 const SITE_URL = 'https://elementgroup.pt';
+
+const PORTFOLIO_SPARKLES = [
+  { left: '14%', top: 80,  delay: 0.3 },
+  { left: '24%', top: 180, delay: 1.6 },
+  { left: '36%', top: 55,  delay: 2.1 },
+  { left: '48%', top: 150, delay: 0.8 },
+  { left: '56%', top: 220, delay: 3.3 },
+  { left: '64%', top: 70,  delay: 1.2 },
+  { left: '72%', top: 160, delay: 2.7 },
+  { left: '80%', top: 95,  delay: 0.6 },
+  { left: '86%', top: 200, delay: 2.4 },
+  { left: '92%', top: 130, delay: 1.0 },
+] as const;
 
 export const revalidate = 300; // ISR: refresh every 5 min
 
@@ -41,9 +59,9 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     headline: 'De plataformas terceiras a reservas 100% diretas.',
     deliverables: ['Website E-commerce', 'App PWA', 'Social Media'],
     results: [
-      { value: '+25%', label: 'Reservas diretas em 90 dias' },
+      { value: '+25%', label: 'Reservas diretas nos primeiros 90 dias (set. 2025)' },
       { value: 'PageSpeed 96', label: 'Performance desktop' },
-      { value: '+30%', label: 'Retorno de clientes (app)' },
+      { value: '+30%', label: 'Retorno de clientes via app (jan. 2026)' },
     ],
     testimonial: {
       text: 'Desde o primeiro contato até a entrega foi excecional!',
@@ -85,9 +103,9 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     headline: 'Tradição encontra digital. Vendas 24h/dia.',
     deliverables: ['Website & E-commerce', 'SEO', 'Branding'],
     results: [
-      { value: '+40%', label: 'Vendas online em 60 dias' },
+      { value: '+40%', label: 'Vendas online nos primeiros 60 dias (mar. 2026)' },
       { value: 'PageSpeed 95', label: 'Performance desktop' },
-      { value: 'Top 3', label: 'Google em termos locais' },
+      { value: 'Top 3', label: 'Google Maps — termos locais (abr. 2026)' },
     ],
     testimonial: {
       text: 'Recomendo totalmente. Excelente capacidade de transformar ideias em processos claros.',
@@ -107,7 +125,7 @@ const STATIC_PROJECTS: PortfolioProject[] = [
     headline: 'De plataforma gratuita a website profissional. Marcações 24/7.',
     deliverables: ['Website Profissional', 'Performance', 'SEO Técnico'],
     results: [
-      { value: 'PageSpeed 100', label: 'Performance mobile & desktop' },
+      { value: 'PageSpeed 100', label: 'Performance mobile & desktop (fev. 2026)' },
       { value: '<1s', label: 'Tempo de carregamento' },
       { value: '10 dias', label: 'Do brief ao site live' },
     ],
@@ -221,10 +239,9 @@ const fetchFromSupabase = cache(async (): Promise<PortfolioProject[]> => {
   }));
 });
 
-export default async function PortfolioPage() {
+async function PortfolioContent() {
   const supabaseProjects = await fetchFromSupabase();
   const projects = supabaseProjects.length > 0 ? supabaseProjects : STATIC_PROJECTS;
-
   const statsProjects = projects.length;
 
   const portfolioLd = {
@@ -263,6 +280,24 @@ export default async function PortfolioPage() {
   };
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioLd) }}
+      />
+      <PortfolioClient projects={projects} />
+    </>
+  );
+}
+
+function PortfolioContentSkeleton() {
+  return (
+    <div className="pf-grid-skeleton" aria-busy="true" style={{ minHeight: 400 }} />
+  );
+}
+
+export default function PortfolioPage() {
+  return (
     <div className="pf-page">
       {/* ── Hero ── */}
       <section className="pf-hero has-atmos">
@@ -270,18 +305,7 @@ export default async function PortfolioPage() {
         <div className="section-atmos" aria-hidden="true">
           <div className="rings"><span /><span /><span /><span /><span /><span /></div>
           <div className="section-sparkles">
-            {[
-              { left: '14%', top: 80, delay: 0.3 },
-              { left: '24%', top: 180, delay: 1.6 },
-              { left: '36%', top: 55, delay: 2.1 },
-              { left: '48%', top: 150, delay: 0.8 },
-              { left: '56%', top: 220, delay: 3.3 },
-              { left: '64%', top: 70, delay: 1.2 },
-              { left: '72%', top: 160, delay: 2.7 },
-              { left: '80%', top: 95, delay: 0.6 },
-              { left: '86%', top: 200, delay: 2.4 },
-              { left: '92%', top: 130, delay: 1.0 },
-            ].map((s, i) => (
+            {PORTFOLIO_SPARKLES.map((s, i) => (
               <span
                 key={i}
                 style={{ left: s.left, top: s.top, animationDelay: `${s.delay}s` }}
@@ -309,7 +333,7 @@ export default async function PortfolioPage() {
         {/* Stats strip */}
         <div className="pf-stats">
           <div className="pf-stat">
-            <span className="pf-stat-num">{statsProjects}+</span>
+            <span className="pf-stat-num">{STATIC_PROJECTS.length}+</span>
             <span className="pf-stat-label">Projetos entregues</span>
           </div>
           <div className="pf-stat">
@@ -328,12 +352,9 @@ export default async function PortfolioPage() {
       </section>
 
       {/* ── Interactive client section (filters + grid) ── */}
-      <PortfolioClient projects={projects} />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioLd) }}
-      />
+      <Suspense fallback={<PortfolioContentSkeleton />}>
+        <PortfolioContent />
+      </Suspense>
     </div>
   );
 }

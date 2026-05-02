@@ -6,8 +6,9 @@
 
 A Element Group é uma agência digital independente com sede em Portugal que cria soluções digitais à medida para PMEs portuguesas. Diferencia-se pela combinação de tecnologia moderna (que permite preços mais acessíveis sem sacrificar qualidade), preços transparentes a partir de 197€, e entrega rápida (sites institucionais em 2 a 3 semanas).
 
-- **Fundador / Lead:** Ricardo Jorge
+- **Fundadores:** Ricardo Jorge (Desenvolvimento & Tech) e Mafalda Garcia (Marketing & Social Media)
 - **Localização:** Portugal (serve todo o país, remotamente)
+- **Última atualização:** Maio 2026
 - **Idiomas:** Português (PT-PT), Inglês
 - **Website:** https://elementgroup.pt
 - **Contacto:** WhatsApp +351 930 477 894

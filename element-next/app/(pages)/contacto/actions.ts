@@ -1,7 +1,9 @@
 'use server';
 
+import { headers } from 'next/headers';
 import nodemailer from 'nodemailer';
 import { getSupabase } from '@/lib/supabase';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 export type ContactState = { ok: true } | { ok: false; error: string } | null;
 
@@ -102,6 +104,13 @@ export async function submitContact(
   _prev: ContactState,
   fd: FormData,
 ): Promise<ContactState> {
+  // Rate limit: 5 submissions per IP per minute
+  const hdrs = await headers();
+  const ip = hdrs.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+  if (!checkRateLimit(`contact:${ip}`, 5, 60_000)) {
+    return { ok: false, error: 'Demasiadas tentativas. Aguarda um momento e tenta novamente.' };
+  }
+
   // Anti-spam: honeypot — bots fill the hidden "website" field
   const honeypot = fd.get('website')?.toString() ?? '';
   if (honeypot) return { ok: true }; // Silent reject

@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { getSupabase } from "@/lib/supabase";
 
 export const BLOG_IMAGES = "blog-images";
@@ -54,8 +55,8 @@ export async function getBlogPosts(): Promise<BlogPostSummary[]> {
   return data as BlogPostSummary[];
 }
 
-/** Returns a single published post by slug. */
-export async function getBlogPost(slug: string): Promise<BlogPost | null> {
+/** Returns a single published post by slug. Cached per request via React.cache(). */
+export const getBlogPost = cache(async (slug: string): Promise<BlogPost | null> => {
   const supabase = getSupabase();
   if (!supabase) return null;
 
@@ -68,7 +69,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
 
   if (error || !data) return null;
   return data as BlogPost;
-}
+});
 
 /** Returns all published slugs — used for generateStaticParams. */
 export async function getBlogPostSlugs(): Promise<{ slug: string }[]> {

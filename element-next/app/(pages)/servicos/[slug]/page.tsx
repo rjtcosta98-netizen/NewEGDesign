@@ -2,6 +2,16 @@ import './servico-detail.css';
 import type { Metadata } from 'next';
 
 export const revalidate = false; // data from static services-data.ts, rebuilt on deploy
+
+const SVC_SPARKLES = [
+  { left: '8%',  top: 80,  animationDelay: '.3s'  },
+  { left: '20%', top: 190, animationDelay: '1.6s' },
+  { left: '35%', top: 50,  animationDelay: '2.4s' },
+  { left: '52%', top: 145, animationDelay: '.8s'  },
+  { left: '65%', top: 220, animationDelay: '2.9s' },
+  { left: '78%', top: 65,  animationDelay: '1.2s' },
+  { left: '88%', top: 160, animationDelay: '2.1s' },
+] as const;
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -11,6 +21,7 @@ import {
   buildServiceJsonLd,
   buildServiceBreadcrumbLd,
   buildServiceFaqLd,
+  buildServiceHowToLd,
   buildWaLink,
 } from '@/lib/services-data';
 import { ServiceTheme } from '@/components/ServiceTheme';
@@ -163,6 +174,10 @@ export default async function ServiceDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceFaqLd(service)) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildServiceHowToLd(service)) }}
+      />
 
       {/* ── Accent top line ── */}
       <div className="svc-top-line" aria-hidden="true" />
@@ -176,19 +191,20 @@ export default async function ServiceDetailPage({
         <span aria-current="page">{service.title}</span>
       </nav>
 
+      {/* ── Service definition (GEO/AI extractable) ── */}
+      {service.definition && (
+        <p className="svc-definition">{service.definition}</p>
+      )}
+
       {/* ══ HERO ══════════════════════════════════════════════════════════ */}
       <section className="svc-hero has-atmos">
         {/* Atmospheric decorations */}
         <div className="section-atmos" aria-hidden="true">
           <div className="rings"><span /><span /><span /><span /><span /><span /></div>
           <div className="section-sparkles">
-            <span style={{ left: '8%',  top: 80,  animationDelay: '.3s'  }} />
-            <span style={{ left: '20%', top: 190, animationDelay: '1.6s' }} />
-            <span style={{ left: '35%', top: 50,  animationDelay: '2.4s' }} />
-            <span style={{ left: '52%', top: 145, animationDelay: '.8s'  }} />
-            <span style={{ left: '65%', top: 220, animationDelay: '2.9s' }} />
-            <span style={{ left: '78%', top: 65,  animationDelay: '1.2s' }} />
-            <span style={{ left: '88%', top: 160, animationDelay: '2.1s' }} />
+            {SVC_SPARKLES.map((s, i) => (
+              <span key={i} style={s} />
+            ))}
           </div>
         </div>
         {/* Accent glow radial */}

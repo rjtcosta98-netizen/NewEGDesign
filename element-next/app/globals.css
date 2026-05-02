@@ -119,6 +119,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-optical-sizing:auto}
   border-radius:999px;
   box-shadow:0 30px 60px -30px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.05);
 }
+.nav--scrolled{box-shadow:0 30px 60px -30px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.05);}
 .nav-links{display:flex;align-items:center;gap:2px;font-size:14px;}
 .nav-link{
   position:relative;
@@ -337,7 +338,8 @@ h1.hero-title{
   background:linear-gradient(180deg,#c5b6ff 0%, #8a6cff 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.hero-sub{color:var(--muted);font-size:18px;margin:0 0 36px;max-width:52ch;animation:fadeUp .9s .25s both}
+.hero-sub{color:var(--muted);font-size:18px;margin:0 0 20px;max-width:52ch;animation:fadeUp .9s .25s both}
+.hero-entity-def{font-size:13px;line-height:1.65;color:var(--muted-2,#6b7280);max-width:52ch;margin:0 0 28px;padding:10px 14px 10px 16px;border-left:2px solid rgba(167,139,250,.35);border-radius:0 8px 8px 0;background:rgba(255,255,255,.025);animation:fadeUp .9s .3s both;text-align:left}
 .cta-row{display:flex;flex-direction:column;align-items:center;gap:14px;animation:fadeUp .9s .35s both}
 .cta-row .btn-primary{padding:16px 28px;font-size:15.5px}
 .spots{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#aab3c8}

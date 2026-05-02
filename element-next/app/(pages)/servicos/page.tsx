@@ -4,6 +4,17 @@ import Link from 'next/link';
 
 export const revalidate = false; // statically generated at build time
 
+const SERVICOS_SPARKLES = [
+  { left: '12%', top: 90,  animationDelay: '.4s'  },
+  { left: '22%', top: 200, animationDelay: '1.8s' },
+  { left: '38%', top: 60,  animationDelay: '2.5s' },
+  { left: '50%', top: 155, animationDelay: '.9s'  },
+  { left: '62%', top: 230, animationDelay: '3.1s' },
+  { left: '74%', top: 75,  animationDelay: '1.3s' },
+  { left: '84%', top: 170, animationDelay: '2.2s' },
+  { left: '90%', top: 110, animationDelay: '.7s'  },
+] as const;
+
 const SITE_URL = 'https://elementgroup.pt';
 
 export const metadata: Metadata = {
@@ -210,14 +221,9 @@ export default function ServicosPage() {
         <div className="section-atmos" aria-hidden="true">
           <div className="rings"><span /><span /><span /><span /><span /><span /></div>
           <div className="section-sparkles">
-            <span style={{ left: '12%', top: 90, animationDelay: '.4s' }} />
-            <span style={{ left: '22%', top: 200, animationDelay: '1.8s' }} />
-            <span style={{ left: '38%', top: 60, animationDelay: '2.5s' }} />
-            <span style={{ left: '50%', top: 155, animationDelay: '.9s' }} />
-            <span style={{ left: '62%', top: 230, animationDelay: '3.1s' }} />
-            <span style={{ left: '74%', top: 75, animationDelay: '1.3s' }} />
-            <span style={{ left: '84%', top: 170, animationDelay: '2.2s' }} />
-            <span style={{ left: '90%', top: 110, animationDelay: '.7s' }} />
+            {SERVICOS_SPARKLES.map((s, i) => (
+              <span key={i} style={s} />
+            ))}
           </div>
         </div>
 
