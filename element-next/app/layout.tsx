@@ -1,15 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
+import { Fraunces, DM_Sans, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
+import BottomNav from "@/components/BottomNav";
 import "./globals.css";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-const jakarta = Plus_Jakarta_Sans({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  axes: ["opsz", "SOFT", "WONK"],
   display: "swap",
-  variable: "--font-jakarta",
+  variable: "--font-fraunces",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-sans",
 });
 
 const instrument = Instrument_Serif({
@@ -153,7 +160,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-PT" className={`${jakarta.variable} ${instrument.variable}`}>
+    <html lang="pt-PT" className={`${fraunces.variable} ${dmSans.variable} ${instrument.variable}`}>
       <head>
         {/* Establish connection early to Supabase CDN so hero images load faster */}
         <link rel="preconnect" href="https://ctflpbjvsepkbfjpgkuh.supabase.co" />
@@ -161,6 +168,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <BottomNav />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }}

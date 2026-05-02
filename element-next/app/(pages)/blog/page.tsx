@@ -56,6 +56,14 @@ export default async function BlogPage() {
       />
 
       <section className="blog-hero">
+        <div className="section-atmos" aria-hidden="true">
+          <div className="rings"><span/><span/><span/><span/></div>
+          <div className="section-sparkles">
+            <span style={{left:'18%',top:'90px',animationDelay:'.4s'}}/>
+            <span style={{left:'72%',top:'70px',animationDelay:'1.9s'}}/>
+            <span style={{left:'85%',top:'160px',animationDelay:'.9s'}}/>
+          </div>
+        </div>
         <div className="container">
           <div className="section-head">
             <span className="section-eyebrow">Blog</span>

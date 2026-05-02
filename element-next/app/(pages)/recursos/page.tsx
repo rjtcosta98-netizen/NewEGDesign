@@ -102,6 +102,13 @@ export default function RecursosPage() {
       <div className="lm-hub-page">
         {/* Hero */}
         <section className="lm-hub-hero">
+          <div className="section-atmos" aria-hidden="true">
+            <div className="rings"><span/><span/><span/><span/></div>
+            <div className="section-sparkles">
+              <span style={{left:'20%',top:'100px',animationDelay:'.6s'}}/>
+              <span style={{left:'75%',top:'75px',animationDelay:'2.0s'}}/>
+            </div>
+          </div>
           <div className="lm-hub-hero-inner">
             <span className="lm-hub-badge">100% Grátis</span>
             <h1 className="lm-hub-title">

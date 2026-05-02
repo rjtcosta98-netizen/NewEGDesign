@@ -146,6 +146,14 @@ export default function SobrePage() {
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="sb-hero">
+        <div className="section-atmos" aria-hidden="true">
+          <div className="rings"><span/><span/><span/><span/></div>
+          <div className="section-sparkles">
+            <span style={{left:'12%',top:'110px',animationDelay:'.5s'}}/>
+            <span style={{left:'78%',top:'80px',animationDelay:'2.1s'}}/>
+            <span style={{left:'91%',top:'200px',animationDelay:'1.1s'}}/>
+          </div>
+        </div>
         <div className="sb-hero__label">Sobre nós</div>
         <h1 className="sb-hero__h1">
           Websites à medida,<br />sem intermediários,<br />para <em>PMEs portuguesas.</em>

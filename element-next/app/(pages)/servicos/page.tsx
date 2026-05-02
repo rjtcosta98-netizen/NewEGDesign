@@ -228,10 +228,10 @@ export default function ServicosPage() {
           nos torna mais rápidos. Mesma qualidade, preço justo.
         </p>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '8px 14px', borderRadius: 999, fontSize: 13, fontWeight: 500, color: '#cfd6e8', border: '1px solid var(--line-2)', background: 'rgba(255,255,255,.03)' }}>⚡ Entrega em 10–21 dias</span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '8px 14px', borderRadius: 999, fontSize: 13, fontWeight: 500, color: '#cfd6e8', border: '1px solid var(--line-2)', background: 'rgba(255,255,255,.03)' }}>🛡️ Garantia 30 dias</span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, padding: '8px 14px', borderRadius: 999, fontSize: 13, fontWeight: 500, color: '#cfd6e8', border: '1px solid var(--line-2)', background: 'rgba(255,255,255,.03)' }}>📄 Proposta grátis em 24h</span>
+        <div className="sv-hero-badges">
+          <span className="sv-hero-badge-pill">⚡ Entrega em 10–21 dias</span>
+          <span className="sv-hero-badge-pill">🛡️ Garantia 30 dias</span>
+          <span className="sv-hero-badge-pill">📄 Proposta grátis em 24h</span>
         </div>
       </section>
 
@@ -252,11 +252,10 @@ export default function ServicosPage() {
               <ul className="sv-card__list">
                 {s.features.map((f, j) => <li key={j}>{f}</li>)}
               </ul>
-              <div style={{ display: 'flex', gap: 8, marginTop: 'auto' }}>
+              <div className="sv-card__actions">
                 <Link
                   href={`/servicos/${s.slug}`}
-                  className="sv-card__cta"
-                  style={{ flex: 1 }}
+                  className="sv-card__cta sv-card__cta--main"
                 >
                   Ver detalhes
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
@@ -267,8 +266,7 @@ export default function ServicosPage() {
                   href={`https://wa.me/351930477894?text=${encodeURIComponent(`Olá! Tenho interesse no serviço de ${s.title}. Podiam enviar um orçamento?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="sv-card__cta"
-                  style={{ background: 'rgba(255,255,255,.05)', border: '1px solid var(--line-2)', color: 'var(--muted)', boxShadow: 'none' }}
+                  className="sv-card__cta sv-card__cta--ghost"
                   aria-label={`Pedir orçamento para ${s.title} via WhatsApp`}
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
@@ -323,24 +321,20 @@ export default function ServicosPage() {
                 <div className="sv-step-dot" />
                 <span className="sv-step-num">{step.num}</span>
               </div>
-              <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, color: '#fff', letterSpacing: '-.01em' }}>{step.title}</h3>
-              <p style={{ margin: 0, fontSize: 13.5, color: 'var(--muted)', lineHeight: 1.6 }}>{step.desc}</p>
+              <h3 className="sv-step-title">{step.title}</h3>
+              <p className="sv-step-body">{step.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: '0 20px 80px', maxWidth: 1240, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}>
+      <section className="sv-faq-section">
+        <div className="sv-faq-grid">
           {FAQS.map((faq, i) => (
-            <div key={i} style={{
-              padding: '22px 20px', borderRadius: 18,
-              border: '1px solid var(--line-2)',
-              background: 'linear-gradient(180deg, rgba(20,28,50,.5), rgba(10,15,28,.55))',
-            }}>
-              <p style={{ margin: '0 0 10px', fontWeight: 700, fontSize: 15, color: '#fff', letterSpacing: '-.01em' }}>{faq.q}</p>
-              <p style={{ margin: 0, fontSize: 13.5, color: 'var(--muted)', lineHeight: 1.65 }}>{faq.a}</p>
+            <div key={i} className="sv-faq-card">
+              <p className="sv-faq-q">{faq.q}</p>
+              <p className="sv-faq-a">{faq.a}</p>
             </div>
           ))}
         </div>
@@ -354,10 +348,7 @@ export default function ServicosPage() {
       {/* ── CTA ── */}
       <section className="sv-cta-section">
         <div className="sv-cta-box">
-          <div aria-hidden="true" style={{
-            position: 'absolute', inset: 0, pointerEvents: 'none',
-            background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124,58,237,.12), transparent 60%)',
-          }} />
+
           <div className="sv-cta-badge"><span /> Disponíveis para novos projetos</div>
           <h2>Vamos construir<br />algo <em>extraordinário.</em></h2>
           <p>Proposta personalizada gratuita em menos de 24 horas. Consultoria inicial sem compromisso.</p>

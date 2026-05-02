@@ -3,6 +3,7 @@ import RAW_HTML from './_body.html';
 // @ts-ignore – bundled as raw string via webpack asset/source (edge-safe)
 import SCRIPTS from './_scripts.js';
 import InlineScripts from "@/components/InlineScripts";
+import SiteNav from "@/components/SiteNav";
 import { renderProjectsGridHTML } from "@/lib/projects-grid";
 import { renderHeroProjectsHTML } from "@/lib/hero-projects";
 import { renderMarqueeLogosHTML } from "@/lib/clients-marquee";
@@ -15,6 +16,9 @@ const HERO_MARKER = "<!-- HERO_PROJECTS_MARKER -->";
 const MARQUEE_MARKER = "<!-- MARQUEE_LOGOS_MARKER -->";
 const REVIEWS_MARKER = "<!-- REVIEWS_MARKER -->";
 
+// Strip the static HTML nav (replaced by React SiteNav component)
+const NAV_RE = /<!-- ========= NAV ========= -->[\s\S]*?(?=<!-- ========= HERO ========= -->)/;
+
 export default async function Page() {
   const [gridHtml, heroHtml, marqueeHtml, reviewsHtml] = await Promise.all([
     renderProjectsGridHTML(),
@@ -23,6 +27,7 @@ export default async function Page() {
     renderReviewsHTML(),
   ]);
   const html = RAW_HTML
+    .replace(NAV_RE, '')
     .replace(GRID_MARKER, gridHtml)
     .replace(HERO_MARKER, heroHtml)
     .replace(MARQUEE_MARKER, marqueeHtml)
@@ -37,6 +42,7 @@ export default async function Page() {
       {lcpImageUrl && (
         <link rel="preload" as="image" href={lcpImageUrl} fetchPriority="high" />
       )}
+      <SiteNav />
       <main id="main-content">
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </main>
@@ -44,3 +50,4 @@ export default async function Page() {
     </>
   );
 }
+

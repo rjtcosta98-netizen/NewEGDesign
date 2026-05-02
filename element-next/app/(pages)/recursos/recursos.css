@@ -7,10 +7,24 @@
 
 .lm-hub-hero {
   padding: 100px 20px 64px;
-  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(109,40,217,.18) 0%, transparent 70%);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.lm-hub-hero-inner { max-width: 720px; margin: 0 auto; }
+.lm-hub-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(109,40,217,.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.lm-hub-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
 
 .lm-hub-badge {
   display: inline-flex;
@@ -31,8 +45,8 @@
 .lm-hub-title {
   font-size: clamp(2rem, 6vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -.03em;
+  line-height: 1.06;
+  letter-spacing: -.02em;
   color: var(--text);
   margin: 0 0 16px;
 }
@@ -76,6 +90,9 @@
   list-style: none;
   padding: 0;
   margin: 0;
+}
+@media (min-width: 640px) {
+  .lm-hub-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 .lm-hub-card {
