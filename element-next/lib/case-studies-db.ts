@@ -2,7 +2,7 @@ import { cache } from 'react';
 import { getSupabase, publicAsset } from './supabase';
 import { CASE_STUDIES, type CaseStudy, type CaseStudyResult } from './case-studies';
 
-const CS_BUCKET = 'case-study-images';
+const CS_BUCKET = 'project-images';
 
 type CaseStudyRow = {
   slug: string;
