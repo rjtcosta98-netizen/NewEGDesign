@@ -12,7 +12,7 @@
 /* ── Hero ─────────────────────────────────────────────────── */
 .sb-hero {
   position: relative;
-  padding: 130px 20px 80px;
+  padding: 86px 20px 60px !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +21,7 @@
   z-index: 1;
 }
 .sb-hero > *:not(.section-atmos) { position: relative; z-index: 1; }
+.sb-hero > .section-atmos { position: absolute; }
 
 /* ── Entity card (GEO/AI extractable) ────────────────────── */
 .sb-entity-card {
@@ -28,7 +29,8 @@
   border: 1px solid rgba(192,168,255,.18);
   border-radius: 12px;
   padding: 18px 24px;
-  margin-bottom: 28px;
+  margin-top: 36px;
+  margin-bottom: 0;
   text-align: left;
   font-size: 13px;
   line-height: 1.55;
@@ -183,14 +185,19 @@
   background: var(--line-2);
 }
 
+/* per-stat accent colours */
+.sb-stat[data-accent="violet"] { --s-hex: #a78bfa; }
+.sb-stat[data-accent="green"]  { --s-hex: #22c55e; }
+.sb-stat[data-accent="gold"]   { --s-hex: #facc15; }
+.sb-stat[data-accent="blue"]   { --s-hex: #5b8cff; }
+
 .sb-stat__val {
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -.03em;
-  color: #fff;
   line-height: 1;
   margin-bottom: 6px;
-  background: linear-gradient(180deg, #fff, #c0a8ff);
+  background: linear-gradient(180deg, #fff, var(--s-hex, #c0a8ff));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -304,13 +311,16 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  border: 2px solid rgba(167, 139, 250, .4);
-  background: linear-gradient(135deg, #7c3aed, #2d6dff);
+  border: 2px solid rgba(167, 139, 250, .35);
+  box-shadow: 0 0 0 4px rgba(124,58,237,.12), inset 0 1px 0 rgba(255,255,255,.15);
+  background: linear-gradient(135deg, #4c1d95, #1e3a8a);
   display: grid;
   place-items: center;
-  font-size: 26px;
-  font-weight: 800;
-  color: #fff;
+  font-size: 28px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -.02em;
+  color: rgba(255,255,255,.9);
   margin-bottom: 18px;
   flex-shrink: 0;
 }
@@ -399,7 +409,7 @@
   top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
+  opacity: 0.28;
   transition: opacity .3s;
 }
 
@@ -497,6 +507,16 @@
   flex-shrink: 0;
 }
 
+.sb-client-type-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--violet-2);
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity .2s, color .2s;
+}
+.sb-client-type:hover .sb-client-type-icon { opacity: 1; color: #c0a8ff; }
+
 /* ── Mission quote block ──────────────────────────────────── */
 .sb-quote-block {
   position: relative;
@@ -584,6 +604,14 @@
   flex-shrink: 0;
 }
 
+/* Per-channel contact icon colours */
+[data-contact="whatsapp"] .sb-contact-icon { background: rgba(34,197,94,.12); border-color: rgba(34,197,94,.3); color: #22c55e; }
+[data-contact="whatsapp"]:hover { background: rgba(34,197,94,.06) !important; border-color: rgba(34,197,94,.28) !important; }
+[data-contact="email"] .sb-contact-icon { background: rgba(91,140,255,.12); border-color: rgba(91,140,255,.3); color: #5b8cff; }
+[data-contact="email"]:hover { background: rgba(91,140,255,.06) !important; border-color: rgba(91,140,255,.28) !important; }
+[data-contact="location"] .sb-contact-icon { background: rgba(250,204,21,.1); border-color: rgba(250,204,21,.28); color: #facc15; }
+[data-contact="time"] .sb-contact-icon { background: rgba(167,139,250,.12); border-color: rgba(167,139,250,.28); color: #c0a8ff; }
+
 .sb-contact-label {
   font-size: 11px;
   text-transform: uppercase;
@@ -633,6 +661,16 @@
   position: relative;
 }
 
+.sb-cta__h2 em {
+  font-style: normal;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  background: linear-gradient(160deg, #d4c3ff 0%, #9b7dff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .sb-cta__sub {
   color: var(--muted);
   font-size: 15px;
@@ -669,7 +707,7 @@
 /* ── Responsive tweaks ────────────────────────────────────── */
 @media (max-width: 480px) {
   .sb-hero {
-    padding: 110px 16px 64px;
+    padding: 72px 16px 48px !important;
   }
   .sb-stat {
     flex: 1 0 120px;

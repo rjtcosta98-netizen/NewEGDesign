@@ -154,16 +154,46 @@ const DIFFERENTIATORS = [
 ];
 
 const CLIENT_TYPES = [
-  "Restaurantes & Cafés",
-  "Clínicas & Saúde",
-  "Ginásios & Fitness",
-  "Lojas D2C",
-  "Profissionais Liberais",
-  "Associações",
-  "Produtores Artesanais",
-  "Hotéis & Alojamento",
-  "Serviços Locais",
-  "E-commerce",
+  {
+    label: "Restaurantes & Cafés",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>,
+  },
+  {
+    label: "Clínicas & Saúde",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+  },
+  {
+    label: "Ginásios & Fitness",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
+  },
+  {
+    label: "Lojas D2C",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>,
+  },
+  {
+    label: "Profissionais Liberais",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>,
+  },
+  {
+    label: "Associações",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  },
+  {
+    label: "Produtores Artesanais",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>,
+  },
+  {
+    label: "Hotéis & Alojamento",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
+  },
+  {
+    label: "Serviços Locais",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+  },
+  {
+    label: "E-commerce",
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>,
+  },
 ];
 
 export default function SobrePage() {
@@ -180,18 +210,6 @@ export default function SobrePage() {
             ))}
           </div>
         </div>
-        {/* ── Entity summary (GEO/AI extractable) ────────────── */}
-        <aside className="sb-entity-card" aria-label="Resumo da Element Group">
-          <dl className="sb-entity-dl">
-            <div><dt>Fundada</dt><dd>2024, Portugal</dd></div>
-            <div><dt>Fundadores</dt><dd>Ricardo Jorge (Dev) · Mafalda Garcia (Marketing)</dd></div>
-            <div><dt>Especialização</dt><dd>Websites, Lojas Online, Apps Mobile, Marketing Digital</dd></div>
-            <div><dt>Preços</dt><dd>Desde 197€ (pagamento único)</dd></div>
-            <div><dt>Cobertura</dt><dd>Portugal — Continente, Madeira e Açores (100% remoto)</dd></div>
-            <div><dt>Contacto</dt><dd>info@elementgroup.pt · +351 930 477 894</dd></div>
-          </dl>
-        </aside>
-
         <div className="sb-hero__label">Sobre nós</div>
         <h1 className="sb-hero__h1">
           Websites à medida,<br />sem intermediários,<br />para <em>PMEs portuguesas.</em>
@@ -219,23 +237,35 @@ export default function SobrePage() {
         </div>
 
         <div className="sb-stats">
-          <div className="sb-stat">
+          <div className="sb-stat" data-accent="violet">
             <div className="sb-stat__val">95+</div>
             <div className="sb-stat__label">PageSpeed Score</div>
           </div>
-          <div className="sb-stat">
+          <div className="sb-stat" data-accent="green">
             <div className="sb-stat__val">24h</div>
             <div className="sb-stat__label">Proposta enviada</div>
           </div>
-          <div className="sb-stat">
+          <div className="sb-stat" data-accent="gold">
             <div className="sb-stat__val">197€</div>
             <div className="sb-stat__label">Desde</div>
           </div>
-          <div className="sb-stat">
+          <div className="sb-stat" data-accent="blue">
             <div className="sb-stat__val">5★</div>
             <div className="sb-stat__label">Avaliação Google</div>
           </div>
         </div>
+
+        {/* ── Entity summary (GEO/AI extractable) ────────────── */}
+        <aside className="sb-entity-card" aria-label="Resumo da Element Group">
+          <dl className="sb-entity-dl">
+            <div><dt>Fundada</dt><dd>2024, Portugal</dd></div>
+            <div><dt>Fundadores</dt><dd>Ricardo Jorge (Dev) · Mafalda Garcia (Marketing)</dd></div>
+            <div><dt>Especialização</dt><dd>Websites, Lojas Online, Apps Mobile, Marketing Digital</dd></div>
+            <div><dt>Preços</dt><dd>Desde 197€ (pagamento único)</dd></div>
+            <div><dt>Cobertura</dt><dd>Portugal — Continente, Madeira e Açores (100% remoto)</dd></div>
+            <div><dt>Contacto</dt><dd>info@elementgroup.pt · +351 930 477 894</dd></div>
+          </dl>
+        </aside>
       </section>
 
       {/* ── Missão ───────────────────────────────────────────── */}
@@ -353,10 +383,10 @@ export default function SobrePage() {
             agência tradicional.
           </p>
           <div className="sb-client-types">
-            {CLIENT_TYPES.map((type) => (
-              <div key={type} className="sb-client-type">
-                <span className="sb-client-type-dot" />
-                {type}
+            {CLIENT_TYPES.map((t) => (
+              <div key={t.label} className="sb-client-type">
+                <span className="sb-client-type-icon">{t.icon}</span>
+                {t.label}
               </div>
             ))}
           </div>
@@ -378,6 +408,7 @@ export default function SobrePage() {
               target="_blank"
               rel="noopener noreferrer"
               className="sb-contact-item"
+              data-contact="whatsapp"
             >
               <div className="sb-contact-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -392,6 +423,7 @@ export default function SobrePage() {
             <a
               href="mailto:info@elementgroup.pt"
               className="sb-contact-item"
+              data-contact="email"
             >
               <div className="sb-contact-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -404,7 +436,7 @@ export default function SobrePage() {
                 <div className="sb-contact-value">info@elementgroup.pt</div>
               </div>
             </a>
-            <div className="sb-contact-item" style={{ cursor: "default" }}>
+            <div className="sb-contact-item" style={{ cursor: "default" }} data-contact="location">
               <div className="sb-contact-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="10" r="3" />
@@ -416,7 +448,7 @@ export default function SobrePage() {
                 <div className="sb-contact-value">Portugal · todo o país</div>
               </div>
             </div>
-            <div className="sb-contact-item" style={{ cursor: "default" }}>
+            <div className="sb-contact-item" style={{ cursor: "default" }} data-contact="time">
               <div className="sb-contact-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10" />
@@ -439,7 +471,7 @@ export default function SobrePage() {
       {/* ── CTA banner ───────────────────────────────────────── */}
       <div className="sb-container">
         <div className="sb-cta">
-          <h2 className="sb-cta__h2">Pronto para começar?</h2>
+          <h2 className="sb-cta__h2">Pronto para <em>começar?</em></h2>
           <p className="sb-cta__sub">
             Orçamento gratuito em 24h · Sem pré-pagamento até aprovação ·
             Resposta em &lt;2h via WhatsApp

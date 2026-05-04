@@ -192,8 +192,17 @@ function GridView({ projects }: { projects: PortfolioProject[] }) {
 }
 
 function ProjectCard({ project: p, idx }: { project: PortfolioProject; idx: number }) {
+  const CAT_ACCENT: Record<string, string> = {
+    'Websites': 'violet', 'E-commerce': 'green', 'Apps': 'cyan',
+    'Marketing': 'gold', 'Design': 'orange',
+  };
+  const isFeatured = idx === 0;
   return (
-    <a href={`/portfolio/${p.slug}`} className="pf-card">
+    <a
+      href={`/portfolio/${p.slug}`}
+      className={`pf-card${isFeatured ? ' pf-card--featured' : ''}`}
+      data-cat={CAT_ACCENT[p.category] ?? 'violet'}
+    >
       {/* Cover */}
       <div className="pf-card__cover">
         {p.image ? (

@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, DM_Sans, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
-import BottomNav from "@/components/BottomNav";
 import "./globals.css";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -203,7 +202,6 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <BottomNav />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_LD) }}

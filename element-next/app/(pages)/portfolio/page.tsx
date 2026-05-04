@@ -326,21 +326,60 @@ export default function PortfolioPage() {
           quando possível — métricas de resultado concretas.
         </p>
 
+        {/* Results ticker */}
+        <div className="pf-ticker" aria-hidden="true">
+          <div className="pf-ticker-track">
+            <span className="pf-tick pf-tick--green">+25% Reservas diretas</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--violet">PageSpeed 96</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--gold">+40% Vendas online</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--violet">PageSpeed 100</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--cyan">Top 3 Google Maps</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--green">+30% Retorno via app</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--gold">+318% Tráfego orgânico</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--violet">100% Satisfação</span>
+            <span className="pf-tick-sep">·</span>
+            {/* duplicate for seamless loop */}
+            <span className="pf-tick pf-tick--green">+25% Reservas diretas</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--violet">PageSpeed 96</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--gold">+40% Vendas online</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--violet">PageSpeed 100</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--cyan">Top 3 Google Maps</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--green">+30% Retorno via app</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--gold">+318% Tráfego orgânico</span>
+            <span className="pf-tick-sep">·</span>
+            <span className="pf-tick pf-tick--violet">100% Satisfação</span>
+            <span className="pf-tick-sep">·</span>
+          </div>
+        </div>
+
         {/* Stats strip */}
         <div className="pf-stats">
-          <div className="pf-stat">
+          <div className="pf-stat" data-accent="violet">
             <span className="pf-stat-num">{STATIC_PROJECTS.length}+</span>
             <span className="pf-stat-label">Projetos entregues</span>
           </div>
-          <div className="pf-stat">
+          <div className="pf-stat" data-accent="green">
             <span className="pf-stat-num">5.0</span>
             <span className="pf-stat-label">Rating Google</span>
           </div>
-          <div className="pf-stat">
+          <div className="pf-stat" data-accent="gold">
             <span className="pf-stat-num">100%</span>
             <span className="pf-stat-label">Reviews 5 estrelas</span>
           </div>
-          <div className="pf-stat">
+          <div className="pf-stat" data-accent="blue">
             <span className="pf-stat-num">&lt;2h</span>
             <span className="pf-stat-label">Tempo de resposta</span>
           </div>

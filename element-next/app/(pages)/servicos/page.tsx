@@ -227,22 +227,68 @@ export default function ServicosPage() {
           </div>
         </div>
 
+        {/* Floating ambient chips — desktop only */}
+        <div className="sv-hero-floats" aria-hidden="true">
+          <div className="sv-hf sv-hf--a">
+            <span className="sv-hf-ic sv-hf-ic--violet">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            </span>
+            <span>120+ projetos</span>
+          </div>
+          <div className="sv-hf sv-hf--b">
+            <span className="sv-hf-ic sv-hf-ic--green">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </span>
+            <span>Tráfego +318%</span>
+          </div>
+          <div className="sv-hf sv-hf--c">
+            <span className="sv-hf-ic sv-hf-ic--gold">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            </span>
+            <span>Resposta &lt;2h</span>
+          </div>
+        </div>
+
         <div className="sv-hero-label">Serviços</div>
         <h1>Soluções digitais<br />que <em>geram resultados.</em></h1>
         <p className="sv-hero-sub">
-          Outros cobram €2.000–€5.000. Connosco começa em 197€ — porque usamos tecnologia moderna que
+          Outros cobram €2.000–€5.000. Connosco começa em <strong>197€</strong> — porque usamos tecnologia moderna que
           nos torna mais rápidos. Mesma qualidade, preço justo.
         </p>
 
-        <div className="sv-hero-badges">
-          <span className="sv-hero-badge-pill">⚡ Entrega em 10–21 dias</span>
-          <span className="sv-hero-badge-pill">🛡️ Garantia 30 dias</span>
-          <span className="sv-hero-badge-pill">📄 Proposta grátis em 24h</span>
+        <div className="sv-hero-actions">
+          <a href="/contacto" className="sv-hero-cta">
+            Pedir orçamento grátis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#sv-grid" className="sv-hero-link">
+            Ver todos os serviços
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 13l7 7 7-7"/></svg>
+          </a>
+        </div>
+
+        <div className="sv-hero-trust">
+          <span className="sv-hero-trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12l4 4L19 6"/></svg>
+            Entrega 10–21 dias
+          </span>
+          <span className="sv-trust-sep" aria-hidden="true"></span>
+          <span className="sv-hero-trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/></svg>
+            Garantia 30 dias
+          </span>
+          <span className="sv-trust-sep" aria-hidden="true"></span>
+          <span className="sv-hero-trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Proposta grátis 24h
+          </span>
         </div>
       </section>
 
       {/* ── Services grid ── */}
-      <div className="sv-grid-wrap">
+      <div className="sv-grid-wrap" id="sv-grid">
         <div className="sv-grid">
           {SERVICES.map((s, i) => (
             <article key={i} className="sv-card" data-color={s.color}>
@@ -355,16 +401,23 @@ export default function ServicosPage() {
       <section className="sv-cta-section">
         <div className="sv-cta-box">
 
-          <div className="sv-cta-badge"><span /> Disponíveis para novos projetos</div>
-          <h2>Vamos construir<br />algo <em>extraordinário.</em></h2>
-          <p>Proposta personalizada gratuita em menos de 24 horas. Consultoria inicial sem compromisso.</p>
+          {/* Text column */}
+          <div className="sv-cta-text">
+            <div className="sv-cta-badge"><span /> Disponíveis para novos projetos</div>
+            <h2>Vamos construir<br />algo <em>extraordinário.</em></h2>
+            <p>Proposta personalizada gratuita em menos de 24 horas. Consultoria inicial sem compromisso.</p>
+          </div>
+
+          {/* Divider */}
+          <div className="sv-cta-divider" aria-hidden="true" />
+
+          {/* Action column */}
           <div className="sv-cta-actions">
             <a
               href="https://wa.me/351930477894?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
-              style={{ padding: '15px 32px', fontSize: 15 }}
+              className="btn-primary sv-cta-btn"
             >
               Pedir orçamento grátis
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
@@ -373,15 +426,15 @@ export default function ServicosPage() {
             </a>
             <div className="sv-cta-trust">
               <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 Garantia 30 dias
               </span>
               <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
                 Sem compromisso
               </span>
               <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 Resposta &lt;2h
               </span>
             </div>

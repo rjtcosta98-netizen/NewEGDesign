@@ -27,6 +27,12 @@ export type ServicePage = {
   differentiators: ServiceDifferentiator[];
   faqs: ServiceFAQ[];
   relatedSlugs: string[];
+  trustBadges?: string[];
+  processSteps?: ServiceDifferentiator[];
+  whyStat?: { value: string; label: string };
+  ctaHeadline?: string;
+  riskNote?: string;
+  checklist?: string[];
 };
 
 export const SERVICE_PAGES: ServicePage[] = [
@@ -296,6 +302,28 @@ export const SERVICE_PAGES: ServicePage[] = [
       { q: 'Fazem auditoria SEO antes de começar?', a: 'Sim. A auditoria pré-migração é parte do nosso processo: inventariamos todos os URLs indexados, verificamos backlinks relevantes e auditamos o SEO atual para preservar (e melhorar) tudo o que já funciona.' },
     ],
     relatedSlugs: ['criacao-de-websites', 'negocios-locais', 'marketing-digital'],
+    trustBadges: ['Zero downtime', '301 redirects mapeados', 'SEO 100% preservado', 'Staging privado'],
+    processSteps: [
+      { num: '01', title: 'Auditoria SEO', desc: 'Inventariamos todos os URLs indexados, backlinks e o estado do SEO atual antes de mover uma linha de código.' },
+      { num: '02', title: 'Mapa de redirects', desc: 'Criamos o mapa completo de redirects 301 — cada URL antigo ligado ao novo, sem buracos nem perdas de autoridade.' },
+      { num: '03', title: 'Staging & testes', desc: 'O novo design é construído e testado em ambiente privado. O teu site atual permanece online sem qualquer interrupção.' },
+      { num: '04', title: 'Launch zero-downtime', desc: 'Switch DNS em menos de 5 minutos. Monitorização de rankings, Search Console e tráfego durante 30 dias pós-lançamento.' },
+    ],
+    whyStat: { value: '80%', label: 'dos redesigns perdem tráfego orgânico no mês seguinte por erros de migração evitáveis' },
+    ctaHeadline: 'O teu site merece renovação —<br />sem perder o que <em>já conquistaste.</em>',
+    riskNote: '80% dos redesigns perdem tráfego orgânico no primeiro mês por erros de migração evitáveis.',
+    checklist: [
+      'Inventário completo de URLs indexados',
+      'Mapeamento de todos os redirects 301',
+      'Preservação de meta tags e canonical',
+      'Verificação de backlinks relevantes',
+      'Teste de performance pré e pós-lançamento',
+      'Validação de Schema markup',
+      'Search Console configurado e verificado',
+      'Monitorização 30 dias pós-lançamento',
+      'Broken links eliminados',
+      'Sitemap XML atualizado e submetido',
+    ],
   },
 
   /* ── 7. Marketing Digital ───────────────────────────────────────────── */

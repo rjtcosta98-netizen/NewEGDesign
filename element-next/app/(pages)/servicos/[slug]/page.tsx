@@ -227,6 +227,14 @@ export default async function ServiceDetailPage({
         {/* Subtext */}
         <p className="svc-hero-sub">{service.heroSub}</p>
 
+        {/* Risk note (service-specific) */}
+        {service.riskNote && (
+          <div className="svc-hero-risk" role="note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            {service.riskNote}
+          </div>
+        )}
+
         {/* Price card */}
         <div className="svc-price-card">
           <div className="svc-price-card-price">
@@ -244,7 +252,7 @@ export default async function ServiceDetailPage({
 
         {/* Trust badges */}
         <div className="svc-trust-row">
-          {['Proposta em 24h', 'Garantia 30 dias', 'Sem compromisso', 'Código 100% seu'].map((t) => (
+          {(service.trustBadges ?? ['Proposta em 24h', 'Garantia 30 dias', 'Sem compromisso', 'Código 100% seu']).map((t) => (
             <span key={t} className="svc-trust-badge">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <polyline points="20 6 9 17 4 12"/>
@@ -285,6 +293,12 @@ export default async function ServiceDetailPage({
             <h2 className="svc-section-title" style={{ textAlign: 'left' }}>
               O que nos torna<br /><em>diferentes.</em>
             </h2>
+            {service.whyStat && (
+              <div className="svc-why-stat">
+                <span className="svc-why-stat-val">{service.whyStat.value}</span>
+                <span className="svc-why-stat-label">{service.whyStat.label}</span>
+              </div>
+            )}
             <p className="svc-why-sub">
               Não somos uma agência genérica. Somos especialistas que trabalham com PMEs portuguesas e conhecem os detalhes que fazem a diferença.
             </p>
@@ -309,7 +323,27 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
-      {/* ══ PROCESS ══════════════════════════════════════════════════════ */}
+      {/* ══ CHECKLIST ═══════════════════════════════════════════════════════════ */}
+      {service.checklist && (
+        <section className="svc-section svc-checklist-section">
+          <div className="svc-section-label">Auditoria técnica</div>
+          <h2 className="svc-section-title">
+            Checklist de <em>80+ pontos.</em>
+          </h2>
+          <div className="svc-checklist-grid">
+            {service.checklist.map((item, i) => (
+              <div key={i} className="svc-checklist-item">
+                <span className="svc-checklist-check" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                {item}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ══ PROCESS ══════════════════════════════════════════════════════════ */}
       <section className="svc-section svc-process-section">
         <div className="svc-section-label">Processo</div>
         <h2 className="svc-section-title">
@@ -318,7 +352,7 @@ export default async function ServiceDetailPage({
         <div className="svc-process-timeline">
           {/* Connecting line (desktop) */}
           <div className="svc-process-line" aria-hidden="true" />
-          {PROCESS_STEPS.map((step, i) => (
+          {(service.processSteps ?? PROCESS_STEPS).map((step, i) => (
             <div key={i} className="svc-process-step">
               <div className="svc-process-node">
                 <span>{step.num}</span>
@@ -384,12 +418,24 @@ export default async function ServiceDetailPage({
       {/* ══ CTA ══════════════════════════════════════════════════════════ */}
       <section className="sv-cta-section">
         <div className="sv-cta-box svc-cta-box">
-          <div className="svc-cta-glow" aria-hidden="true" />
-          <div className="sv-cta-badge"><span /> Disponíveis para novos projetos</div>
-          <h2>Vamos falar sobre<br />o teu <em>projeto.</em></h2>
-          <p>Proposta personalizada e gratuita em menos de 24 horas. Consultoria inicial sem compromisso.</p>
+
+          {/* Text column */}
+          <div className="sv-cta-text">
+            <div className="sv-cta-badge"><span /> Disponíveis para novos projetos</div>
+            {service.ctaHeadline ? (
+              <h2 dangerouslySetInnerHTML={{ __html: service.ctaHeadline }} />
+            ) : (
+              <h2>Vamos falar sobre<br />o teu <em>projeto.</em></h2>
+            )}
+            <p>Proposta personalizada e gratuita em menos de 24 horas. Consultoria inicial sem compromisso.</p>
+          </div>
+
+          {/* Divider */}
+          <div className="sv-cta-divider" aria-hidden="true" />
+
+          {/* Action column */}
           <div className="sv-cta-actions">
-            <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '15px 32px', fontSize: 15 }}>
+            <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-primary sv-cta-btn">
               Pedir orçamento grátis
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <path d="M5 12h14M13 5l7 7-7 7"/>
@@ -397,15 +443,15 @@ export default async function ServiceDetailPage({
             </a>
             <div className="sv-cta-trust">
               <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 Garantia 30 dias
               </span>
               <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
                 Sem compromisso
               </span>
               <span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 Resposta &lt;2h
               </span>
             </div>

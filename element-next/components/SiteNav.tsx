@@ -85,7 +85,13 @@ function isActive(href: string, pathname: string): boolean {
 export default function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  function handleClose() {
+    setClosing(true);
+    setTimeout(() => { setOpen(false); setClosing(false); }, 450);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -106,7 +112,12 @@ export default function SiteNav() {
 
   useEffect(() => {
     if (!open) return;
-    const onKeyDown = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setClosing(true);
+        setTimeout(() => { setOpen(false); setClosing(false); }, 450);
+      }
+    };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [open]);
@@ -160,20 +171,14 @@ export default function SiteNav() {
             </a>
 
             <button
-              className="menu-btn"
+              className={open ? 'menu-btn menu-btn--open' : 'menu-btn'}
               aria-label={open ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={open}
-              onClick={() => setOpen(o => !o)}
+              onClick={() => open ? handleClose() : setOpen(true)}
             >
-              {open ? (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
-                  <path d="M18 6 6 18M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
-                  <path d="M3 12h18M3 6h18M3 18h18" />
-                </svg>
-              )}
+              <span className="menu-btn-bar" />
+              <span className="menu-btn-bar" />
+              <span className="menu-btn-bar" />
             </button>
           </div>
         </nav>
@@ -183,26 +188,16 @@ export default function SiteNav() {
       {open && (
         <div
           className="home-mobile-menu"
+          data-closing={closing ? 'true' : undefined}
           role="dialog"
           aria-modal="true"
           aria-label="Menu de navegação"
         >
-          {/* Mobile brand */}
-          <a
-            className="brand"
-            href="/"
-            style={{ marginBottom: 16, alignSelf: 'flex-start' }}
-            onClick={() => setOpen(false)}
-            aria-label="Element Group Digital Solutions — Início"
-          >
-            <div className="mark">E</div>
-            <div className="name">
-              <b>Element Group</b>
-              <small>Digital Solutions</small>
-            </div>
-          </a>
+          {/* Background accent glow */}
+          <div className="hmenu-bg-glow" aria-hidden="true" />
 
-          {NAV_LINKS.map(l => {
+          <nav className="hmenu-links" aria-label="Navegação mobile">
+          {NAV_LINKS.map((l, i) => {
             const active = isActive(l.href, pathname);
             return (
               <a
@@ -211,26 +206,49 @@ export default function SiteNav() {
                 className={active ? 'mobile-nav-link mobile-nav-link--active' : 'mobile-nav-link'}
                 aria-current={active ? 'page' : undefined}
                 onClick={() => setOpen(false)}
+                style={{ '--i': i } as React.CSSProperties}
               >
+                <span className="mobile-nav-num">{String(i + 1).padStart(2, '0')}</span>
                 <span className="mobile-nav-icon">{l.icon}</span>
-                {l.label}
-                {active && (
-                  <svg className="mobile-nav-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                )}
+                <span className="mobile-nav-label">{l.label}</span>
+                <svg className="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
               </a>
             );
           })}
+          </nav>
 
           <div className="home-mobile-menu-cta">
+            <div className="hmc-avail">
+              <span className="dot"></span>
+              <span>Disponíveis para novos projetos</span>
+            </div>
+            <a className="hmc-btn-wrap" href="/contacto" onClick={() => setOpen(false)}>
+              <div className="hmc-inner">
+                <div className="hmc-text">
+                  <span className="hmc-label">Pedir orçamento grátis</span>
+                  <span className="hmc-sub">Proposta sem compromisso &middot; Resposta em 24h</span>
+                </div>
+                <div className="hmc-arrow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
             <a
-              className="btn-primary"
-              href="/contacto"
-              style={{ textAlign: 'center', justifyContent: 'center', padding: '15px 24px', fontSize: 15 }}
+              className="hmc-wa-link"
+              href="https://wa.me/351930477894?text=Ol%C3%A1%2C+gostava+de+pedir+um+or%C3%A7amento"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
             >
-              Pedir orçamento grátis
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.9.525 3.676 1.438 5.192L2 22l4.98-1.404A9.954 9.954 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 0 1-4.274-1.247l-.306-.183-3.173.895.877-3.089-.2-.317A7.952 7.952 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+              </svg>
+              Falar pelo WhatsApp
             </a>
           </div>
         </div>

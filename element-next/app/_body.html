@@ -85,8 +85,21 @@
     Contacto
   </a>
   <div class="home-mobile-menu-cta">
-    <a class="btn-primary" href="/contacto" style="text-align:center;justify-content:center;padding:15px 24px;font-size:15px">
-      Pedir orçamento grátis
+    <div class="hmc-avail">
+      <span class="dot"></span>
+      <span>Disponíveis para novos projetos</span>
+      <span>PT</span>
+    </div>
+    <a class="hmc-btn-wrap" href="/contacto">
+      <div class="hmc-inner">
+        <div class="hmc-text">
+          <span class="hmc-label">Pedir orçamento grátis</span>
+          <span class="hmc-sub">Resposta em menos de 24h</span>
+        </div>
+        <div class="hmc-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </div>
+      </div>
     </a>
   </div>
 </div>
@@ -104,10 +117,9 @@
       </div>
 
       <h1 class="hero-title">
-        <span class="ht-l1">Websites</span>
-        <span class="ht-l2">&amp;&nbsp;<em>Marketing</em></span>
-        <span class="ht-l3">que dão</span>
-        <span class="ht-l4">Resultados</span>
+        <span class="ht-service">Websites <em>&amp;&nbsp;Marketing</em></span>
+        <span class="ht-bridge">que dão</span>
+        <span class="ht-result">Resultados.</span>
       </h1>
 
       <p class="hero-sub">Criamos websites profissionais, lojas online e estratégias digitais para negócios portugueses. Tecnologia moderna, qualidade premium, preço justo.</p>
@@ -120,21 +132,81 @@
       </div>
 
       <p class="hero-entity-def">A <strong>Element Group</strong> é uma agência digital portuguesa fundada em 2024 por Ricardo Jorge, especialista em Next.js, React e SEO técnico. Desenvolvemos websites profissionais, lojas online e apps mobile para PMEs em Portugal, com projetos desde 197€ e entrega garantida em 2–3 semanas.</p>
+
+      <div class="hero-stats-strip" aria-hidden="true">
+        <div class="hss-item"><strong>95+</strong><span>PageSpeed</span></div>
+        <div class="hss-div"></div>
+        <div class="hss-item"><strong>197€</strong><span>desde</span></div>
+        <div class="hss-div"></div>
+        <div class="hss-item"><strong>2–3 sem.</strong><span>entrega</span></div>
+        <div class="hss-div"></div>
+        <div class="hss-item"><span class="hss-stars">★★★★★</span><span>5/5</span></div>
+      </div>
     </div>
 
     <div class="hero-visual" aria-hidden="true">
-      <span class="hero-lettermark">E</span>
-      <div class="hero-card hc-a">
-        <strong>95+</strong><span>PageSpeed Score</span>
-      </div>
-      <div class="hero-card hc-b">
-        <strong>197€</strong><span>projetos desde</span>
-      </div>
-      <div class="hero-card hc-c">
-        <strong>2–3 sem.</strong><span>entrega garantida</span>
-      </div>
-      <div class="hero-card hc-d">
-        <span class="hc-stars">★★★★★</span><span>avaliação 5/5</span>
+      <div class="hv-wrap">
+
+        <!-- Performance ring -->
+        <div class="hv-orb">
+          <svg class="hv-ring-svg" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hv-arc-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#5b8cff"/>
+              </linearGradient>
+              <filter id="hv-glow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <!-- Outer faint ring -->
+            <circle cx="110" cy="110" r="103" stroke="rgba(167,139,250,.05)" stroke-width="1"/>
+            <!-- Dashed inner ring -->
+            <circle cx="110" cy="110" r="80" stroke="rgba(167,139,250,.08)" stroke-width="1" stroke-dasharray="3 9"/>
+            <!-- Track -->
+            <circle cx="110" cy="110" r="92" stroke="rgba(255,255,255,.06)" stroke-width="9"/>
+            <!-- Animated arc -->
+            <circle cx="110" cy="110" r="92" stroke="url(#hv-arc-grad)" stroke-width="9"
+              stroke-linecap="round" stroke-dasharray="578" stroke-dashoffset="578"
+              transform="rotate(-90 110 110)" class="hv-arc" filter="url(#hv-glow)"/>
+          </svg>
+          <!-- Center score -->
+          <div class="hv-orb-center">
+            <strong class="hv-score-num">95+</strong>
+            <span class="hv-score-label">PageSpeed</span>
+          </div>
+          <!-- Orbiting satellites -->
+          <span class="hv-sat hv-sat-1"></span>
+          <span class="hv-sat hv-sat-2"></span>
+          <span class="hv-sat hv-sat-3"></span>
+        </div>
+
+        <!-- Metrics strip -->
+        <div class="hv-metrics">
+          <div class="hv-m">
+            <strong>197€</strong>
+            <span>desde</span>
+          </div>
+          <div class="hv-mdiv"></div>
+          <div class="hv-m">
+            <strong>2–3 sem.</strong>
+            <span>entrega</span>
+          </div>
+          <div class="hv-mdiv"></div>
+          <div class="hv-m">
+            <span class="hv-stars">★★★★★</span>
+            <span>5 / 5</span>
+          </div>
+        </div>
+
+        <!-- Live status -->
+        <div class="hv-status">
+          <span class="hv-status-dot"></span>
+          <span>A aceitar novos projetos</span>
+          <span class="hv-status-badge">PT</span>
+        </div>
+
       </div>
     </div>
   </div>
@@ -190,36 +262,58 @@
     </div>
 
     <div class="features">
-      <div class="feature reveal">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l2.39 4.84L20 8l-4 3.9.94 5.46L12 14.77 7.06 17.36 8 11.9 4 8l5.61-1.16L12 2z"/></svg></div>
-        <h3>Design à medida</h3>
-        <p>Websites únicos, criados de raiz para refletir a identidade do teu negócio.</p>
+
+      <!-- Hero card — full width -->
+      <div class="feature feat-hero reveal" data-accent="violet">
+        <div class="feat-hero-body">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l2.39 4.84L20 8l-4 3.9.94 5.46L12 14.77 7.06 17.36 8 11.9 4 8l5.61-1.16L12 2z"/></svg></div>
+          <h3>Design à medida</h3>
+          <p>Websites únicos, criados de raiz para refletir a identidade do teu negócio. Nenhum template, nenhum compromisso.</p>
+        </div>
+        <div class="feat-hero-metric">
+          <span class="fhm-num">100%</span>
+          <span class="fhm-label">Único por projeto</span>
+        </div>
       </div>
-      <div class="feature reveal">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+
+      <!-- Performance -->
+      <div class="feature reveal" data-accent="green">
+        <div class="feat-badge">95+</div>
+        <div class="icon icon--green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
         <h3>Performance 95+</h3>
-        <p>PageSpeed otimizado para garantir velocidade e excelente experiência em todos os dispositivos.</p>
+        <p>PageSpeed otimizado em todos os dispositivos.</p>
       </div>
-      <div class="feature reveal">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+
+      <!-- SEO -->
+      <div class="feature reveal" data-accent="cyan">
+        <div class="feat-badge feat-badge--cyan">Top 3</div>
+        <div class="icon icon--cyan"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
         <h3>SEO Local Top 3</h3>
-        <p>Estratégia de SEO desenhada para te colocar no topo do Google Maps e da pesquisa local.</p>
+        <p>Posicionamento no Google Maps e pesquisa local.</p>
       </div>
-      <div class="feature reveal">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
+
+      <!-- Responsivo -->
+      <div class="feature reveal" data-accent="blue">
+        <div class="icon icon--blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
         <h3>100% Responsivo</h3>
-        <p>Experiência impecável em telemóvel, tablet e desktop — onde quer que o teu cliente esteja.</p>
+        <p>Experiência impecável em telemóvel, tablet e desktop.</p>
       </div>
-      <div class="feature reveal">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></div>
+
+      <!-- Comunicação -->
+      <div class="feature reveal" data-accent="orange">
+        <div class="icon icon--orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></div>
         <h3>Comunicação direta</h3>
-        <p>Falamos contigo em todas as fases do projeto, sem intermediários e sem rodeios.</p>
+        <p>Sem intermediários. Falas diretamente com quem constrói.</p>
       </div>
-      <div class="feature reveal">
-        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+
+      <!-- Entrega rápida -->
+      <div class="feature reveal" data-accent="gold">
+        <div class="feat-badge feat-badge--gold">2–3 sem.</div>
+        <div class="icon icon--gold"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
         <h3>Entrega rápida</h3>
-        <p>Da ideia ao site online em poucas semanas — sem comprometer a qualidade.</p>
+        <p>Da ideia ao site online — sem comprometer a qualidade.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -262,7 +356,7 @@
             <li>SEO técnico incluído</li>
             <li>Apoio pós-lançamento</li>
           </ul>
-          <a class="c-cta" href="/contacto">Pedir orçamento <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="c-cta" href="/servicos/criacao-de-websites">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
 
         <article class="card3d" data-color="yellow">
@@ -276,7 +370,7 @@
             <li>SEO local geo-segmentado</li>
             <li>Reservas e contactos</li>
           </ul>
-          <a class="c-cta" href="/contacto">Pedir orçamento <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="c-cta" href="/servicos/negocios-locais">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
 
         <article class="card3d" data-color="green">
@@ -290,7 +384,7 @@
             <li>Gestão de produtos e stock</li>
             <li>Faturação automática</li>
           </ul>
-          <a class="c-cta" href="/contacto">Pedir orçamento <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="c-cta" href="/servicos/loja-online">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
 
         <article class="card3d" data-color="cyan">
@@ -304,7 +398,7 @@
             <li>Notificações push</li>
             <li>Integração com APIs</li>
           </ul>
-          <a class="c-cta" href="/contacto">Pedir orçamento <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="c-cta" href="/servicos/apps-mobile">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
 
         <article class="card3d" data-color="red">
@@ -318,7 +412,7 @@
             <li>Manual de marca</li>
             <li>Posts redes sociais</li>
           </ul>
-          <a class="c-cta" href="/contacto">Pedir orçamento <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="c-cta" href="/servicos/design-grafico">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
 
         <article class="card3d" data-color="cyan">
@@ -332,7 +426,7 @@
             <li>Preservação de SEO</li>
             <li>Performance 95+</li>
           </ul>
-          <a class="c-cta" href="/contacto">Pedir orçamento <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="c-cta" href="/servicos/redesign-migracao">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
 
         <article class="card3d" data-color="yellow">
@@ -346,7 +440,7 @@
             <li>Google Ads geridos</li>
             <li>Relatórios mensais</li>
           </ul>
-          <a class="c-cta" href="/contacto">Pedir orçamento <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="c-cta" href="/servicos/marketing-digital">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
       </div>
 
@@ -462,30 +556,67 @@
       <p class="section-sub">Um método claro e eficiente, do primeiro contacto à entrega final do projeto.</p>
     </div>
     <div class="steps">
-      <div class="step reveal">
-        <div class="num">01</div>
-        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-        <h4>Descoberta</h4>
-        <p>Conhecemos o teu negócio, objetivos e público-alvo para definirmos o âmbito.</p>
+
+      <div class="step reveal" data-step="violet">
+        <div class="step-node" aria-hidden="true">
+          <span class="step-num">01</span>
+          <span class="step-ring"></span>
+        </div>
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+            <span class="step-time">~1 hora</span>
+          </div>
+          <h4>Descoberta</h4>
+          <p>Conhecemos o teu negócio, objetivos e público-alvo para definirmos o âmbito.</p>
+        </div>
       </div>
-      <div class="step reveal">
-        <div class="num">02</div>
-        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8"/></svg></div>
-        <h4>Conceito</h4>
-        <p>Apresentamos uma proposta visual e estratégica alinhada com a tua marca.</p>
+
+      <div class="step reveal" data-step="blue">
+        <div class="step-node" aria-hidden="true">
+          <span class="step-num">02</span>
+          <span class="step-ring"></span>
+        </div>
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8"/></svg></div>
+            <span class="step-time">2–3 dias</span>
+          </div>
+          <h4>Conceito</h4>
+          <p>Apresentamos uma proposta visual e estratégica alinhada com a tua marca.</p>
+        </div>
       </div>
-      <div class="step reveal">
-        <div class="num">03</div>
-        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <h4>Desenvolvimento</h4>
-        <p>Construímos e testamos o projeto, garantindo performance e compatibilidade.</p>
+
+      <div class="step reveal" data-step="green">
+        <div class="step-node" aria-hidden="true">
+          <span class="step-num">03</span>
+          <span class="step-ring"></span>
+        </div>
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <span class="step-time">2–3 sem.</span>
+          </div>
+          <h4>Desenvolvimento</h4>
+          <p>Construímos e testamos o projeto, garantindo performance e compatibilidade.</p>
+        </div>
       </div>
-      <div class="step reveal">
-        <div class="num">04</div>
-        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12l4 4L19 6"/></svg></div>
-        <h4>Lançamento &amp; Apoio</h4>
-        <p>Colocamos online e ficamos disponíveis para apoio contínuo a longo prazo.</p>
+
+      <div class="step reveal" data-step="gold">
+        <div class="step-node" aria-hidden="true">
+          <span class="step-num">04</span>
+          <span class="step-ring"></span>
+        </div>
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12l4 4L19 6"/></svg></div>
+            <span class="step-time">Contínuo</span>
+          </div>
+          <h4>Lançamento &amp; Apoio</h4>
+          <p>Colocamos online e ficamos disponíveis para apoio contínuo a longo prazo.</p>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -515,32 +646,50 @@
         <h3>Performance <em>extrema</em></h3>
         <p>Sites otimizados que carregam em menos de <b>1.5 segundos</b>. Pontuação PageSpeed acima de 95 — em mobile e desktop. Os utilizadores não esperam, e o Google premeia.</p>
         <div class="kf-metric">
-          <div class="kf-num">95<small>+</small></div>
-          <div class="kf-meter"><span style="--w:96%"></span></div>
-          <div class="kf-meta">Pontuação PageSpeed média</div>
+          <div class="kf-gauge" aria-label="Pontuação PageSpeed 95+">
+            <svg class="kf-arc-svg" viewBox="0 0 120 120" aria-hidden="true">
+              <defs>
+                <linearGradient id="kfArcGrad" x1="0" y1="120" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#7c3aed"/>
+                  <stop offset="100%" stop-color="#c084fc"/>
+                </linearGradient>
+              </defs>
+              <circle class="kf-arc-track" cx="60" cy="60" r="44"/>
+              <circle class="kf-arc-fill" cx="60" cy="60" r="44"/>
+            </svg>
+            <div class="kf-gauge-inner">
+              <span class="kf-gauge-num">95<small>+</small></span>
+              <span class="kf-gauge-lbl">PageSpeed</span>
+            </div>
+          </div>
+          <div class="kf-gauge-meta">
+            <div class="kf-gauge-score">Pontuação média</div>
+            <div class="kf-gauge-sub">Mobile &amp; Desktop</div>
+            <div class="kf-gauge-bar"><span></span></div>
+          </div>
         </div>
       </article>
-      <article class="kf-card">
+      <article class="kf-card" data-accent="cyan">
         <div class="kf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
         <h4>SEO técnico</h4>
         <p>Estrutura semântica, schema.org, sitemap automático e meta-tags otimizadas em todas as páginas.</p>
       </article>
-      <article class="kf-card">
+      <article class="kf-card" data-accent="green">
         <div class="kf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18M8 4v14"/></svg></div>
         <h4>Painel de gestão</h4>
         <p>Edita conteúdos, imagens e produtos sem mexer em código. Interface simples em português.</p>
       </article>
-      <article class="kf-card">
+      <article class="kf-card" data-accent="gold">
         <div class="kf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/></svg></div>
         <h4>SSL &amp; segurança</h4>
         <p>Certificado HTTPS incluído, backups diários e proteção contra ataques. Tranquilidade total.</p>
       </article>
-      <article class="kf-card">
+      <article class="kf-card" data-accent="violet">
         <div class="kf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
         <h4>100% Responsivo</h4>
         <p>Experiência impecável em telemóvel, tablet, portátil e ecrã grande. Testado em 30+ dispositivos.</p>
       </article>
-      <article class="kf-card">
+      <article class="kf-card" data-accent="blue">
         <div class="kf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v8h8"/></svg></div>
         <h4>Atualizações contínuas</h4>
         <p>Manutenção, melhorias de segurança e novos features sempre disponíveis a um clique.</p>
@@ -569,19 +718,23 @@
     </div>
     <div class="res-grid">
       <div class="res-stats reveal">
-        <div class="res-stat">
+        <div class="res-stat" data-accent="violet">
+          <div class="res-stat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
           <div class="res-num"><span class="ct" data-to="120">0</span><i>+</i></div>
           <div class="res-label">Projetos entregues desde 2024</div>
         </div>
-        <div class="res-stat">
+        <div class="res-stat" data-accent="green">
+          <div class="res-stat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M7.5 12l3 3 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="res-num"><span class="ct" data-to="98">0</span><i>%</i></div>
           <div class="res-label">Clientes satisfeitos</div>
         </div>
-        <div class="res-stat">
+        <div class="res-stat" data-accent="blue">
+          <div class="res-stat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16 7 22 7 22 13" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="res-num"><span class="ct" data-to="3.2" data-dec="1">0</span><i>x</i></div>
           <div class="res-label">Aumento médio de tráfego</div>
         </div>
-        <div class="res-stat">
+        <div class="res-stat" data-accent="gold">
+          <div class="res-stat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="res-num"><span>&lt;2</span><i>h</i></div>
           <div class="res-label">Tempo de resposta</div>
         </div>
@@ -643,10 +796,12 @@
     <div class="section-head reveal">
       <span class="eyebrow">Tecnologias</span>
       <div class="tools-pill reveal" aria-hidden="true">
-        <span class="tp-ic tp-ic-1"></span>
-        <span class="tp-ic tp-ic-2"></span>
-        <span class="tp-ic tp-ic-3"></span>
-        <span class="tp-ic tp-ic-4"></span>
+        <span class="tp-ic tp-ic-1" title="Next.js"></span>
+        <span class="tp-ic tp-ic-2" title="Figma"></span>
+        <span class="tp-ic tp-ic-3" title="Shopify"></span>
+        <span class="tp-ic tp-ic-4" title="WordPress"></span>
+        <span class="tp-ic tp-ic-5" title="Webflow"></span>
+        <span class="tp-ic tp-ic-6" title="Stripe"></span>
       </div>
       <h2 class="section-title">Ferramentas que usamos para a <em>excelência</em></h2>
       <p class="section-sub">Conhece as tecnologias avançadas que utilizamos para criar websites de última geração.</p>
