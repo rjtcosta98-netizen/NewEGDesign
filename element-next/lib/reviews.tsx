@@ -56,7 +56,7 @@ function fallbackReviews(): Review[] {
       author_role: "Presidente · ADSR",
       initials: "RF",
       avatar_path: null,
-      text: "Reitero em meu nome e em nome da ADSR um enorme agradecimento, bem como, a recomendação da Element Group, na pessoa do Ricardo Costa pela competência e profissionalismo demonstrados na concepção deste projeto.",
+      text: "Reitero em meu nome e em nome da ADSR um enorme agradecimento, bem como, a recomendação da Element Group, na pessoa do Ricardo Jorge pela competência e profissionalismo demonstrados na concepção deste projeto.",
       rating: 5,
       source: null,
       source_url: null,

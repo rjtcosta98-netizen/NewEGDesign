@@ -6,20 +6,21 @@ import { getAllCaseStudiesDB } from "@/lib/case-studies-db";
 
 const BASE = "https://elementgroup.pt";
 
-// Approximate site launch — used for static pages that don't have a real date.
-// Update this when the site has major content refreshes.
+// Site launch date — used as fallback for pages with no known update date.
 const LAUNCH_DATE = new Date("2025-06-01");
+// Last meaningful update to primary marketing/content pages (update when pages change).
+const CONTENT_DATE = new Date("2026-04-29");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // ── Primary pages ──────────────────────────────────────────────────────
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${BASE}/`,          lastModified: LAUNCH_DATE, changeFrequency: "weekly"  },
-    { url: `${BASE}/servicos`,  lastModified: LAUNCH_DATE, changeFrequency: "monthly" },
-    { url: `${BASE}/portfolio`, lastModified: LAUNCH_DATE, changeFrequency: "monthly" },
-    { url: `${BASE}/sobre`,     lastModified: LAUNCH_DATE, changeFrequency: "monthly" },
-    { url: `${BASE}/contacto`,  lastModified: LAUNCH_DATE, changeFrequency: "monthly" },
-    { url: `${BASE}/parcerias`, lastModified: LAUNCH_DATE, changeFrequency: "monthly" },
-    { url: `${BASE}/recursos`,  lastModified: LAUNCH_DATE, changeFrequency: "monthly" },
+    { url: `${BASE}/`,          lastModified: CONTENT_DATE, changeFrequency: "weekly"  },
+    { url: `${BASE}/servicos`,  lastModified: CONTENT_DATE, changeFrequency: "monthly" },
+    { url: `${BASE}/portfolio`, lastModified: CONTENT_DATE, changeFrequency: "monthly" },
+    { url: `${BASE}/sobre`,     lastModified: CONTENT_DATE, changeFrequency: "monthly" },
+    { url: `${BASE}/contacto`,  lastModified: CONTENT_DATE, changeFrequency: "monthly" },
+    { url: `${BASE}/parcerias`, lastModified: CONTENT_DATE, changeFrequency: "monthly" },
+    { url: `${BASE}/recursos`,  lastModified: CONTENT_DATE, changeFrequency: "monthly" },
     // Blog index reflects when last post was published — set dynamically below
   ];
 

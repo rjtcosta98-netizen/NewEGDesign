@@ -342,6 +342,12 @@
   border-color: rgba(167,139,250,.5);
   background: rgba(167,139,250,.03);
   box-shadow: 0 0 0 4px rgba(124,58,237,.1);
+  outline: none;
+}
+.ct-input:focus-visible,
+.ct-textarea:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
 }
 .ct-textarea {
   line-height: 1.65;

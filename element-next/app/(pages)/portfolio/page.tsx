@@ -368,8 +368,8 @@ export default function PortfolioPage() {
         {/* Stats strip */}
         <div className="pf-stats">
           <div className="pf-stat" data-accent="violet">
-            <span className="pf-stat-num">{STATIC_PROJECTS.length}+</span>
-            <span className="pf-stat-label">Projetos entregues</span>
+            <span className="pf-stat-num">{STATIC_PROJECTS.length}</span>
+            <span className="pf-stat-label">Casos de estudo em destaque</span>
           </div>
           <div className="pf-stat" data-accent="green">
             <span className="pf-stat-num">5.0</span>

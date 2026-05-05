@@ -163,7 +163,7 @@ export async function renderHeroProjectsHTML(): Promise<string> {
 
     // Use span (not <a>) to avoid nested anchors inside <a class="proj">
     const liveBtn = p.live_url
-      ? `<span class="live" role="link" tabindex="0" onclick="event.stopPropagation();window.open('${esc(p.live_url)}','_blank','noopener,noreferrer')" title="Ver site ao vivo">Ver Site ${EXTERNAL_ICON}</span>`
+      ? `<span class="live" role="link" tabindex="0" onclick="event.stopPropagation();window.open('${esc(p.live_url)}','_blank','noopener,noreferrer')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();window.open('${esc(p.live_url)}','_blank','noopener,noreferrer')}" title="Ver site ao vivo">Ver Site ${EXTERNAL_ICON}</span>`
       : `<span class="live">Case Study ${CASE_STUDY_ICON}</span>`;
 
     // Clone cards are purely decorative — remove from accessibility tree and keyboard flow.

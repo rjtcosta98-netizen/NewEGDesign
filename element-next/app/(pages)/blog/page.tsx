@@ -11,7 +11,7 @@ const SITE_URL = "https://elementgroup.pt";
 export const metadata: Metadata = {
   title: "Blog de Marketing Digital e Websites | Element Group",
   description:
-    "Guias práticos sobre criação de websites, SEO local, lojas online e marketing digital para PMEs portuguesas, escritos pela equipa Element Group desde 2024. Aprende a crescer o teu negócio online.",
+    "Guias práticos sobre criação de websites, SEO local, lojas online e marketing digital para PMEs portuguesas, escritos pela equipa Element Group desde 2024.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Blog Element Group — Marketing Digital e Websites para PMEs",
@@ -29,7 +29,7 @@ const BLOG_LD = {
   url: `${SITE_URL}/blog`,
   name: "Blog Element Group",
   description:
-    "Artigos sobre websites, apps no-code e marketing digital para PMEs portuguesas.",
+    "Artigos sobre websites, apps mobile e marketing digital para PMEs portuguesas.",
   publisher: {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
@@ -79,6 +79,8 @@ async function BlogPostsList() {
                       src={post.cover_image}
                       alt={post.title}
                       className="blog-card-img"
+                      width={1200}
+                      height={675}
                       loading="lazy"
                       decoding="async"
                     />
@@ -168,11 +170,11 @@ export default function BlogPage() {
           <div className="section-head">
             <span className="section-eyebrow">Blog</span>
             <h1 className="section-title">
-              Dicas para fazer o teu negócio{" "}
-              <em>crescer online</em>
+              Dicas de Marketing Digital{" "}
+              <em>e Websites para PMEs</em>
             </h1>
             <p className="section-sub">
-              Artigos práticos sobre websites, apps no-code e marketing digital
+              Artigos práticos sobre websites, apps mobile e marketing digital
               escritos pela equipa da Element Group.
             </p>
           </div>

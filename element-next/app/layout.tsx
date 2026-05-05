@@ -120,15 +120,18 @@ const ORG_LD = {
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5.0",
-    reviewCount: "4",
+    reviewCount: "7",
     bestRating: "5",
     worstRating: "1",
   },
   review: [
-    { "@type": "Review", author: { "@type": "Person", name: "Marta Ribeiro" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Trabalhar com a Element Group foi um game-changer. Entregaram um site que gera tráfego e conversões significativas." },
-    { "@type": "Review", author: { "@type": "Person", name: "João Cardoso" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Profissionais do início ao fim. Processo claro, prazos cumpridos, resultado impecável." },
-    { "@type": "Review", author: { "@type": "Person", name: "Ana Silva" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Migrámos a loja para a Element Group e duplicámos as conversões em 2 meses." },
-    { "@type": "Review", author: { "@type": "Person", name: "Pedro Mendes" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Preço justo, qualidade premium. Finalmente uma agência que entrega o que promete." },
+    { "@type": "Review", author: { "@type": "Person", name: "Ricardo Jesus" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Recomendo totalmente o trabalho realizado na criação do meu site. Destaco o profissionalismo, a rapidez na execução e a excelente capacidade de transformar ideias em processos claros, simples e eficazes. Uma escolha segura para quem procura eficiência, rigor e resultados." },
+    { "@type": "Review", author: { "@type": "Person", name: "Mariana Mendes" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Excelente profissional, bastante atencioso, simpático e empenhado no trabalho. Foi uma grande ajuda para o nosso negócio sem dúvida." },
+    { "@type": "Review", author: { "@type": "Person", name: "Maria Mendes" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Desde o primeiro contacto até à entrega foi excecional! Criou o que eu pretendia há imenso tempo! Ficou um site extremamente incrível!" },
+    { "@type": "Review", author: { "@type": "Person", name: "Gonçalo Nascimento" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Desde a primeira abordagem até ao conceito que pretendia foi super rápido e trabalho realizado com excelência e muito profissionalismo. Serviço premium." },
+    { "@type": "Review", author: { "@type": "Person", name: "Duarte Marvanejo" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Trabalho TOP na criação do site da Associação Desportiva de São Romão." },
+    { "@type": "Review", author: { "@type": "Person", name: "Jason Silva" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Reitero em meu nome e em nome da ADSR um enorme agradecimento, bem como, a recomendação da Element Group pela competência e profissionalismo demonstrados na concepção deste projeto." },
+    { "@type": "Review", author: { "@type": "Person", name: "Rafael Figueiredo" }, reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" }, reviewBody: "Excelente trabalho na elaboração e design com elevados padrões de qualidade. Um exemplo de empenho e dedicação ao trabalho. Parabéns pelo excelente trabalho!" },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -201,6 +204,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://ctflpbjvsepkbfjpgkuh.supabase.co" />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Saltar para o conteúdo principal</a>
         {children}
         <script
           type="application/ld+json"

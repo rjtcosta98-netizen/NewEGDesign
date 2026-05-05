@@ -224,7 +224,10 @@ export default async function BlogPostPage({ params }: Props) {
                 src={post.cover_image}
                 alt={post.title}
                 className="blog-post-cover-img"
+                width={1200}
+                height={630}
                 loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </div>

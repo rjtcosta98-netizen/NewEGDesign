@@ -266,13 +266,13 @@ export const SERVICE_PAGES: ServicePage[] = [
     accentHex: '#2dd4bf',
     iconId: 'pencil',
     title: 'Redesign & Migração',
-    definition: 'Redesign de website e migração de plataforma sem perder posições no Google: processo SEO-safe com checklist de 80+ pontos, redirects 301, PageSpeed 95+ e zero downtime garantido. Desde 297€, staging antes do lançamento.',
+    definition: 'Redesign de website e migração de plataforma sem perder posições no Google: processo SEO-safe com checklist de 80+ pontos, redirects 301, PageSpeed 95+ e downtime mínimo graças a staging privado. Desde 297€, staging antes do lançamento.',
     metaTitle: 'Redesign & Migração Web sem Perder SEO | Element Group',
     metaDescription:
-      'Redesign de website sem perder SEO. Redirects 301, autoridade preservada e PageSpeed 95+. Zero downtime garantido. Desde 297€, proposta grátis.',
+      'Redesign de website sem perder SEO. Redirects 301, autoridade preservada e PageSpeed 95+. Migração em staging para downtime mínimo. Desde 297€, proposta grátis.',
     ogTitle: 'Redesign de Website & Migração sem Perder SEO | desde 297€',
     ogDescription:
-      'Renova o teu site sem perder posições no Google. Redirects 301, SEO preservado, PageSpeed 95+ e zero downtime. Desde 297€.',
+      'Renova o teu site sem perder posições no Google. Redirects 301, SEO preservado, PageSpeed 95+ e downtime mínimo. Desde 297€.',
     h1: 'Redesign e migração de website',
     h1Em: 'sem perder o SEO.',
     price: 'desde 297€',
@@ -280,7 +280,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     period: 'pagamento único',
     badge: null,
     heroSub:
-      'O teu site está desatualizado mas tens medo de perder posições no Google? Fazemos o redesign e a migração com redirects 301 cuidados, SEO preservado e PageSpeed 95+. Zero downtime garantido.',
+      'O teu site está desatualizado mas tens medo de perder posições no Google? Fazemos o redesign e a migração com redirects 301 cuidados, SEO preservado e PageSpeed 95+. Staging privado para downtime mínimo.',
     deliverables: [
       { icon: 'redirect', label: 'Redirects 301 cuidados', desc: 'Mapeamos todos os URLs antigos para os novos com redirects 301. Nenhuma posição no Google é perdida por erros de migração.' },
       { icon: 'seo', label: 'Preservação total do SEO', desc: 'Auditoria SEO pré-migração, preservação de keywords, meta tags e autoridade. O Google não nota a transição.' },
@@ -302,7 +302,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       { q: 'Fazem auditoria SEO antes de começar?', a: 'Sim. A auditoria pré-migração é parte do nosso processo: inventariamos todos os URLs indexados, verificamos backlinks relevantes e auditamos o SEO atual para preservar (e melhorar) tudo o que já funciona.' },
     ],
     relatedSlugs: ['criacao-de-websites', 'negocios-locais', 'marketing-digital'],
-    trustBadges: ['Zero downtime', '301 redirects mapeados', 'SEO 100% preservado', 'Staging privado'],
+    trustBadges: ['Downtime mínimo', '301 redirects mapeados', 'SEO 100% preservado', 'Staging privado'],
     processSteps: [
       { num: '01', title: 'Auditoria SEO', desc: 'Inventariamos todos os URLs indexados, backlinks e o estado do SEO atual antes de mover uma linha de código.' },
       { num: '02', title: 'Mapa de redirects', desc: 'Criamos o mapa completo de redirects 301 — cada URL antigo ligado ao novo, sem buracos nem perdas de autoridade.' },

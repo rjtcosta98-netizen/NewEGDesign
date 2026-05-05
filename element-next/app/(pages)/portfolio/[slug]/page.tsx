@@ -159,7 +159,15 @@ export default async function CaseStudyPage(
         {/* Background image */}
         {cs.image && (
           <div className="cs-hero-img">
-            <img src={cs.image} alt={cs.heroHeadline} width={1600} height={900} />
+            <img
+              src={cs.image}
+              alt={cs.heroHeadline}
+              width={1600}
+              height={900}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
         )}
         <div className="cs-hero-overlay" aria-hidden="true" />

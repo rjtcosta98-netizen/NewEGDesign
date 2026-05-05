@@ -96,10 +96,10 @@ const SERVICES: ServiceItem[] = [
 ];
 
 const PROCESS = [
-  { num: '01', title: 'Diagnóstico', desc: 'Analisamos o negócio, a concorrência e o que o seu cliente procura online.' },
+  { num: '01', title: 'Diagnóstico', desc: 'Analisamos o teu negócio, a tua concorrência e o que o teu cliente procura online.' },
   { num: '02', title: 'Estratégia', desc: 'Definimos objetivos mensuráveis antes de desenhar uma linha ou escrever código.' },
-  { num: '03', title: 'Execução', desc: 'Design + desenvolvimento com o seu feedback em cada etapa do processo.' },
-  { num: '04', title: 'Optimização', desc: 'Lançamento, monitorização e ajustes contínuos baseados em dados reais.' },
+  { num: '03', title: 'Execução', desc: 'Design + desenvolvimento com o teu feedback em cada etapa do processo.' },
+  { num: '04', title: 'Otimização', desc: 'Lançamento, monitorização e ajustes contínuos baseados em dados reais.' },
 ];
 
 const FAQS = [
@@ -275,7 +275,7 @@ export default function ServicosPage() {
             Entrega 10–21 dias
           </span>
           <span className="sv-trust-sep" aria-hidden="true"></span>
-          <span className="sv-hero-trust-item">
+          <span className="sv-hero-trust-item" title="30 dias de correção de bugs e ajustes pós-lançamento, sem custo adicional">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/></svg>
             Garantia 30 dias
           </span>
@@ -339,7 +339,7 @@ export default function ServicosPage() {
             <b>entrega o que promete</b> — sem desculpas nem surpresas.
           </p>
           <div className="sv-guarantee-trust">
-            <span className="sv-guarantee-item">
+            <span className="sv-guarantee-item" title="30 dias de correção de bugs e ajustes pós-lançamento, sem custo adicional">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               Garantia 30 dias
             </span>
@@ -425,7 +425,7 @@ export default function ServicosPage() {
               </svg>
             </a>
             <div className="sv-cta-trust">
-              <span>
+              <span title="30 dias de correção de bugs e ajustes pós-lançamento, sem custo adicional">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 Garantia 30 dias
               </span>

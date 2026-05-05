@@ -586,6 +586,12 @@
 .par-textarea:focus {
   border-color: rgba(16,185,129,.5);
   box-shadow: 0 0 0 3px rgba(16,185,129,.12);
+  outline: none;
+}
+.par-input:focus-visible,
+.par-textarea:focus-visible {
+  outline: 2px solid #34d399;
+  outline-offset: 2px;
 }
 .par-input:disabled,
 .par-textarea:disabled { opacity: .6; }

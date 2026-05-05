@@ -93,6 +93,15 @@ const cacheRules = [
     source: '/api/:path*',
     headers: [{ key: 'Cache-Control', value: 'no-store' }],
   },
+  // Static public files that should not be indexed
+  {
+    source: '/pricing.md',
+    headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+  },
+  {
+    source: '/llms.txt',
+    headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+  },
 ];
 
 const nextConfig = {

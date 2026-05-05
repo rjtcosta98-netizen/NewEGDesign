@@ -143,7 +143,7 @@ const FAQS = [
   },
   {
     q: 'Preciso de contrato ou empresa?',
-    a: 'Não é obrigatório. Para valores acima de 1.000€ anuais em comissões, recomendamos formalizar por recibo verde. Para valores menores, tratamos de forma simples e direta.',
+    a: 'Não é obrigatório. Para valores acima de 1.000€ anuais em comissões, recomendamos formalizar por recibo verde — consulta um contabilista para confirmação. Para valores menores, tratamos de forma simples e direta.',
   },
   {
     q: 'O que acontece se o cliente não fechar?',
